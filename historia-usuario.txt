@@ -1,0 +1,4 @@
+-Un banner con una oferta 
+-Como usuario quisiera que haya un Header que contenga el logo del proyecto, una lupa, un log in y un register
+-Que se vean los productos destacados
+-Que se vean los apartadosn (tipos de zapatillas que haya)
