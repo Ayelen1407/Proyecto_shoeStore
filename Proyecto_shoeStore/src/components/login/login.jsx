@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import "./Login.css";
+import "./login.css";
 
 export default function Login() {
-  const [username, setUsername] = useState("");
+  const [username, setUsername] = useState(""); //ingresa como vacio pero luego va cambiando su estado
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
 
@@ -18,24 +18,25 @@ export default function Login() {
   };
 
   return (
-    <div className="login-container">
-      <form className="login-form" onSubmit={handleSubmit}>
-        <h2>Iniciar Sesión</h2>
-        <input
+    <div class="login-container">
+      <form class ="form" onSubmit={handleSubmit}>
+        <h2 class = "h2">Iniciar Sesión</h2>
+        <input class = "input"
           type="text"
           placeholder="Usuario"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
-        <input
+        <input class = "input"
           type="password"
           placeholder="Contraseña"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit">Entrar</button>
-        {message && <p className="message">{message}</p>}
+        <button class = "button" type="submit">Entrar</button>
+        {message && <p class="message">{message}</p>}
       </form>
     </div>
   );
 }
+
