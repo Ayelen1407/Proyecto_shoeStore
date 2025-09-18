@@ -49,3 +49,32 @@ def agregar_shoes(id_shoes, id_talles, marca, nombre, precio, tipo):
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+#Consulta para obtener todos los clientes
+@app.route('/clientes', methods=['GET'])
+def get_shoes():
+    db = abrirConexion()
+    cursor = db.cursor()
+    cursor.execute("SELECT * FROM clientes")
+    resultado = cursor.fetchall()
+    
+    cursor.close()
+    cerrarConexion()
+    return {"shoes": resultado}
+
+if __name__ == "__main__":
+    app.run(debug=True)
+
+#Consulta para eliminar un dato
+@app.route('/delete/<int:id>', methods=['DELETE'])
+def delete_shoe(id):
+    db = abrirConexion()
+    cursor = db.cursor()
+    sql = ("DELETE FROM shoes WHERE id= %s")
+    cursor.execute(sql, (id,))
+    db.commit()
+
+    cursor.close()
+    cerrarConexion()
+    print(cursor.rowcount, "registro eliminado.")
+    return {"mensaje": f"Se elimino el registro {id} correctamente"}
