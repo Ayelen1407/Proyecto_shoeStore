@@ -5,7 +5,7 @@ import Footer from './components/footer/footer';
 import Header from "./components/Header/Header"
 import Basicas from "./components/zapatillasBasicas/basicas"
 import Deportivas from "./components/zapatillasDeportivas/deportivas"
-
+import Destacado from './components/destacados/destacados';
 function App() {
   <h1>Página shoeStore</h1>
 
@@ -19,6 +19,7 @@ function App() {
       <Basicas/>
       <br/>
       <Deportivas/>
+      <Destacado/>
     <Footer/>
     </>
 
