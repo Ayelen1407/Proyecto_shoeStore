@@ -6,7 +6,7 @@ export default function Header() {
       <h1 className = "logo">Mi Página</h1>
       <nav>
         <ul className = "lista-nav">
-          <li><a href="./login/login.jsx">Sign in</a></li>
+          <li><a href="#">Sign in</a></li>
           <li><a href="#">Sign up</a></li>
           <li><a href="#">Categorias</a></li>
         </ul>
