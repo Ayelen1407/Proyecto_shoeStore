@@ -3,7 +3,7 @@ import "./destacados.css";
 
 const Destacado = () => {
   return (
-    <h2 className = "h2">Destacados</h2>
+    <h2 className = "desc-h2">Destacados</h2>
   );
 
 };
