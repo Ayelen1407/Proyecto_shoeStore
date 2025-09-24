@@ -4,10 +4,10 @@ import React from 'react';
 const Footer = () => {
   return (
     <footer className="mainContainer" >
-      <div className="container">
-        <p>© 2025 Mi Sitio Web</p>
-        <p>Hecho con ♥ por Tu Nombre</p>
-      </div>
+        <div>
+          <p>© 2025</p>
+          <p>Hola</p>
+        </div>
     </footer>
   );
 }

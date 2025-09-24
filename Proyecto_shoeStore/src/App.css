@@ -39,3 +39,7 @@ body {
 .read-the-docs {
   color: #888;
 }
+
+.main{
+  height: 100vh;
+}
