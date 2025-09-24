@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './App.css'
-import Login from './components/login/login'
+import Login from './Paginas/Login/login'
+import Register from './Paginas/Register/Register'
 import Header from "./components/Header/Header"
 
 function App() {
@@ -13,7 +14,7 @@ function App() {
         <h2>Hola</h2>
         <p>La info</p>
       </main>
-
+    <Footer/>
     </>
   )
 }
