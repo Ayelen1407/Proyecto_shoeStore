@@ -4,14 +4,21 @@ import './Register.css'
 export default function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
   const [message, setMessage] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Datos del registro:", { email, password });
+    console.log("Datos del registro:", { email, password, username });
 
     if (email === "" || password == ""){
-      setMessage(`Complete con un email o contraseña`)
+      setMessage(`Ingrese un email`)
+    }
+    else if (password == "") {
+      setMessage(`Ingrese una contraseña`)
+    }
+    else if (username == "") {
+      setMessage(`Ingrese un nombre de usuario`)
     }
     else{
       setMessage(`Bienvenido`)
@@ -37,7 +44,14 @@ export default function Register() {
           onChange={(e) => setPassword(e.target.value)}    
         />
         
-        <button class = "button">
+        <input className = "input"
+          type="username"
+          placeholder="Ingresa tu nombre de usuario"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}    
+        />
+
+        <button className = "button">
           Registrarse
         </button>
         {message && <p class = "message">{message}</p>}
@@ -45,4 +59,4 @@ export default function Register() {
     </div>
   );
 }
-/////////
+/////
