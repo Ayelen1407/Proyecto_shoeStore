@@ -14,8 +14,9 @@ function App() {
         <h2>Hola</h2>
         <p>La info</p>
       </main>
-
+    <Footer/>
     </>
+
   )
 }
 
