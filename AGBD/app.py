@@ -59,22 +59,22 @@ def get_shoes():
     resultado = cursor.fetchall()
     
     cursor.close()
-    cerrarConexion()
+    db.close()
     return {"shoes": resultado}
 
-if __name__ == "__main__":
-    app.run(debug=True)
-
 #Consulta para eliminar un dato
-@app.route('/delete/<int:id>', methods=['DELETE'])
+@app.route('/api/delete/<int:id>', methods=['DELETE'])
 def delete_shoe(id):
     db = abrirConexion()
     cursor = db.cursor()
-    sql = ("DELETE FROM shoes WHERE id= %s")
-    cursor.execute(sql, (id,))
+    sql = ("DELETE FROM clientes WHERE id= %s")
+    val = (id,)
+    cursor.execute(sql, val)
     db.commit()
-
+    filas_afectadas = cursor.rowcount
     cursor.close()
-    cerrarConexion()
-    print(cursor.rowcount, "registro eliminado.")
-    return {"mensaje": f"Se elimino el registro {id} correctamente"}
+    db.close()
+    return jsonify({"eliminados": filas_afectadas})
+
+if __name__ == "__main__":
+    app.run(debug=True)
