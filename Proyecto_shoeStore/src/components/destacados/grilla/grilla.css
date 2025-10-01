@@ -1,0 +1,42 @@
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Crea 4 columnas de igual tamaño */
+    gap: 20px; /* Espacio entre los elementos */
+    padding: 20px;
+  }
+  
+  .grid-item {
+    background-color: #f1f1f1; 
+    padding: 10px;
+    border: 1px solid #ccc; /* Borde alrededor de cada celda */
+    border-radius: 8px; 
+    overflow: hidden; /* Asegura que la imagen no se desborde */
+    text-align: center; 
+  }
+  
+  .grid-item img {
+    width: 100%; 
+    height: 200px; 
+    object-fit: cover; /* Asegura que la imagen cubra toda la celda sin distorsión */
+    border-radius: 8px; 
+  }
+  
+  .grid-item h3 {
+    font-size: 15px; 
+    margin-top: 5px;
+    color:#000000
+  }
+
+  .grid-item h4 {
+    font-size: 13px;
+    margin-top: 5px;
+    color:#333
+  }
+  
+  .grid-item p {
+    font-size: 12px; 
+    color: #333;
+    margin-top: 10px;
+  }
+  
