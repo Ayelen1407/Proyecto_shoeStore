@@ -1,46 +1,29 @@
-.apartado {
+.producto-ba {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  background-color: #515557;   
-  padding: 40px;
-  gap: 40px;                   
-}
-
-.parte-img {
-  width: 300px;
-  max-width: 100%;
-  object-fit: cover;
-}
-
-.parte-info {
-  color: white;
-  text-align: center;
-  width: 100%;
-}
-
-.parte-info h2 {
-  font-size: 2.5rem;
+  width: 48%;
+  overflow: hidden;
   margin-bottom: 20px;
+}
+
+.producto-ba img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover; 
+  object-position: center;
+}
+
+.descripcion {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.descripcion h2 {
+  font-size: 1.4rem;
   font-weight: bold;
+  margin-bottom: 10px;
 }
-
-.parte-button {
-  background-color: white;
-  color: #0d3142;
-  padding: 12px 40px;
-  border: none;
-  cursor: pointer;
-  font-size: 0.9rem;
-  letter-spacing: 1px;
-  transition: background 0.3s ease;
-}
-
-.apartado__info button:hover {
-  background-color: hsl(0, 71%, 58%);
-}
-
-/*.parte-img,
-.parte-info {
-  flex: 1;
-}*/
+ .button {
+  background: grey;
+ }

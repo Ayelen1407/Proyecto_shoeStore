@@ -2,12 +2,13 @@
   background-color: #111111;
   padding: 5px 30px;
   display: flex;
-  justify-content: space-between;
+  justify-content:space-between;
   align-items: center;
   color: white;
   width: 100%;
+  height: 70px;
   box-sizing: border-box;
-  position: fixed;
+  position: relative; /*para posicionar el carrito*/
   top: 0;
   left: 0;
   right: 0;
@@ -34,4 +35,82 @@
 
 .nav-list a:hover {
   color: #cce4ff; /* Efecto hover */
+}
+ 
+/*para la lupa*/
+.search-input {
+  padding: 5px 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px 0 0 4px;
+  outline: none;
+}
+.search-input:focus {
+  border-color: #777777;
+}
+.search-button {
+  padding: 5px 10px;
+  font-size: 1.2rem;
+  border: 1px solid #ccc;
+  border-left: none;
+  background-color: #636363;
+  color: white;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.search-button:hover {
+  background-color: #111111;
+}
+
+/*para el carrito*/
+.boton-carrito {
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 20px;
+  position: relative;
+  z-index: 1100; /* Para que esté sobre la ventana */
+}
+
+.ventana-carrito {
+  position: absolute; 
+  top: 100%; /* Justo debajo del header */
+  right: 0;
+  width: 320px;
+  max-height: 400px;
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 15px;
+  z-index: 1200;
+  overflow-y: auto;
+  border-radius: 8px;
+  margin-top: 5px; /* Separación del header */
+}
+
+.ventana-carrito h3 {
+  margin-top: 0;
+}
+.ventana-carrito ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+}
+.ventana-carrito li {
+  margin-bottom: 8px;
+}
+.cerrar-carrito {
+  background-color: #333333;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 1rem;
+}
+.cerrar-carrito:hover {
+  background-color: #111111;
 }

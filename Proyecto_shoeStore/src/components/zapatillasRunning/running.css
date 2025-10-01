@@ -1,4 +1,4 @@
-.producto-dep {
+.producto {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -7,7 +7,7 @@
   margin-bottom: 20px; /* Asegura separación entre productos */
 }
 
-.producto-dep img {
+.producto img {
   width: 100%;
   height: 350px;
   object-fit: cover; /* Asegura que la imagen cubra todo el espacio */
@@ -30,4 +30,3 @@
   color: #666;
   margin-bottom: 10px;
 }
-

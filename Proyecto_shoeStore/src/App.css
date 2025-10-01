@@ -1,6 +1,13 @@
 body {
-  margin: 0;        /* quita el espacio en blanco alrededor */
+  margin: 0;
   padding: 0;
   background-color: #f4f4f4;
 }
 
+.contenedor-principal {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 50px;
+}
