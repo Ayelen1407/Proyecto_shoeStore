@@ -74,22 +74,22 @@ VALUES  ('Jose', 'Suarez', 'empleado', '31'),
 		('Natalia', 'Ramos', 'empleado', '28'),
 		('Francisco', 'Rodriguez', 'Gerente', '38');
 
-INSERT INTO clientes (nombre, apellido, id_genero, id_shoes, gasto, direccion, email, numero, id_empleados) VALUES
-("Graciela", "García", 1, 5, "190.000", "Goleta Sarandí", "g&garcia@gmail.com", "1178534901", 1),
-("Marcos", "Gomes", 2, 4, "275.000", "Chilavert 1940", "gomes.m@gmail.com", "1112457809", 2),
-("Cecilia", "Lopez", 1, 3, "400.000", "Avenida Nazca", "clopez@gmail.com", "1103912874", 3),
-("Julieta", "Centurion", 1, 2, "120.000", "Lisandro de la Torre 991", "jucenturion@gmail.com", "1152344589", 4),
-("Pablo", "Hernandez", 3, 1, "160.000", "Avenida Roca", "pabloh@gmail.com", "1140430201", 1),
-("Alejandro", "Villa", 2, 6, "110.000", "Avenida Avellaneda", "avilla@gmail.com", "1138296417", 2),
-("Belisa", "Mamani", 1, 7, "152.000", "Helguera 4952", "mamamni.bel@gmail.com", "1165056401", 4),
-("Brisa", "Miranda", 1, 8, "187.000", "Avenida Roca", "bmiranda@gmail.com", "1136450390", 3),
-("Aaron", "Quispe", 2, 9, "143.000", "Cafayate", "aaronquispe@gmail.com", "1124883240", 1),
-("Athena", "Vera", 1, 10, "110.000", "Francisco de la Cruz", "athenav@gmail.com", "1127240045", 4),
-("Marina", "Aguilar", 1, 11, "130.000", "Bogotá 1234", "aguilarmari@gmail.com", "1153290081", 2),
-("Kevin", "Blanco", 2, 6, "110.000", "Borlozano", "kevinb@gmail.com", "1123928809", 1),
-("Alex", "Copa", 2, 3, "400.000", "Calle Lisandro", "lexisc@gmail.com", "1154324727", 3),
-("Matias", "Balbuena", 3, 1, "160.000", "Campana 3489", "mbalbuena@gmail.com", "1128178795", 4),
-("Rocio", "Rocabado", 3, 8, "187.000", "Concordia 1234", "rocabado.ro@gmail.com", "1165405599", 2);
+INSERT INTO clientes (nombre, apellido, id_genero, id_shoes, precio_unidad, cantidad,direccion, email, numero, id_empleados) VALUES
+("Graciela", "García", 1, 5, "190.000", 1,"Goleta Sarandí", "g&garcia@gmail.com", "1178534901", 1),
+("Marcos", "Gomes", 2, 4, "275.000", 1,"Chilavert 1940", "gomes.m@gmail.com", "1112457809", 2),
+("Cecilia", "Lopez", 1, 3, "400.000", 1, "Avenida Nazca", "clopez@gmail.com", "1103912874", 3),
+("Julieta", "Centurion", 1, 2, "120.000", 2, "Lisandro de la Torre 991", "jucenturion@gmail.com", "1152344589", 4),
+("Pablo", "Hernandez", 3, 1, "160.000", 1, "Avenida Roca", "pabloh@gmail.com", "1140430201", 1),
+("Alejandro", "Villa", 2, 6, "110.000", 2,"Avenida Avellaneda", "avilla@gmail.com", "1138296417", 2),
+("Belisa", "Mamani", 1, 7, "152.000", 2,"Helguera 4952", "mamamni.bel@gmail.com", "1165056401", 4),
+("Brisa", "Miranda", 1, 8, "187.000", 1,"Avenida Roca", "bmiranda@gmail.com", "1136450390", 3),
+("Aaron", "Quispe", 2, 9, "143.000", 1,"Cafayate", "aaronquispe@gmail.com", "1124883240", 1),
+("Athena", "Vera", 1, 10, "110.000", 3,"Francisco de la Cruz", "athenav@gmail.com", "1127240045", 4),
+("Marina", "Aguilar", 1, 11, "130.000", 2, "Bogotá 1234", "aguilarmari@gmail.com", "1153290081", 2),
+("Kevin", "Blanco", 2, 6, "110.000", 2,"Borlozano", "kevinb@gmail.com", "1123928809", 1),
+("Alex", "Copa", 2, 3, "400.000", 1 ,"Calle Lisandro", "lexisc@gmail.com", "1154324727", 3),
+("Matias", "Balbuena", 3, 1, "160.000",2, "Campana 3489", "mbalbuena@gmail.com", "1128178795", 4),
+("Rocio", "Rocabado", 3, 8, "187.000", 1,"Concordia 1234", "rocabado.ro@gmail.com", "1165405599", 2);
 
 INSERT INTO cantidad_talles (talle) VALUES /*talles aye*/
 (34),

@@ -1,7 +1,7 @@
 #conexion
 
 import mysql.connector
-from flask import Flask, g, jsonify
+from flask import Flask, g, jsonify, request
 
 app = Flask(__name__)
 
@@ -82,7 +82,7 @@ def agregar_talle():
    return {"mensaje": "talle agregado"}
 
 #inserta/agrega datos en la tabla shoes
-@app.route('/agregarShoes', methods = ['POST'])
+@app.route('/api/agregarShoes', methods = ['POST'])
 def agregar_shoes():
    data = request.json
    nombre = data['nombre']
@@ -135,6 +135,35 @@ def agregar_empleado():
    cerrarConexion()
    return {"mensaje": f"Empleado {apellido} agregado"}
 
+
+#10/02
+#modifica el precio de la tabla shoes
+@app.route('/api/shoes/<int:id>', methods=['PUT'])
+def actualizar_precio(id):
+    data = request.json
+    nuevo_precio = data['precio']
+    db = abrirConexion()
+    cursor = db.cursor()
+    cursor.execute("UPDATE shoes SET precio = %s WHERE id_shoes = %s", (nuevo_precio, id))
+    db.commit()#solo se usa en update, insert y delete
+    cursor.close()
+    return {"mensaje": "Precio modificado"}
+
+
+#calcula el total de lo que lleva el cliente 
+@app.route('/api/calcular_total/clientes/<int:id>', methods=['GET'])
+def calcular_total(id):
+    db = abrirConexion()
+    cursor = db.cursor(dictionary=True)
+    cursor.execute("SELECT precio_unidad, cantidad FROM clientes WHERE id_cliente=%s",(id,))  
+    productos = cursor.fetchall() 
+
+    total = sum(p['precio_unidad'] * p['cantidad'] for p in productos)
+    cursor.close()
+    db.close()
+    return {"total": total}
+ 
+ 
 
 
 #AYE
