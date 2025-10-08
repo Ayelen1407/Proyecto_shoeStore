@@ -1,16 +1,20 @@
 import mysql.connector
 from flask import Flask, g, jsonify
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 app = Flask(__name__)
 
 def abrirConexion():
     if 'db' not in g:
         g.db = mysql.connector.connect(
-            host="10.9.120.5",      # IP de tu servidor
-            user="shoes",           # tu usuario de MySQL
-            password="shoes1234",   # tu contraseña
-            database="shoeStore",   # tu base en phpMyAdmin
-            port=3306               #puerto
+            host=os.getenv("DB_HOST"),          # IP de tu servidor
+            user=os.getenv("DB_USER"),          # tu usuario de MySQL
+            password=os.getenv("DB_PASS"),      # tu contraseña
+            database=os.getenv("DB_NAME"),      # tu base en phpMyAdmin
+            port=int(os.getenv("DB_PORT"))      # puerto
         )
     return g.db
 

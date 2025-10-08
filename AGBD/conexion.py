@@ -38,6 +38,7 @@ def register():
         
         email = data.get("email")
         password = data.get("password")
+        #hacer un print para ver que llega (para ver los errores)
         
         # Validaciones
         if not email or not password:
@@ -54,7 +55,7 @@ def register():
         if cursor.fetchone():
             cursor.close()
             db.close()
-            return jsonify({"error": "Email ya registrado"}), 409  # Conflict
+            return jsonify({"error": "Email ya registrado"}), 409  # Conflicto
         
         # Insertar usuario
         hashed = generate_password_hash(password, method='pbkdf2:sha256')
@@ -77,6 +78,7 @@ def register():
 def login():
     try:
         data = request.get_json()
+
         if not data:
             return jsonify({"error": "Datos requeridos en JSON"}), 400
         

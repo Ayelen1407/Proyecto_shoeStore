@@ -3,6 +3,8 @@ from flask import Flask, g, jsonify
 from dotenv import load_dotenv
 import os
 
+load_dotenv()   
+
 app = Flask(__name__)
 
 def abrirConexion():

@@ -1,5 +1,6 @@
 import "./footer.css";
 import React from 'react';
+import { Link } from "react-router-dom";
 import { AiOutlineWhatsApp } from "react-icons/ai";
 import { FiInstagram } from "react-icons/fi";
 import { CgMail } from "react-icons/cg";
