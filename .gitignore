@@ -1,2 +1,6 @@
-.venv
-.env
+# Ignorar cualquier carpeta llamada 'env' o 'venv' en cualquier nivel
+**/env/
+**/venv/
+
+
+

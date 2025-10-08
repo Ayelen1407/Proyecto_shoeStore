@@ -6,7 +6,7 @@ import { CgMail } from "react-icons/cg";
 
 const Footer = () => {
   return (
-    <footer className="mainContainer" >
+    <footer className="footerContainer" >
       <div className="categoria">
          <h1 className="footer-1 ">CATEGORIAS</h1>
          <a href="" className="footer-2">Basicas</a>

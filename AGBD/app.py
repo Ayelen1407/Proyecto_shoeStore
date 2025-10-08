@@ -136,7 +136,7 @@ def agregar_empleado():
    return {"mensaje": f"Empleado {apellido} agregado"}
 
 
-#10/02
+#10/02  thomi
 #modifica el precio de la tabla shoes
 @app.route('/api/shoes/<int:id>', methods=['PUT'])
 def actualizar_precio(id):
@@ -157,13 +157,52 @@ def calcular_total(id):
     cursor = db.cursor(dictionary=True)
     cursor.execute("SELECT precio_unidad, cantidad FROM clientes WHERE id_cliente=%s",(id,))  
     productos = cursor.fetchall() 
-
     total = sum(p['precio_unidad'] * p['cantidad'] for p in productos)
     cursor.close()
     db.close()
-    return {"total": total}
+    return {"total": f"${total}"}
+
+
+#08/10 joaquin CARRITO
+@app.route('/api/carrito', methods=['POST'])
+def agregar_al_carrito():
+    data = request.json
+    id_usuario = data.get("id_usuario")
+    id_shoes = data.get("id_shoes")
+    cantidad = data.get("cantidad", 1)  # si no viene, agrega 1
+    db = abrirConexion()
+    cursor = db.cursor()
+
+    # vemos si el producto ya está en el carrito
+    cursor.execute(
+        "SELECT cantidad FROM carrito WHERE id_usuario=%s AND id_shoes=%s",
+        (id_usuario, id_shoes)
+    )
+    resultado = cursor.fetchone()
+
+    if resultado:
+        # Si ya está, actualizo la cantidad
+        nueva_cantidad = resultado[0] + cantidad
+        cursor.execute(
+            "UPDATE carrito SET cantidad=%s WHERE id_usuario=%s AND id_shoes=%s",
+            (nueva_cantidad, id_usuario, id_producto)
+        )
+    else:
+        # Si no está, lo agregamos
+        cursor.execute(
+            "INSERT INTO carrito (id_usuario, id_shoes, cantidad) VALUES (%s, %s, %s)",
+            (id_usuario, id_shoes, cantidad)
+        )
+
+    db.commit()
+    cursor.close()
+    db.close()
+
+    return jsonify({"mensaje": "Producto agregado al carrito"}), 201
+
+
  
- 
+
 
 
 #AYE
