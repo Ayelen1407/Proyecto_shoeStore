@@ -61,4 +61,10 @@ button:hover {
     margin-top: 20px;
     font-weight: bold;
     color: #444;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+.regis-p {
+  margin-top: 20px;
 }
