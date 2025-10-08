@@ -6,13 +6,17 @@ import { CgMail } from "react-icons/cg";
 
 const Footer = () => {
   return (
-    <footer className="mainContainer" >
+    <footer className="footerContainer" >
       <div className="categoria">
          <h1 className="footer-1 ">CATEGORIAS</h1>
-         <a href="" className="footer-2">Basicas</a>
+         <a href="/shoes/basica" className="footer-2">Basicas</a>
          <a href="" className="footer-2">Deportivas</a>
          <a href="" className="footer-2">High-Top</a>
          <a href="" className="footer-2">Basicas</a>
+         <Link to="/shoes/basicas" className="footer-2">Basicas</Link>
+         <Link to="/shoes/deportivas" className="footer-2">Deportivas</Link>
+         <Link to="/shoes/high-top" className="footer-2">High-Top</Link>
+         <Link to="/zapatillas/basicas" className="footer-2">Running</Link>
       </div>
       <div className="contactanos">
          <h1 className="footer-1 ">CONTACTANOS</h1>
