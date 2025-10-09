@@ -15,8 +15,6 @@ function App() {
         <Header/>
         <h1>Página shoeStore</h1>
         <main className="main">
-          <h2>Hola</h2>
-          <p>La info</p>
         </main>
         <div className="contenedor-principal">
           <Basicas/>

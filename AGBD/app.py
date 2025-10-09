@@ -223,7 +223,7 @@ def get_shoes():
 def delete_shoe(id):
     db = abrirConexion()
     cursor = db.cursor()
-    sql = ("DELETE FROM clientes WHERE id= %s")
+    sql = ("DELETE FROM shoes WHERE id_shoes= %s")
     val = (id,)
     cursor.execute(sql, val)
     db.commit()

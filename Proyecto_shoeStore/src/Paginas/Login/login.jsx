@@ -34,7 +34,7 @@ export default function Login() {
         // Redirigir a home después de 2s
         setTimeout(() => {
           navigate('/');
-        }, 2000);
+        }, 1000);
       } else {
         setMessage(`Error: ${data.error}`);
       }

@@ -18,7 +18,7 @@ def get_db_connection():
     return mysql.connector.connect(
         host=os.environ.get('DB_HOST'),
         user=os.environ.get('DB_USER'),
-        password=os.environ.get('DB_PASSWORD'),
+        password=os.environ.get('DB_PASS'),
         database=os.environ.get('DB_NAME'),
         port=int(os.getenv("DB_PORT"))
     )
@@ -45,13 +45,13 @@ def register():
             return jsonify({"error": "Email y password son requeridos"}), 400
         if not is_valid_email(email):
             return jsonify({"error": "Email inválido"}), 400
-        if len(password) < 6:
+        if len(password) <= 6:
             return jsonify({"error": "Password debe tener al menos 6 caracteres"}), 400
         
         # Verificar si email ya existe
         db = get_db_connection()
         cursor = db.cursor()
-        cursor.execute("SELECT id FROM usuarios WHERE email = %s", (email,))
+        cursor.execute("SELECT id_usuario FROM usuarios WHERE email = %s", (email,))
         if cursor.fetchone():
             cursor.close()
             db.close()
@@ -124,4 +124,4 @@ def home():
     return jsonify({"message": "API de Auth - Usa /register o /login"})
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000)  # host='0.0.0.0' para acceso remoto si necesitas
+    app.run(debug=True, host='0.0.0.0', port=5000)  # host='0.0.0.0' para acceso remoto (por si acaso)
