@@ -10,14 +10,12 @@ const Footer = () => {
     <footer className="footerContainer" >
       <div className="categoria">
          <h1 className="footer-1 ">CATEGORIAS</h1>
-         <a href="/shoes/basica" className="footer-2">Basicas</a>
-         <a href="" className="footer-2">Deportivas</a>
-         <a href="" className="footer-2">High-Top</a>
-         <a href="" className="footer-2">Basicas</a>
-         <Link to="/shoes/basicas" className="footer-2">Basicas</Link>
-         <Link to="/shoes/deportivas" className="footer-2">Deportivas</Link>
-         <Link to="/shoes/high-top" className="footer-2">High-Top</Link>
-         <Link to="/zapatillas/basicas" className="footer-2">Running</Link>
+         <a href="/basica" className="footer-2">Basicas</a>
+         <a href="/deportiva" className="footer-2">Deportivas</a>
+         <a href="/high-tops" className="footer-2">High-Top</a>
+         <a href="/running" className="footer-2">Running</a>
+         <a href="/shoes" className="footer-2">Todas</a>
+
       </div>
       <div className="contactanos">
          <h1 className="footer-1 ">CONTACTANOS</h1>

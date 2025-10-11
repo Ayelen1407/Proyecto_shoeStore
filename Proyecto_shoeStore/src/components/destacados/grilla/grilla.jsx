@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState,useEffect}  from 'react';
 import './grilla.css'; 
 
 const products = [
@@ -8,7 +8,7 @@ const products = [
   { id: 4, name: 'Dunk low retro', marca: 'Nike', image: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fsneakerbaker.com%2Fwp-content%2Fuploads%2F2021%2F11%2FNike-Dunk-Low-Retro-White-Black-2021-3.jpg&f=1&nofb=1&ipt=4caadcb2b5d4646411e5ee69a676b6f41575fa7491ce2683fd9fc14b5f2e7005', price: '$160.000' },
 ];
 
-const Grilla = () => {
+const GrillaDes = () => {
   return (
     <div className="grid-container">
       {products.map((product) => (
@@ -22,5 +22,4 @@ const Grilla = () => {
     </div>
   );
 }
-
-export default Grilla;
+ export default GrillaDes;

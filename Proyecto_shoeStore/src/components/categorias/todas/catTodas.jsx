@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import "./catBasica.css"
+import "./catTodas.css"
 
 
-const GrillaBasica = () =>{
+const GrillaGeneral = () =>{
     const [products, setProducts] = useState([]);
     useEffect(() =>{
-      fetch("/api/basicas")
+      fetch("/api/shoes")
       .then(res=>res.json())
       .then(data =>{
         setProducts(data.shoes);
@@ -26,6 +26,6 @@ return(
   );
 }
 
-export default GrillaBasica;
+export default GrillaGeneral;
 
 

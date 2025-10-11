@@ -7,7 +7,8 @@ import Deportivas from "./components/zapatillasDeportivas/deportivas";
 import HighTop from './components/zapatillasHightop/high-top';
 import Running from './components/zapatillasRunning/running';
 import Destacado from './components/destacados/destacados';
-import Grilla from './components/destacados/grilla/grilla';
+import GrillaDes from './components/destacados/grilla/grilla';
+
 
 function App() {
   return (
@@ -25,7 +26,7 @@ function App() {
           <Running/>
         </div>
         <Destacado/>
-        <Grilla/>
+        <GrillaDes/>
       
         <br/>
         <br/>

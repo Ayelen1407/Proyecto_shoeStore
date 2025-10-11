@@ -2,15 +2,16 @@
 
 import mysql.connector
 from flask import Flask, g, jsonify, request
+from categorias import mostrar_basicas
 
 app = Flask(__name__)
 
 def abrirConexion():
     if 'db' not in g:
         g.db = mysql.connector.connect(
-            host="10.9.120.5",      # IP de tu servidor
-            user="shoes",           # tu usuario de MySQL
-            password="shoes1234",   # tu contraseña
+            host="localhost",      # IP de tu servidor
+            user="root",           # tu usuario de MySQL
+            password="",   # tu contraseña
             database="shoeStore",   # tu base en phpMyAdmin
             port=3306               #puerto
         )
@@ -31,6 +32,18 @@ def mostrar_shoes():
    cursor.close()
    cerrarConexion()
    return {"shoes": resultados}  #devolve los resultados como texto
+
+#muestra todas las basicas
+@app.route('/api/basicas')
+def mostrar_basicas():
+    db = abrirConexion()
+    cursor = db.cursor(dictionary=True)  # dictionary=True devuelve filas como diccionarios
+    cursor.execute("SELECT nombre, marca, tipo, id_talles, precio FROM shoes WHERE tipo = 'basica'")  # productos es tu tabla
+    data = cursor.fetchall()  # trae todas las filas
+    cursor.close()
+    db.close()
+    
+    return jsonify(data)  # por ahora devolvemos los resultados como texto
 
 #muestra tabla clientes
 @app.route('/clientes', methods=['GET'])
