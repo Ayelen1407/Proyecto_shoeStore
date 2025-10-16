@@ -19,10 +19,11 @@
   margin-top: 10px;
 }
 
-.descripcion h2 {
+.descripcion-h2 {
   font-size: 1.4rem;
   font-weight: bold;
   margin-bottom: 10px;
+  color: #151f3b;
 }
  .button {
   background: grey;
