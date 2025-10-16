@@ -2,16 +2,16 @@
 
 import mysql.connector
 from flask import Flask, g, jsonify, request
-from categorias import mostrar_basicas
+
 
 app = Flask(__name__)
 
 def abrirConexion():
     if 'db' not in g:
         g.db = mysql.connector.connect(
-            host="localhost",      # IP de tu servidor
-            user="root",           # tu usuario de MySQL
-            password="",   # tu contraseña
+            host="10.9.120.5",      # IP de tu servidor
+            user="shoes",           # tu usuario de MySQL
+            password="shoes1234",   # tu contraseña
             database="shoeStore",   # tu base en phpMyAdmin
             port=3306               #puerto
         )
@@ -21,7 +21,8 @@ def cerrarConexion(e=None):
     db = g.pop('db', None)
     if db is not None:
         db.close()
-        
+ 
+       
 #muestra tabla shoes. /api porque se conecta con lo de fede
 @app.route('/api/shoes', methods=['GET'])
 def mostrar_shoes():
@@ -149,7 +150,7 @@ def agregar_empleado():
    return {"mensaje": f"Empleado {apellido} agregado"}
 
 
-#10/02  thomi
+#02/10  thomi
 #modifica el precio de la tabla shoes
 @app.route('/api/shoes/<int:id>', methods=['PUT'])
 def actualizar_precio(id):
@@ -198,7 +199,7 @@ def agregar_al_carrito():
         nueva_cantidad = resultado[0] + cantidad
         cursor.execute(
             "UPDATE carrito SET cantidad=%s WHERE id_usuario=%s AND id_shoes=%s",
-            (nueva_cantidad, id_usuario, id_producto)
+            (nueva_cantidad, id_usuario, id_shoes)
         )
     else:
         # Si no está, lo agregamos
@@ -213,10 +214,29 @@ def agregar_al_carrito():
 
     return jsonify({"mensaje": "Producto agregado al carrito"}), 201
 
+#16/10 thomi
+#paginado pedido la clase anterior
+@app.route('/api/shoes/paginado', methods=['GET'])
+def obtener_shoes():
+    page = int(request.args.get('page', 1))   # página actual (por defecto 1)
+    limit = int(request.args.get('limit', 4)) # cantidad por página
+    offset = (page - 1) * limit               # por dónde empezar
 
- 
-
-
+    db = abrirConexion()
+    cursor = db.cursor(dictionary=True)
+    cursor.execute("SELECT * FROM shoes LIMIT %s OFFSET %s", (limit, offset))# trae los productos limitados
+    productos = cursor.fetchall()
+    cursor.execute("SELECT COUNT(*) AS total FROM shoes")# cuenta cuántos productos hay en total
+    total = cursor.fetchone()['total']
+    cursor.close()
+    db.close()
+    return jsonify({
+        "productos": productos,
+        "total_de_productos": total,
+        "pagina": page,
+        "total_de_paginas": (total + limit - 1) // limit  # número total de páginas
+    })
+#----------------------------------------------
 
 #AYE
 #Consulta para obtener todos los clientes
