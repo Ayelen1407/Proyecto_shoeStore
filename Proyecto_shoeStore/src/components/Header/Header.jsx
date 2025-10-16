@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { FaShoelace } from "react-icons/fa6";
 import { useState } from "react";
 import { HiMiniMagnifyingGlass } from "react-icons/hi2";
+import { TbShoe } from "react-icons/tb";
 import { TiShoppingCart } from "react-icons/ti";
 
 export default function Header() {
@@ -47,7 +48,10 @@ export default function Header() {
           <li><Link to="/register">Sign up</Link></li>
         </ul>
       </nav>
-
+      
+      <button className="boton-carrito">
+       <TbShoe/>
+      </button>
 
       <button className="boton-carrito" onClick={Carrito} aria-label="Abrir carrito">
         <TiShoppingCart />
