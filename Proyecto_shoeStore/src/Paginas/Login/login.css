@@ -1,32 +1,36 @@
-/*fondo*/
 body {
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
   margin: 0;
-  font-family: Arial;
-  background: #f3f3f3;
-  display: center
 }
 
 /*tamaño de la caja*/
 .login-container {
-  width: 100%;
-  max-width: 350px;
+  background-color: #1d7874;
+  padding: 30px;
+  border-radius: 10px;
+  width: 300px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /*dentro de la caja*/
 .form {
-  background: white;
-  padding: 50px ;
+  background-color: #1d7874;
+  padding: 30px ;
   border-radius: 10px; /*borde de la caja, mientras mas grande sea el numero mas redondo es la caja*/
   box-shadow: 0 8px 20px rgba(0,0,0,0.2);/*sombreado de la caja*/
-  
 }
 
 /*cajita de iniciar sesion*/
-.h2 {
+.log-h2 {
   text-align: center;
-  font-size: 25px ;
-  margin-bottom: 25px;
-  color: #2b2a2a;
+  color: #1d7874;
+  margin-bottom: 20px;
+  font-size: 24px;
 }
 
 /*imput(usuario y contraseña)*/
@@ -34,17 +38,16 @@ body {
   display: block;
   width: 100%;
   padding: 10px;
-  margin: 10px 0;
+  margin-bottom: 15px;
+  margin-top: 5px;
   border: 1px solid #ddd;
-  border-radius: 4px;
+  border-radius: 5px;
   background: #f1f1f1;
   font-size: 16px; 
-  display: center;
-  color: rgb(73, 67, 67)
 }
 
 input:focus {
-  border-color: #007bff;
+  border-color: #1d7874;
   outline:none;
 }
 
@@ -53,15 +56,16 @@ input:focus {
   width: 100%;
   padding: 10px;
   margin-top: 15px;
-  background: #1c68b9;
+  background-color: #1d7874;
   color: white;
-  border-radius: 4px;
-  font-size: 16px;
   border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
 }
 
-.button:hover {
- background-color: #035ab8; /*cambia el color de la caja a mas oscuro cuando lo presionamos*/
+button:hover {
+ background-color: #145c51; /*cambia el color de la caja a mas oscuro cuando lo presionamos*/
 }
 
 .message {
@@ -71,7 +75,12 @@ input:focus {
 }
 
 .log-p {
+  text-align: center;
   margin-top: 20px;
+  font-size: 13px;
 }
 
-
+.log-p a {
+  color: #145a56ff;
+  text-decoration: none;
+}

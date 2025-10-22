@@ -123,5 +123,38 @@ def protected():
 def home():
     return jsonify({"message": "API de Auth - Usa /register o /login"})
 
+<<<<<<< HEAD
+=======
+#muestra tabla shoes. /api porque se conecta con lo de fede
+@app.route('/api/shoes', methods=['GET'])
+def mostrar_shoes():
+    db = get_db_connection()
+    cursor = db.cursor()
+    try:
+        cursor.execute("SELECT id_shoes, nombre, tipo, marca, precio, img_url FROM shoes")
+        rows = cursor.fetchall()
+        
+        # Convierte los resultados a una lista de diccionarios
+        products = []
+        for row in rows:
+            product = {
+                "id": row[0],
+                "name": row[1],
+                "type": row[2],
+                "brand": row[3],
+                "price": (row[4]),
+                "image": row[5] if row[5] else None
+            }
+            products.append(product)
+        
+        return jsonify(products), 200
+    except Exception as e:
+        print("ERROR EN /api/shoes:", e) # Ver error en consola
+        return jsonify({"error": "Error al obtener productos", "detalle": str(e)}), 500
+    finally:
+        cursor.close()
+        db.close()  #devolve los resultados como texto
+
+>>>>>>> 1bc7f026ec2b3644b562dfd933ed3fa0bbe939d0
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)  # host='0.0.0.0' para acceso remoto (por si acaso)

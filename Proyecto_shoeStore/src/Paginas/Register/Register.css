@@ -1,60 +1,68 @@
 body {
-    margin: 0;
-    font-family: Arial;
-    background: #f3f3f3;
-    display: center;
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
 }
 
 .register-container {
-    width: 100%;
-    max-width: 350px;
+  background-color: #1d7874;
+  padding: 30px;
+  border-radius: 10px;
+  width: 300px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 
 .form {
-  padding: 50px;
   background-color: #ffffff;
-  border-radius: 8px; /*borde de la caja (redondeado)*/
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  text-align: center;
+  padding: 30px ;
+  border-radius: 10px; /*borde de la caja, mientras mas grande sea el numero mas redondo es la caja*/
+  box-shadow: 0 8px 20px rgba(125, 207, 228, 0.2);/*sombreado de la caja*/
 }
 
 .register-h2 {
   text-align: center;
-  font-size: 26px;
-  margin-bottom: 25px;
-  color: #2b2a2a;
+  color: #145a56ff;
+  margin-bottom: 20px;
+  font-size: 24px;
 }
 
 .input {
-  background: #f1f1f1;
   display: block;
-  margin: 10px 0;
-  padding: 10px;
   width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  margin-top: 5px;
   border: 1px solid #ddd;
-  border-radius: 4px;
+  border-radius: 5px;
+  background: #f1f1f1;
   font-size: 16px;
 }
 
 input:focus {
-  border-color: #007bff;
+  border-color: #1d7874;
   outline: none;
 }
 
 
 .button {
-  padding: 10px;
   width: 100%;
-  background-color: #1c68b9;
+  padding: 10px;
+  margin-top: 15px;
+  background-color: #1d7874;
   color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: 5px;
   font-size: 16px;
+  cursor: pointer;
 }
 
 button:hover {
-  background-color: #035ab8; /*es el color que se pone cuando apoyo el cursor*/
+  background-color: #1d7874; /*es el color que se pone cuando apoyo el cursor*/
 }
 
 .message {
@@ -66,5 +74,11 @@ button:hover {
     border-radius: 5px;
 }
 .regis-p {
+  text-align: center;
   margin-top: 20px;
+  font-size: 13px;
+}
+.regis-p a {
+  color: #145a56ff;
+  text-decoration: none;
 }

@@ -40,4 +40,33 @@
     color: #333;
     margin-top: 10px;
   }
+<<<<<<< HEAD
   
+=======
+  
+  @media (max-width: 900px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+>>>>>>> 1bc7f026ec2b3644b562dfd933ed3fa0bbe939d0

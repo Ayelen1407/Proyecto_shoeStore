@@ -4,6 +4,7 @@ import mysql.connector
 from flask import Flask, g, jsonify, request
 from categorias import categorias_bp
 
+
 app = Flask(__name__)
 app.register_blueprint(categorias_bp)
 
@@ -47,6 +48,7 @@ def mostrar_basicas():
     
     return jsonify(data)  # por ahora devolvemos los resultados como texto
 
+<<<<<<< HEAD
 #muestra todas las deportivas
 @app.route('/api/deportivas')
 def mostrar_deportivas():
@@ -100,6 +102,8 @@ def mostrar_destacados():
     return jsonify(data)
 
 
+=======
+>>>>>>> 1bc7f026ec2b3644b562dfd933ed3fa0bbe939d0
 #muestra tabla clientes
 @app.route('/clientes', methods=['GET'])
 def mostrar_clientes():
