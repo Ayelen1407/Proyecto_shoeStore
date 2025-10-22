@@ -1,34 +1,24 @@
-import { useState } from 'react'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
-import Login from './Paginas/Login/login';
+import { cartProvider } from "./components/cartContext";
 import Footer from './components/footer/footer';
-import Basicas from './components/categorias/basica/basica';
 import Header from "./components/Header/Header";
 import Basicas from "./components/zapatillasBasicas/basicas";
 import Deportivas from "./components/zapatillasDeportivas/deportivas";
 import HighTop from './components/zapatillasHightop/high-top';
 import Running from './components/zapatillasRunning/running';
 import Destacado from './components/destacados/destacados';
-import Grilla from './components/destacados/grilla/grilla';
+import GrillaDes from './components/destacados/grilla/grilla';
+
+
+
 function App() {
   return (
-    <Router>
       <>
-        <Header/>
-        <h1>Página shoeStore</h1>
+      <cartProvider>
+      <Header/>
+        <img className='img-principal' src='https://tempfile.aiquickdraw.com/s/365306ca9a1444e8be793b2db8040fe9_0_1761135681_3247.png'></img>
         <main className="main">
-          <h2>Hola</h2>
-          <p>La info</p>
         </main>
-
-        <Switch> 
-          <Route path="/zapatillas/basicas" component={Basicas} />
-          <Route path="/zapatillas/deportivas" component={Deportivas} />
-          <Route path="/zapatillas/high-top" component={HighTop} />
-          <Route path="/zapatillas/running" component={Running} />
-        </Switch>
-
         <div className="contenedor-principal">
           <Basicas/>
           <Deportivas/>
@@ -38,13 +28,13 @@ function App() {
           <Running/>
         </div>
         <Destacado/>
-        <Grilla/>
+        <GrillaDes/>
+      
         <br/>
         <br/>
-        <Footer/>
+        <Footer/>        
+      </cartProvider>
     </>
-    </Router>
-
   );
 }
 export default App;

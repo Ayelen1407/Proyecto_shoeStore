@@ -74,5 +74,18 @@ def ver_carrito():
     cursor.close()
     return {"shoes": resultado}
 
+#consulta para ver las zapatillas destacadas 
+@app.route('/api/zapatillas/destacadas', methods=['GET'])
+def zapatillas_destacadas():
+    ids_destacados = [5,6,2,1]
+    db = abrirConexion()
+    cursor = db.cursor(dictionary=True)
+    formato = ','.join(['%s'] * len(ids_destacados))
+    consulta = f"SELECT * FROM shoes WHERE id_shoes IN ({formato})"
+    cursor.execute(consulta, ids_destacados)
+    zapas = cursor.fetchall()
+    cursor.close()
+    return jsonify({"shoes": zapas})
+
 if __name__ == "__main__":
     app.run(debug=True)

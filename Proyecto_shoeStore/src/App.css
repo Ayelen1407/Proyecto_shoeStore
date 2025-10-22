@@ -11,3 +11,13 @@ body {
   flex-wrap: wrap;
   padding: 50px;
 }
+
+.img-principal {
+  width: 100%;
+  height: 690px;
+  background-image: url('/imagen.png');
+  background-size: cover;
+  object-fit: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+} 

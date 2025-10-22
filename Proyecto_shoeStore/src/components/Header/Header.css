@@ -65,10 +65,10 @@
 
 /*para el carrito*/
 .boton-carrito {
+  color:beige;
   font-size: 1.5rem;
   background: none;
   border: none;
-  cursor: pointer;
   margin-left: 20px;
   position: relative;
   z-index: 1100; /* Para que esté sobre la ventana */
@@ -78,7 +78,7 @@
   position: absolute; 
   top: 100%; /* Justo debajo del header */
   right: 0;
-  width: 320px;
+  width: 400px;
   max-height: 400px;
   background-color: white;
   border: 1px solid #ccc;

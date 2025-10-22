@@ -19,15 +19,10 @@
   margin-top: 10px;
 }
 
-.descripcion h3 {
-  font-size: 1.4rem;
+.descripcion-h2 {
+  color: #151f3b;
+  font-size: 1.7rem;
   font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.descripcion p {
-  font-size: 1rem;
-  color: #666;
   margin-bottom: 10px;
 }
 
