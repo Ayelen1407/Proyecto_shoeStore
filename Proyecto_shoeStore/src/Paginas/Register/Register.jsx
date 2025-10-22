@@ -78,7 +78,7 @@ export default function Register() {
           type="submit"
           disabled={loading}
           style={{
-            background: loading ? '#ccc' : '#007bff',
+            background: loading ? '#ccc' : '#145a56ff',
             cursor: loading ? 'not-allowed' : 'pointer',
           }}
         >

@@ -50,7 +50,7 @@ export default function Login() {
   return (
     <div className="login-container">
       <form className ="form" onSubmit={handleSubmit}>
-        <h2 className = "h2">Iniciar Sesión</h2>
+        <h2 className="log-h2">Iniciar Sesión</h2>
         <input class = "input"
           type="text"
           placeholder="Ingresa tu correo"
@@ -69,7 +69,7 @@ export default function Login() {
         type="submit"
         disabled={loading}
         style={{
-          background: loading ? '#ccc' : '#007bff',
+          background: loading ? '#1d7874' : '#145a56ff', 
           cursor: loading ? 'not-allowed' : 'pointer',
         }}>
           {loading ? 'Iniciando...' : 'Iniciar Sesión'}

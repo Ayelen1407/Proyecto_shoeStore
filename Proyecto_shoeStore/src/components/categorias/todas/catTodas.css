@@ -4,6 +4,7 @@
     grid-template-columns: repeat(4, 1fr); /* Crea 4 columnas del mismo tamaño */
     gap: 20px; /* Espacio entre los elementos */
     padding: 20px;
+    margin: 0 auto;
   }
   
   .grid-item {
@@ -41,3 +42,28 @@
     margin-top: 10px;
   }
   
+  @media (max-width: 900px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}

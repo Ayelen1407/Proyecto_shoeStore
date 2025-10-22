@@ -65,7 +65,7 @@ def mostrar_zapatilla_por_id(id):
 
 
 #consulta para ver el contenido del carrito
-@app.route('/api/carrito', methods=['GET'])
+@app.route('/carrito', methods=['GET'])
 def ver_carrito():
     db = abrirConexion()
     cursor = db.cursor()
