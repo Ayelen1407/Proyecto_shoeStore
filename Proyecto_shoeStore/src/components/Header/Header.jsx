@@ -57,18 +57,6 @@ export default function Header() {
         </ul>
       </nav>
 
-      <button className="boton-carrito" onClick={Carrito} aria-label="Abrir carrito">
-        <TiShoppingCart />
-      </button>
-
-      {carritoAbierto && (
-        <div className="ventana-carrito">
-          <h3>Carrito de compras</h3>
-          <p>El carrito está vacío.</p>
-          <button onClick={Carrito} className="cerrar-carrito">Cerrar</button>
-        </div>
-      )}
-
       <button onClick={toggleCategoryWindow} className="boton-categorias">
         <TbShoe />
       </button>
@@ -89,6 +77,19 @@ export default function Header() {
           {selectedCategory && <p>Has seleccionado la categoría: {selectedCategory}</p>}
         </div>
       )}
+
+      <button className="boton-carrito" onClick={Carrito} aria-label="Abrir carrito">
+        <TiShoppingCart />
+      </button>
+
+      {carritoAbierto && (
+        <div className="ventana-carrito">
+          <h3>Carrito de compras</h3>
+          <p>El carrito está vacío.</p>
+          <button onClick={Carrito} className="cerrar-carrito">Cerrar</button>
+        </div>
+      )}
+
     </header>
   );
 }

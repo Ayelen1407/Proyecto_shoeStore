@@ -20,10 +20,10 @@ function Router() {
           <Route path="/register" element={<Register />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/basica" element={<GrillaBasica />} />
-          <Route path="/deportivas" element={<GrillaDeportiva />} />
+          <Route path="/deportiva" element={<GrillaDeportiva />} />
           <Route path="/high-tops" element={<GrillaHighTop />} />
           <Route path="/running" element={<GrillaRunning />} />
-          <Route path="/shoes" element={<GrillaGeneral />} />
+          <Route path="/shoes" element={<CatTodas />} />
 
         </Routes>
       </BrowserRouter>

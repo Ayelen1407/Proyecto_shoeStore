@@ -23,6 +23,70 @@ def get_db_connection():
         port=int(os.getenv("DB_PORT"))
     )
 
+#muestra todas las basicas
+@app.route('/api/basicas')
+def mostrar_basicas():
+    db = get_db_connection()
+    cursor = db.cursor(dictionary=True)  # dictionary=True devuelve filas como diccionarios
+    cursor.execute("SELECT nombre, marca, tipo, id_talles, precio FROM shoes WHERE tipo = 'basica'")  # productos es tu tabla
+    data = cursor.fetchall()  # trae todas las filas
+    cursor.close()
+    db.close()
+    
+    return jsonify(data)  # por ahora devolvemos los resultados como texto
+
+#muestra todas las deportivas
+@app.route('/api/deportivas')
+def mostrar_deportivas():
+    db = get_db_connection()
+    cursor = db.cursor(dictionary=True) 
+    cursor.execute("SELECT nombre, marca, tipo, id_talles, precio FROM shoes WHERE tipo = 'deportiva'") 
+    data = cursor.fetchall()
+    cursor.close()
+    db.close()
+    
+    return jsonify(data)  
+
+
+#muestra todas las high-tops
+@app.route('/api/high-tops')
+def mostrar_highTops():
+    db = get_db_connection()
+    cursor = db.cursor(dictionary=True) 
+    cursor.execute("SELECT nombre, marca, tipo, id_talles, precio FROM shoes WHERE tipo = 'high-top'") 
+    data = cursor.fetchall()
+    cursor.close()
+    db.close()
+    
+    return jsonify(data) 
+
+
+#muestra todas las running
+@app.route('/api/running')
+def mostrar_running():
+    db = get_db_connection()
+    cursor = db.cursor(dictionary=True) 
+    cursor.execute("SELECT nombre, marca, tipo, id_talles, precio FROM shoes WHERE tipo = 'running'") 
+    data = cursor.fetchall()
+    cursor.close()
+    db.close()
+    
+    return jsonify(data)
+
+
+@app.route('/api/shoes/destacados', methods=['GET'])
+def mostrar_destacados():
+    db = get_db_connection()
+    cursor = db.cursor(dictionary=True)  # dictionary=True devuelve filas como diccionarios
+    query = "SELECT * FROM shoes WHERE nombre IN (%s, %s, %s, %s)"
+    valores = ('Samba OG', 'Amplimove', 'MC trainer', 'Dunk low retro')
+    cursor.execute(query, valores)  # productos es tu tabla
+    data = cursor.fetchall()  # trae todas las filas
+    cursor.close()
+    db.close()
+    
+    return jsonify(data)
+
 # Validación básica de email
 def is_valid_email(email):
     pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
@@ -123,8 +187,6 @@ def protected():
 def home():
     return jsonify({"message": "API de Auth - Usa /register o /login"})
 
-<<<<<<< HEAD
-=======
 #muestra tabla shoes. /api porque se conecta con lo de fede
 @app.route('/api/shoes', methods=['GET'])
 def mostrar_shoes():
@@ -155,6 +217,74 @@ def mostrar_shoes():
         cursor.close()
         db.close()  #devolve los resultados como texto
 
->>>>>>> 1bc7f026ec2b3644b562dfd933ed3fa0bbe939d0
+#Ruta para mostrar seccion principal (productos destacados)
+@app.route('/api/seccion/destacadas', methods=['GET'])
+def mostrar_seccionPrincipal():
+    db = get_db_connection()
+    cursor = db.cursor(dictionary=True)  
+    query = "SELECT * FROM shoes WHERE id_shoes IN (%s, %s, %s)"
+    valores = (2, 4, 5)
+    cursor.execute(query, valores)  # productos es tu tabla
+    data = cursor.fetchall()  # trae todas las filas
+    cursor.close()
+    db.close()
+    
+    return jsonify(data)
+
+# Ruta para agregar comentario
+@app.route('/api/comentarios', methods=['POST'])
+def agregar_comentario():
+    try:
+        data = request.get_json()
+        user_email = data.get("user_email")
+        shoe_id = data.get("shoe_id")
+        comentario = data.get("comentario")
+        
+        if not user_email or not shoe_id or not comentario:
+            return jsonify({"error": "Faltan datos requeridos"}), 400
+        
+        db = get_db_connection()
+        cursor = db.cursor()
+        
+        # Insertar comentario
+        cursor.execute(
+            "INSERT INTO comentarios (user_email, shoe_id, comentario) VALUES (%s, %s, %s)",
+            (user_email, shoe_id, comentario)
+        )
+        db.commit()
+        cursor.close()
+        db.close()
+        
+        return jsonify({"message": "Comentario agregado exitosamente"}), 201
+    
+    except mysql.connector.Error as err:
+        return jsonify({"error": f"Error en base de datos: {str(err)}"}), 500
+    except Exception as e:
+        return jsonify({"error": "Error interno del servidor"}), 500
+
+
+# Ruta para traer comentarios de un zapato específico
+@app.route('/api/comentarios/traer/<int:shoe_id>', methods=['GET'])
+def traer_comentarios(shoe_id):
+    try:
+        db = get_db_connection()
+        cursor = db.cursor(dictionary=True)
+        
+        cursor.execute(
+            "SELECT user_email, comentario, fecha FROM comentarios WHERE shoe_id = %s",
+            (shoe_id,)
+        )
+        comentarios = cursor.fetchall()
+        
+        cursor.close()
+        db.close()
+        
+        return jsonify(comentarios), 200
+    
+    except mysql.connector.Error as err:
+        return jsonify({"error": f"Error en base de datos: {str(err)}"}), 500
+    except Exception as e:
+        return jsonify({"error": "Error interno del servidor"}), 500
+
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)  # host='0.0.0.0' para acceso remoto (por si acaso)

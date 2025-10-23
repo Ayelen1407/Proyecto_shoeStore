@@ -1,5 +1,5 @@
 import './App.css';
-import { cartProvider } from "./components/cartContext";
+import { CartProvider } from "./components/cartContext";
 import Footer from './components/footer/footer';
 import Header from "./components/Header/Header";
 import Basicas from "./components/zapatillasBasicas/basicas";
@@ -14,11 +14,8 @@ import GrillaDes from './components/destacados/grilla/grilla';
 function App() {
   return (
       <>
-      <cartProvider>
       <Header/>
         <img className='img-principal' src='https://tempfile.aiquickdraw.com/s/365306ca9a1444e8be793b2db8040fe9_0_1761135681_3247.png'></img>
-        <main className="main">
-        </main>
         <div className="contenedor-principal">
           <Basicas/>
           <Deportivas/>
@@ -32,8 +29,7 @@ function App() {
       
         <br/>
         <br/>
-        <Footer/>        
-      </cartProvider>
+        <Footer/>      
     </>
   );
 }

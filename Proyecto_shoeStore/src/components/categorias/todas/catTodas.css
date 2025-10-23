@@ -40,9 +40,6 @@
     color: #333;
     margin-top: 10px;
   }
-<<<<<<< HEAD
-  
-=======
   
   @media (max-width: 900px) {
   .grid-container {
@@ -69,4 +66,3 @@ button:disabled {
     background-color: #ccc;
     cursor: not-allowed;
 }
->>>>>>> 1bc7f026ec2b3644b562dfd933ed3fa0bbe939d0
