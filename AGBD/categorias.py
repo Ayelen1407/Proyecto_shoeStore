@@ -1,9 +1,5 @@
 import mysql.connector
-<<<<<<< HEAD
 from flask import Flask, g, jsonify, Blueprint
-=======
-from flask import Flask, g, jsonify
->>>>>>> 1bc7f026ec2b3644b562dfd933ed3fa0bbe939d0
 from dotenv import load_dotenv
 import os
 

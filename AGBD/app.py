@@ -3,10 +3,13 @@
 import mysql.connector
 from flask import Flask, g, jsonify, request
 from categorias import categorias_bp
+from flask_cors import CORS
 
 
 app = Flask(__name__)
 app.register_blueprint(categorias_bp)
+# Enable CORS for all routes (allows frontend apps on other origins to call this API)
+CORS(app)
 
 def abrirConexion():
     if 'db' not in g:
@@ -29,15 +32,34 @@ def cerrarConexion(e=None):
 @app.route('/api/shoes', methods=['GET'])
 def mostrar_shoes():
    db = abrirConexion()
-   cursor = db.cursor(dictionary=True)  # dictionary=True devuelve filas como diccionarios (columna : valor)
-   cursor.execute("SELECT * FROM shoes")  # productos es tu tabla
-   resultados = cursor.fetchall()  # trae todas las filas/registros
-   cursor.close()
-   cerrarConexion()
-   return {"shoes": resultados}  #devolve los resultados como texto
+   cursor = db.cursor()
+   try:
+       cursor.execute("SELECT id_shoes, nombre, tipo, marca, precio, img_url FROM shoes")
+       rows = cursor.fetchall()
+      
+       # Convierte los resultados a una lista de diccionarios
+       products = []
+       for row in rows:
+           product = {
+               "id": row[0],
+               "name": row[1],
+               "type": row[2],
+               "brand": row[3],
+               "price": (row[4]),
+               "image": row[5] if row[5] else None
+           }
+           products.append(product)
+      
+       return jsonify(products), 200
+   except Exception as e:
+       print("ERROR EN /api/shoes:", e) # Ver error en consola
+       return jsonify({"error": "Error al obtener productos", "detalle": str(e)}), 500
+   finally:
+       cursor.close()
+       db.close()  #devolve los resultados como texto
 
 #muestra todas las basicas
-@app.route('/api/basicas')
+@app.route('/api/basicas',  methods=['GET'])
 def mostrar_basicas():
     db = abrirConexion()
     cursor = db.cursor(dictionary=True)  # dictionary=True devuelve filas como diccionarios
@@ -48,7 +70,6 @@ def mostrar_basicas():
     
     return jsonify(data)  # por ahora devolvemos los resultados como texto
 
-<<<<<<< HEAD
 #muestra todas las deportivas
 @app.route('/api/deportivas')
 def mostrar_deportivas():
@@ -102,8 +123,6 @@ def mostrar_destacados():
     return jsonify(data)
 
 
-=======
->>>>>>> 1bc7f026ec2b3644b562dfd933ed3fa0bbe939d0
 #muestra tabla clientes
 @app.route('/clientes', methods=['GET'])
 def mostrar_clientes():
@@ -276,7 +295,7 @@ def agregar_al_carrito():
 #paginado pedido la clase anterior
 @app.route('/api/shoes/paginado', methods=['GET'])
 def obtener_shoes():
-    page = int(request.args.get('page', 1))   # página actual (por defecto 1)
+    page = int(request.args.get('page', 1))   # página actual, por defecto 1
     limit = int(request.args.get('limit', 4)) # cantidad por página
     offset = (page - 1) * limit               # por dónde empezar
 
