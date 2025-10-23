@@ -7,7 +7,6 @@ import GrillaBasica from "./components/categorias/basica/catBasica";
 import GrillaDeportiva from "./components/categorias/deportiva/catDeportiva";
 import GrillaHighTop from "./components/categorias/high-top/catHighTop";
 import GrillaRunning from "./components/categorias/running/catRunning";
-import GrillaGeneral from "./components/categorias/todas/catTodas";
 import CatTodas from "./components/categorias/todas/catTodas";
 import {CartProvider}  from "./components/cartContext";
 function Router() {
@@ -20,10 +19,10 @@ function Router() {
           <Route path="/register" element={<Register />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/basica" element={<GrillaBasica />} />
-          <Route path="/deportivas" element={<GrillaDeportiva />} />
+          <Route path="/deportiva" element={<GrillaDeportiva />} />
           <Route path="/high-tops" element={<GrillaHighTop />} />
           <Route path="/running" element={<GrillaRunning />} />
-          <Route path="/shoes" element={<GrillaGeneral />} />
+          <Route path="/shoes" element={<CatTodas />} />
 
         </Routes>
       </BrowserRouter>

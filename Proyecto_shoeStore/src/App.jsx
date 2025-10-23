@@ -1,5 +1,5 @@
 import './App.css';
-import { cartProvider } from "./components/cartContext";
+import { CartProvider } from "./components/cartContext";
 import Footer from './components/footer/footer';
 import Header from "./components/Header/Header";
 import Basicas from "./components/zapatillasBasicas/basicas";
