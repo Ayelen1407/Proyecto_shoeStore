@@ -7,6 +7,7 @@ import GrillaBasica from "./components/categorias/basica/catBasica";
 import GrillaDeportiva from "./components/categorias/deportiva/catDeportiva";
 import GrillaHighTop from "./components/categorias/high-top/catHighTop";
 import GrillaRunning from "./components/categorias/running/catRunning";
+import GrillaGeneral from "./components/categorias/todas/catTodas";
 import CatTodas from "./components/categorias/todas/catTodas";
 import {CartProvider}  from "./components/cartContext";
 function Router() {
