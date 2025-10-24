@@ -62,7 +62,7 @@ input:focus {
 }
 
 button:hover {
-  background-color: #1d7874; /*es el color que se pone cuando apoyo el cursor*/
+  background-color: #1d1d1d; /*es el color que se pone cuando apoyo el cursor (para todos los botones)*/
 }
 
 .message {

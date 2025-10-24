@@ -84,7 +84,6 @@ export default function Header() {
              </li>
            ))}
          </ul>
-         {/* Mostrar la categoría seleccionada */}
          {selectedCategory && <p>Has seleccionado la categoría: {selectedCategory}</p>}
        </div>
      )}

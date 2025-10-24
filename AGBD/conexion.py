@@ -241,7 +241,7 @@ def mostrar_shoes():
 def mostrar_seccionPrincipal():
    db = get_db_connection()
    cursor = db.cursor(dictionary=True) 
-   query = "SELECT * FROM shoes WHERE id_shoes IN (%s, %s, %s)"
+   query = "SELECT nombre, img_url FROM shoes WHERE id_shoes IN (%s, %s, %s)"
    valores = (2, 4, 5)
    cursor.execute(query, valores)  # productos es tu tabla
    data = cursor.fetchall()  # trae todas las filas

@@ -42,7 +42,7 @@ return (
      <h3>{product.name}</h3>
      <h4>{product.brand}</h4>
      <p>$ {product.price}</p>
-     <button className="button" onClick={() => manejarClick(product)}>Agregar al carrito</button>
+     <button className="button" onClick={() => manejarClick(product)}>Buy now</button>
    </div>
  ))}
 </div>

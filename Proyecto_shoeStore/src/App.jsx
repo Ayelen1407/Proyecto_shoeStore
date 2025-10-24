@@ -8,13 +8,14 @@ import HighTop from './components/zapatillasHightop/high-top';
 import Running from './components/zapatillasRunning/running';
 import Destacado from './components/destacados/destacados';
 import GrillaDes from './components/destacados/grilla/grilla';
+import BannerPrincipal from './components/BannerSection/bannerSec';
 
 
 function App() {
  return (
      <>
      <Header/>
-       <img className='img-principal' src='https://tempfile.aiquickdraw.com/s/365306ca9a1444e8be793b2db8040fe9_0_1761135681_3247.png'></img>
+     <BannerPrincipal/>
        <div className="contenedor-principal">
          <Basicas/>
          <Deportivas/>
@@ -28,7 +29,7 @@ function App() {
     
        <br/>
        <br/>
-       <Footer/>     
+       <Footer/>    
    </>
  );
 }

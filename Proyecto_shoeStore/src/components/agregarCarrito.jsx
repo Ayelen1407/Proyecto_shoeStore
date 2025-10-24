@@ -10,7 +10,6 @@ const Product = ({ products, onAddToCart }) => {
     const addToCart = async () => {
         setLoading(true);
         try {
-            // Asume que tienes el id_usuario desde autenticación (ej. localStorage o contexto)
             const id_usuario = localStorage.getItem('id_usuario'); 
             if (!id_usuario) {
                 setMessage('Debes iniciar sesión');
@@ -22,7 +21,7 @@ const Product = ({ products, onAddToCart }) => {
                 cantidad: cantidad
             });
             setMessage(response.data.mensaje);
-            onAddToCart(id_shoes, cantidad);  // Actualiza el carrito local
+            onAddToCart(id_shoes, cantidad); 
         } catch (error) {
             setMessage('Error al agregar al carrito');
             console.error(error);
@@ -32,7 +31,6 @@ const Product = ({ products, onAddToCart }) => {
     };
     return (
         <div style={{ border: '1px solid #ccc', padding: '10px', margin: '10px' }}>
-            {/* Renderiza la imagen solo si existe y no está vacía */}
             {product.img_url && product.img_url.trim() !== '' ? (
                 <img src={products.imagen} alt={products.name} style={{ width: '100px', height: '100px' }} />
             ) : (

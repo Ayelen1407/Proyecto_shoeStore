@@ -1,5 +1,9 @@
+main {
+  margin-top: 80px; /* depende de la altura del header */
+}
+
 .header {
- background-color: #111111;
+ background-color: rgb(54, 52, 80);
  overflow:visible !important;
  z-index: 1000;
  padding: 5px 30px;
@@ -125,13 +129,12 @@
 
 
 .ventana-categorias {
- position: fixed; /* igual que el carrito */
- top: 70px;
- left: 30px;
- background-color: rgb(73, 73, 73);
- color: white;
- padding: 15px;
- border-radius: 8px;
- box-shadow: 0 4px 8px rgba(0,0,0,0.1);
- z-index: 1200;
+ background-color: rgb(17, 70, 67);
+ position: relative; /* igual que el carrito */
+ background:none;
+ color: beige;
+ border: none;
+ z-index: 1100;
+ font-size: 1.5rem;
+ margin-left: 20px;
 }
