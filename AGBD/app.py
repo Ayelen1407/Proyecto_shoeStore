@@ -63,7 +63,7 @@ def mostrar_shoes():
 def mostrar_basicas():
     db = abrirConexion()
     cursor = db.cursor(dictionary=True)  # dictionary=True devuelve filas como diccionarios
-    cursor.execute("SELECT nombre, marca, tipo, id_talles, precio FROM shoes WHERE tipo = 'basica'")  # productos es tu tabla
+    cursor.execute("SELECT nombre, marca, tipo, id_talles, precio, img_url FROM shoes WHERE tipo = 'basica'")  # productos es tu tabla
     data = cursor.fetchall()  # trae todas las filas
     cursor.close()
     db.close()
@@ -75,7 +75,7 @@ def mostrar_basicas():
 def mostrar_deportivas():
     db = abrirConexion()
     cursor = db.cursor(dictionary=True) 
-    cursor.execute("SELECT nombre, marca, tipo, id_talles, precio FROM shoes WHERE tipo = 'deportiva'") 
+    cursor.execute("SELECT nombre, marca, tipo, id_talles, precio, img_url FROM shoes WHERE tipo = 'deportiva'") 
     data = cursor.fetchall()
     cursor.close()
     db.close()
@@ -88,7 +88,7 @@ def mostrar_deportivas():
 def mostrar_highTops():
     db = abrirConexion()
     cursor = db.cursor(dictionary=True) 
-    cursor.execute("SELECT nombre, marca, tipo, id_talles, precio FROM shoes WHERE tipo = 'high-top'") 
+    cursor.execute("SELECT nombre, marca, tipo, id_talles, precio, img_url FROM shoes WHERE tipo = 'high-top'") 
     data = cursor.fetchall()
     cursor.close()
     db.close()
@@ -101,7 +101,7 @@ def mostrar_highTops():
 def mostrar_running():
     db = abrirConexion()
     cursor = db.cursor(dictionary=True) 
-    cursor.execute("SELECT nombre, marca, tipo, id_talles, precio FROM shoes WHERE tipo = 'running'") 
+    cursor.execute("SELECT nombre, marca, tipo, id_talles, precio, img_url FROM shoes WHERE tipo = 'running'") 
     data = cursor.fetchall()
     cursor.close()
     db.close()
