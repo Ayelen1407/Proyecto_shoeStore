@@ -78,7 +78,7 @@ export default function Register() {
           type="submit"
           disabled={loading}
           style={{
-            background: loading ? '#ccc' : '#145a56ff',
+            background: loading ? '#ccc' : ' rgb(54, 52, 80)',
             cursor: loading ? 'not-allowed' : 'pointer',
           }}
         >
@@ -92,7 +92,7 @@ export default function Register() {
         <div
           style={{
             background: message.includes('Error') ? '#f8d7da' : '#d4edda',
-            color: message.includes('Error') ? '#721c24' : '#155724',
+            color: message.includes('Error') ? '#86353dff' : '#2f693dff',
           }}>
           {message}
         </div>

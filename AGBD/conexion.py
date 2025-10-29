@@ -31,26 +31,62 @@ def get_db_connection():
 @app.route('/api/basicas')
 def mostrar_basicas():
    db = get_db_connection()
-   cursor = db.cursor(dictionary=True)  # dictionary=True devuelve filas como diccionarios
-   cursor.execute("SELECT nombre, marca, tipo, id_talles, precio, img_url FROM shoes WHERE tipo = 'basica'")  # productos es tu tabla
-   data = cursor.fetchall()  # trae todas las filas
-   cursor.close()
-   db.close()
-  
-   return jsonify(data)  # por ahora devolvemos los resultados como texto
+   cursor = db.cursor()
+   try:
+       cursor.execute("SELECT id_shoes, nombre, tipo, marca, precio, img_url FROM shoes WHERE tipo = 'basica'")
+       rows = cursor.fetchall()
+      
+       # Convierte los resultados a una lista de diccionarios
+       products = []
+       for row in rows:
+           product = {
+               "id": row[0],
+               "name": row[1],
+               "type": row[2],
+               "brand": row[3],
+               "price": (row[4]),
+               "image": row[5] if row[5] else None
+           }
+           products.append(product)
+      
+       return jsonify(products), 200
+   except Exception as e:
+       print("ERROR EN /api/high-top:", e) # Ver error en consola
+       return jsonify({"error": "Error al obtener productos", "detalle": str(e)}), 500
+   finally:
+       cursor.close()
+       db.close() # por ahora devolvemos los resultados como texto
 
 
 #muestra todas las deportivas
 @app.route('/api/deportivas')
 def mostrar_deportivas():
    db = get_db_connection()
-   cursor = db.cursor(dictionary=True)
-   cursor.execute("SELECT nombre, marca, tipo, id_talles, precio, img_url FROM shoes WHERE tipo = 'deportiva'")
-   data = cursor.fetchall()
-   cursor.close()
-   db.close()
-  
-   return jsonify(data) 
+   cursor = db.cursor()
+   try:
+       cursor.execute("SELECT id_shoes, nombre, tipo, marca, precio, img_url FROM shoes WHERE tipo = 'deportiva'")
+       rows = cursor.fetchall()
+      
+       # Convierte los resultados a una lista de diccionarios
+       products = []
+       for row in rows:
+           product = {
+               "id": row[0],
+               "name": row[1],
+               "type": row[2],
+               "brand": row[3],
+               "price": (row[4]),
+               "image": row[5] if row[5] else None
+           }
+           products.append(product)
+      
+       return jsonify(products), 200
+   except Exception as e:
+       print("ERROR EN /api/high-top:", e) # Ver error en consola
+       return jsonify({"error": "Error al obtener productos", "detalle": str(e)}), 500
+   finally:
+       cursor.close()
+       db.close()
 
 
 
@@ -59,13 +95,31 @@ def mostrar_deportivas():
 @app.route('/api/high-tops')
 def mostrar_highTops():
    db = get_db_connection()
-   cursor = db.cursor(dictionary=True)
-   cursor.execute("SELECT nombre, marca, tipo, id_talles, precio, img_url FROM shoes WHERE tipo = 'high-top'")
-   data = cursor.fetchall()
-   cursor.close()
-   db.close()
-  
-   return jsonify(data)
+   cursor = db.cursor()
+   try:
+       cursor.execute("SELECT id_shoes, nombre, tipo, marca, precio, img_url FROM shoes WHERE tipo = 'high-top'")
+       rows = cursor.fetchall()
+      
+       # Convierte los resultados a una lista de diccionarios
+       products = []
+       for row in rows:
+           product = {
+               "id": row[0],
+               "name": row[1],
+               "type": row[2],
+               "brand": row[3],
+               "price": (row[4]),
+               "image": row[5] if row[5] else None
+           }
+           products.append(product)
+      
+       return jsonify(products), 200
+   except Exception as e:
+       print("ERROR EN /api/high-top:", e) # Ver error en consola
+       return jsonify({"error": "Error al obtener productos", "detalle": str(e)}), 500
+   finally:
+       cursor.close()
+       db.close()
 
 
 #muestra todas las running
@@ -217,6 +271,35 @@ def protected():
 @app.route('/', methods=['GET'])
 def home():
    return jsonify({"message": "API de Auth - Usa /register o /login"})
+
+
+@app.route('/api/shoes/<int:id>', methods=['GET'])
+def mostrar_shoe_detalle(id):
+    db = get_db_connection()
+    cursor = db.cursor()
+    try:
+        cursor.execute("SELECT id_shoes, nombre, tipo, marca, precio, id_talles, img_url FROM shoes WHERE id_shoes = %s", (id,))
+        row = cursor.fetchone()
+       
+        if row:
+            product = {
+                "id": row[0],
+               "name": row[1],
+               "type": row[2],
+               "brand": row[3],
+               "price": (row[4]),
+               "zise": row[5],
+               "image": row[6] if row[6] else None
+            }
+            return jsonify(product), 200
+        else:
+            return jsonify({"error": "Producto no encontrado"}), 404
+    except Exception as e:
+        print("ERROR EN /api/shoes/<id>:", e)
+        return jsonify({"error": "Error al obtener producto", "detalle": str(e)}), 500
+    finally:
+        cursor.close()
+        db.close()
 
 
 #muestra tabla shoes. /api porque se conecta con lo de fede

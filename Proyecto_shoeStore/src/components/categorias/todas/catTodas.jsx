@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useCart } from "../../cartContext";
 import { IoMdArrowRoundBack } from "react-icons/io";
+import { Link } from "react-router-dom";
 import "./catTodas.css"
 
 
@@ -24,6 +25,7 @@ function CatTodas() {
        setLoading(false);
      });
    }, []);
+
     if (loading) return <p>Cargando...</p>;
    if (!products || products.length === 0) return <p>No hay productos.</p>;
 
@@ -46,7 +48,12 @@ return (
       <h3>{product.name}</h3>
       <h4>{product.brand}</h4>
       <p>$ {product.price}</p>
-      <button className="button" onClick={() => manejarClick(product)}>Agregar al carrito</button>
+      
+
+      <Link to={`/shoes/${product.id}`}>
+      <button className="button">Ver Detalles</button>
+      </Link>
+    
     </div>
   ))}
   </div>
