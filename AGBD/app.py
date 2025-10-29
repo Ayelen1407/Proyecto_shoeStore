@@ -108,6 +108,21 @@ def mostrar_running():
     
     return jsonify(data) 
 
+
+#Ruta para mostrar seccion principal (productos destacados)
+@app.route('/api/seccion/destacadas', methods=['GET'])
+def mostrar_seccionPrincipal():
+   db = abrirConexion()
+   cursor = db.cursor(dictionary=True) 
+   query = "SELECT nombre, img_url FROM shoes WHERE id_shoes IN (%s, %s, %s)"
+   valores = (2, 4, 5)
+   cursor.execute(query, valores)  # productos es tu tabla
+   data = cursor.fetchall()  # trae todas las filas
+   cursor.close()
+   db.close()
+  
+   return jsonify(data)
+
 #muestra las destacados
 @app.route('/api/shoes/destacados', methods=['GET'])
 def mostrar_destacados():

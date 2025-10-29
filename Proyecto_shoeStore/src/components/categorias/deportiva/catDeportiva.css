@@ -4,6 +4,7 @@
     grid-template-columns: repeat(4, 1fr); /* Crea 4 columnas del mismo tamaño */
     gap: 20px; /* Espacio entre los elementos */
     padding: 20px;
+    width: 90%;
   }
   
   .grid-item {

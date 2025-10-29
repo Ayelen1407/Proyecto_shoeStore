@@ -10,15 +10,15 @@ import {  useCart } from "../cartContext";
 
 export default function Header() {
  const [searchTerm, setSearchTerm] = useState("");
-  const [categoryWindowOpen, setCategoryWindowOpen] = useState(false); // sstado para mostrar o ocultar las categorías
- const [selectedCategory, setSelectedCategory] = useState(null); // para guardar la categoria seleccionada
+ const [categoriaVentana, setCategoriaVentana] = useState(false); // sstado para mostrar o ocultar las categorías
+ const [seleccionCategoria, setSeleccionCategoria] = useState(null); // para guardar la categoria seleccionada
 
 
  const categories = ['Básica', 'Deportiva', 'High-top', 'Running'];
 
 
- const toggleCategoryWindow = () => {
-   setCategoryWindowOpen(!categoryWindowOpen); // abre o cierra la ventana de categorías
+ const alternaVentana = () => {
+   setCategoriaVentana(!categoriaVentana); // abre o cierra la ventana de categorías
  };
 
 
@@ -67,24 +67,24 @@ export default function Header() {
      </nav>
 
 
-     <button onClick={toggleCategoryWindow} className="boton-categorias">
+     <button onClick={alternaVentana} className="boton-categorias">
        <TbShoe />
      </button>
 
 
-     {categoryWindowOpen && (
+     {categoriaVentana && (
        <div className="ventana-categorias">
-         <h2>Categorías</h2>
+         <h3>Categorias</h3>
          <ul>
            {categories.map((category) => (
              <li key={category}>
-               <button onClick={() => setSelectedCategory(category)}>
+               <button onClick={() => setSeleccionCategoria(category)}>
                  {category}
                </button>
              </li>
            ))}
          </ul>
-         {selectedCategory && <p>Has seleccionado la categoría: {selectedCategory}</p>}
+         {seleccionCategoria && <p>Has seleccionado la categoria: {seleccionCategoria}</p>}
        </div>
      )}
 
