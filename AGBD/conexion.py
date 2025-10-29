@@ -32,7 +32,7 @@ def get_db_connection():
 def mostrar_basicas():
    db = get_db_connection()
    cursor = db.cursor(dictionary=True)  # dictionary=True devuelve filas como diccionarios
-   cursor.execute("SELECT nombre, marca, tipo, id_talles, precio FROM shoes WHERE tipo = 'basica'")  # productos es tu tabla
+   cursor.execute("SELECT nombre, marca, tipo, id_talles, precio, img_url FROM shoes WHERE tipo = 'basica'")  # productos es tu tabla
    data = cursor.fetchall()  # trae todas las filas
    cursor.close()
    db.close()
@@ -45,7 +45,7 @@ def mostrar_basicas():
 def mostrar_deportivas():
    db = get_db_connection()
    cursor = db.cursor(dictionary=True)
-   cursor.execute("SELECT nombre, marca, tipo, id_talles, precio FROM shoes WHERE tipo = 'deportiva'")
+   cursor.execute("SELECT nombre, marca, tipo, id_talles, precio, img_url FROM shoes WHERE tipo = 'deportiva'")
    data = cursor.fetchall()
    cursor.close()
    db.close()
@@ -60,35 +60,49 @@ def mostrar_deportivas():
 def mostrar_highTops():
    db = get_db_connection()
    cursor = db.cursor(dictionary=True)
-   cursor.execute("SELECT nombre, marca, tipo, id_talles, precio FROM shoes WHERE tipo = 'high-top'")
+   cursor.execute("SELECT nombre, marca, tipo, id_talles, precio, img_url FROM shoes WHERE tipo = 'high-top'")
    data = cursor.fetchall()
    cursor.close()
    db.close()
   
    return jsonify(data)
-
-
 
 
 #muestra todas las running
-@app.route('/api/running')
+@app.route('/api/running', methods=['GET'])
 def mostrar_running():
    db = get_db_connection()
-   cursor = db.cursor(dictionary=True)
-   cursor.execute("SELECT nombre, marca, tipo, id_talles, precio FROM shoes WHERE tipo = 'running'")
-   data = cursor.fetchall()
-   cursor.close()
-   db.close()
-  
-   return jsonify(data)
-
-
+   cursor = db.cursor()
+   try:
+       cursor.execute("SELECT id_shoes, nombre, tipo, marca, precio, img_url FROM shoes WHERE tipo = 'running'")
+       rows = cursor.fetchall()
+      
+       # Convierte los resultados a una lista de diccionarios
+       products = []
+       for row in rows:
+           product = {
+               "id": row[0],
+               "name": row[1],
+               "type": row[2],
+               "brand": row[3],
+               "price": (row[4]),
+               "image": row[5] if row[5] else None
+           }
+           products.append(product)
+      
+       return jsonify(products), 200
+   except Exception as e:
+       print("ERROR EN /api/running:", e) # Ver error en consola
+       return jsonify({"error": "Error al obtener productos", "detalle": str(e)}), 500
+   finally:
+       cursor.close()
+       db.close()
 
 
 @app.route('/api/shoes/destacados', methods=['GET'])
 def mostrar_destacados():
    db = get_db_connection()
-   cursor = db.cursor(dictionary=True)  # dictionary=True devuelve filas como diccionarios
+   cursor = db.cursor(dictionary=True) 
    query = "SELECT * FROM shoes WHERE nombre IN (%s, %s, %s, %s)"
    valores = ('Samba OG', 'Amplimove', 'MC trainer', 'Dunk low retro')
    cursor.execute(query, valores)  # productos es tu tabla
@@ -242,7 +256,7 @@ def mostrar_seccionPrincipal():
    db = get_db_connection()
    cursor = db.cursor(dictionary=True) 
    query = "SELECT nombre, img_url FROM shoes WHERE id_shoes IN (%s, %s, %s)"
-   valores = (2, 4, 5)
+   valores = (27, 28, 30)
    cursor.execute(query, valores)  # productos es tu tabla
    data = cursor.fetchall()  # trae todas las filas
    cursor.close()

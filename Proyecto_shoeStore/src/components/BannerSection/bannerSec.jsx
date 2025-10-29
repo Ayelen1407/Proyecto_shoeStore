@@ -41,15 +41,15 @@ export default function BannerPrincipal() {
   const shoe = featuredShoes[currentIndex];
 
   return (
-    <section className="hero">
+    <section className="banner-principal">
       <button className="arrow left" onClick={prevSlide}>
         &#10094;
       </button>
 
-      <div className="hero-content">
-        <h1 className="hero-title">{shoe.nombre}</h1>
-        <p className="hero-subtitle">Las que te acompañarán siempre</p>
-        <button className="hero-btn">¡Aprovecha!</button>
+      <div className="banner-contenido">
+        <h1 className="nombre-zapas">{shoe.nombre}</h1>
+        <p className="subtitulo">¡Ve nuestros nuevos ingresos!</p>
+        <a href = "/"><button className="aprovecha">¡Aprovecha!</button></a>
       </div>
 
       <div className="hero-image">
