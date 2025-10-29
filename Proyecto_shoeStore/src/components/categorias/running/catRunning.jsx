@@ -35,7 +35,7 @@ const manejarClick = (producto) => {
 return (
   <>
   <div className="botonYfrase">
-    <h1 className="frase">Todos nuestros productos</h1>
+    <h1 className="frase">Zapatillas Running</h1>
     <a href = "/"><button><IoMdArrowRoundBack /></button></a>
   </div>
 
