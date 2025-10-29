@@ -135,6 +135,9 @@ main {
 
 
 
+
+
+
 .boton-categorias {
   color:beige;
   font-size: 1.5rem;
@@ -146,10 +149,10 @@ main {
 }
 
 .ventana-categorias {
-  position: fixed;
+  position:fixed;
   top: 70px; /* Justo debajo del header */
   right: 0;
-  width: 400px;
+  margin-right: 250px;
   max-height: 400px;
   background-color: rgb(255, 255, 255);
   border: 1px solid #ccc;
@@ -166,7 +169,40 @@ main {
   color:rgb(54, 52, 80);
 }
 
-.ventana-categorias p {
+.ventana-categorias button {
+  margin-top: 0;
+  color:rgb(255, 255, 255);
+  background-color: rgb(163, 146, 185);
+  height: 40px;
+}
+
+
+
+.ventana-marcas {
+  position: fixed;
+  top: 70px; /* Justo debajo del header */
+  right: 0;
+  margin-right: 127px;
+  max-height: 400px;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 15px;
+  z-index: 1200;
+  overflow-y: auto;
+  border-radius: 8px;
+  margin-top: 5px; 
+}
+
+.ventana-marcas h3 {
   margin-top: 0;
   color:rgb(54, 52, 80);
 }
+
+.ventana-marcas button {
+  margin-top: 0;
+  color:rgb(255, 255, 255);
+  background-color: rgb(163, 146, 185);
+  height: 35px;
+}
+

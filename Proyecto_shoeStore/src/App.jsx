@@ -1,7 +1,4 @@
 import './App.css';
-import { CartProvider } from "./components/cartContext";
-import Footer from './components/footer/footer';
-import Header from "./components/Header/Header";
 import Basicas from "./components/zapatillasBasicas/basicas";
 import Deportivas from "./components/zapatillasDeportivas/deportivas";
 import HighTop from './components/zapatillasHightop/high-top';
@@ -14,7 +11,6 @@ import BannerPrincipal from './components/BannerSection/bannerSec';
 function App() {
  return (
      <>
-     <Header/>
      <BannerPrincipal/>
        <div className="contenedor-principal">
          <Basicas/>
@@ -26,10 +22,8 @@ function App() {
        </div>
        <Destacado/>
        <GrillaDes/>
-    
        <br/>
-       <br/>
-       <Footer/>    
+       <br/>    
    </>
  );
 }
