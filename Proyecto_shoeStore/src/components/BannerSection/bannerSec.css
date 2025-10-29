@@ -1,10 +1,10 @@
-.hero {
+.banner-principal {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 80px 5%;
     background: linear-gradient(90deg, #9897e9, #deddfc);
-    min-height: 80vh;
+    min-height: 85vh;
     position: relative;
     width: 100vw;
     margin: 0;
@@ -13,28 +13,26 @@
     overflow: hidden;
 }
 
-
-
-.hero-content {
+.banner-contenido {
     flex: 1;
     max-width: 500px;
     z-index: 2;
 }
 
-.hero-title {
+.nombre-zapas {
     font-size: 3rem;
     font-weight: bold;
     color: #222;
 }
 
-.hero-subtitle {
+.subtitulo {
     font-weight: bold;
     font-size: 1.2rem;
     color: rgb(44, 43, 65);
     margin: 15px 0 30px;
 }
 
-.hero-btn {
+.aprovecha {
     background-color: rgb(54, 52, 80);
     color: white;
     border: none;
@@ -54,7 +52,7 @@
     max-width: 100%;
     transform: rotate(-5deg);
     transition: transform 0.4s ease, opacity 0.4s ease;
-    cursor: zoom-in;
+    cursor: pointer;
 }
 
 .hero-image img:hover {
