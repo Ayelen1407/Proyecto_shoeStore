@@ -15,14 +15,18 @@ const Footer = () => {
          <a href="/high-tops" className="footer-2">High-Top</a>
          <a href="/running" className="footer-2">Running</a>
          <a href="/shoes" className="footer-2">Todas</a>
-
+      </div>
+      <div className="contactanos">
+        <h1 className="footer-1">MARCAS</h1>
+        <a href="/adidas" className="footer-2">Adidas</a>
+        <a href="/nike" className="footer-2">Nike</a>
+        <a href="/puma" className="footer-2">Puma</a>
       </div>
       <div className="contactanos">
          <h1 className="footer-1 ">CONTACTANOS</h1>
          <a href="" className="footer-2"><AiOutlineWhatsApp/> numero:1161929792</a>
          <a href="" className="footer-2"><CgMail/> email: shoeStore@gmail.com</a>
          <a href="" className="footer-2"><FiInstagram/> instagram: shoe_store</a>
-         <button className="footer-2 "></button>
       </div>
     </footer>
   );

@@ -3,7 +3,7 @@ main {
 }
 
 .header {
- background-color: rgb(54, 52, 80);
+ background-color: rgb(33, 30, 65);
  overflow:visible !important;
  z-index: 1000;
  padding: 5px 30px;
@@ -36,16 +36,17 @@ main {
 }
 
 
-.nav-list a {
+.lista-nav a {
  color: white;
  text-decoration: none;
  transition: color 0.3s;
 }
 
 
-.nav-list a:hover {
- color: #cce4ff; /* Efecto hover */
+.lista-nav a:hover {
+ color: #88848d; /* Efecto hover */
 }
+
 /*para la lupa*/
 .search-input {
  padding: 5px 10px;
@@ -73,8 +74,10 @@ main {
 }
 
 
-/*para el carrito*/
-.boton-carrito {
+
+
+
+.carrito {
  color:beige;
  font-size: 1.5rem;
  background: none;
@@ -84,6 +87,9 @@ main {
  z-index: 1100; /* Para que esté sobre la ventana */
 }
 
+.carrito:hover {
+ color: #88848d; /* Efecto hover */
+}
 
 .ventana-carrito {
  position: fixed;
@@ -100,7 +106,6 @@ main {
  border-radius: 8px;
  margin-top: 5px; /* Separación del header */
 }
-
 
 .ventana-carrito h3 {
  margin-top: 0;
@@ -138,7 +143,7 @@ main {
 
 
 
-.boton-categorias {
+.categorias {
   color:beige;
   font-size: 1.5rem;
   background: none;
@@ -148,13 +153,12 @@ main {
   z-index: 1100;
 }
 
-<<<<<<< HEAD
-.ventana-carrito {
-  position: fixed; 
-=======
+.categorias:hover {
+ color: #88848d; /* Efecto hover */
+}
+
 .ventana-categorias {
   position:fixed;
->>>>>>> ed2f40ed932f0c3c49aeae6038ffb2f78b4dbfb2
   top: 70px; /* Justo debajo del header */
   right: 0;
   margin-right: 250px;
@@ -211,17 +215,3 @@ main {
   height: 35px;
 }
 
-<<<<<<< HEAD
-.ventana-categorias {
-  position: fixed; /* igual que el carrito */
-  top: 70px;
-  left: 30px;
-  background-color: rgb(73, 73, 73);
-  color: white;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  z-index: 1200;
-}
-=======
->>>>>>> ed2f40ed932f0c3c49aeae6038ffb2f78b4dbfb2

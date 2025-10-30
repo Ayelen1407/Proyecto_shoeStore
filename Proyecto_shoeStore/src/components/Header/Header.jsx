@@ -78,9 +78,9 @@ export default function Header() {
       </nav>
 
 
-      <button onClick={alternaVentana} className="boton-categorias">
+      <a onClick={alternaVentana} className="categorias">
         <TbShoe />
-      </button>
+      </a>
 
 
       {categoriaVentana && (
@@ -108,9 +108,9 @@ export default function Header() {
       )}
 
 
-      <button className="boton-carrito" onClick={Carrito} aria-label="Abrir carrito">
+      <a className="carrito" onClick={Carrito} aria-label="Abrir carrito">
         <TiShoppingCart />
-      </button>
+      </a>
 
 
       {carritoAbierto && (

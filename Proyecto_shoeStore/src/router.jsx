@@ -13,6 +13,9 @@ import DetallesProducto from "./components/categorias/todas/detallesTodas";
 import Header from "./components/Header/Header";
 import Productos from "./components/Productos(header)/productos";
 import Footer from "./components/footer/footer";
+import GrillaAdidas from "./components/Marcas/adidas/adidas";
+import GrillaNike from "./components/Marcas/nike/nike";
+import GrillaPuma from "./components/Marcas/puma/puma";
 
 function Router() {
   return (
@@ -31,7 +34,9 @@ function Router() {
           <Route path="/shoes" element={<CatTodas />} />
           <Route path="/shoes/:id" element={<DetallesProducto />} />
           <Route path="/productos" element={<Productos />} />
-
+          <Route path="/adidas" element={<GrillaAdidas />}/>
+          <Route path="/nike" element={<GrillaNike/>}/>
+          <Route path="/puma" element={<GrillaPuma/>}/>
 
         </Routes>
         <Footer/>

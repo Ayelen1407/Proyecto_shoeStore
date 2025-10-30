@@ -10,12 +10,13 @@
 footer{
     display: flex;
     width: 100%;   
-    background:black;
+    background:rgb(16, 14, 37);
     color: white; 
     padding: 20px;     
     text-align: left;        
     margin: 0;
     padding-bottom: 10px;
+    gap: 200px;
 }
 
 .container{
@@ -28,6 +29,8 @@ footer{
     margin:2px;
     padding:2px;
     width: auto;
+    margin-left: 65px;
+
 }
 
 .contactanos{
@@ -61,7 +64,6 @@ footer{
     font-family:Arial;
     padding: 5px;
     font-weight:lighter;
-    background-color: black;
     display: block
     
 }

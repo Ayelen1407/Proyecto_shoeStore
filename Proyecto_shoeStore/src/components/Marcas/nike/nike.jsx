@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
 import { useCart } from "../../cartContext";
 import { IoMdArrowRoundBack } from "react-icons/io";
-import "./catDeportiva.css"
+import "./nike.css"
 
 
-function GrillaDeportiva() {
+function GrillaNike() {
    const { agregarAlCarrito } = useCart();
    const [products, setProducts] = useState([]);
    const [loading, setLoading] = useState(true);
 
 
    useEffect(() => {
-     fetch("/api/deportivas")
+     fetch("/api/nike")
      .then((res) => res.json())
      .then((data) => {
          setProducts(data);
@@ -35,7 +35,7 @@ const manejarClick = (producto) => {
 return (
   <>
   <div className="botonYfrase">
-    <h1 className="frase">Zapatillas Deportivas</h1>
+    <h1 className="frase">Zapatillas Nike</h1>
     <a href = "/"><button><IoMdArrowRoundBack /></button></a>
   </div>
 
@@ -54,5 +54,4 @@ return (
 );
 }
 
-
-export default GrillaDeportiva;
+export default GrillaNike;
