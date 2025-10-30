@@ -14,17 +14,22 @@
   object-position: center;
 }
 
-.descripcion {
+.descripcion-h2 {
   text-align: center;
   margin-top: 10px;
-}
-
-.descripcion-h2 {
   font-size: 1.4rem;
   font-weight: bold;
   margin-bottom: 10px;
   color: #151f3b;
 }
 .button {
-  background: grey;
+  width: 100%;
+  padding: 10px;
+  margin-top: 15px;
+  background-color:  rgb(54, 52, 80);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
  }

@@ -35,7 +35,7 @@ export default function BannerPrincipal() {
 
   //un mensaje mientras carga
   if (featuredShoes.length === 0) {
-    return <div className="hero-loading">Cargando zapatillas...</div>;
+    return <div className="hero-loading">Cargando banner...</div>;
   }
 
   const shoe = featuredShoes[currentIndex];
