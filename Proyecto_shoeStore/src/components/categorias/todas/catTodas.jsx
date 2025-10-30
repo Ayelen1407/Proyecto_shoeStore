@@ -1,14 +1,12 @@
 import { useEffect, useState } from "react";
-import { useCart } from "../../cartContext";
 import { IoMdArrowRoundBack } from "react-icons/io";
-import { Link } from "react-router-dom";
 import "./catTodas.css"
-
+import DetallesProducto from "./detallesTodas";
 
 function CatTodas() {
-   const { agregarAlCarrito } = useCart();
-   const [products, setProducts] = useState([]);
+   const [products, setProducts] = useState();
    const [loading, setLoading] = useState(true);
+   const [selectProduct, setSelectProduct] = useState(null);
 
 
    useEffect(() => {
@@ -29,10 +27,9 @@ function CatTodas() {
     if (loading) return <p>Cargando...</p>;
    if (!products || products.length === 0) return <p>No hay productos.</p>;
 
-const manejarClick = (producto) => {
- agregarAlCarrito(producto);
-
-};
+   const handleProductClick = () => {
+     setSelectProduct(null);
+   };
 
 return (
   <>
@@ -49,14 +46,23 @@ return (
       <h4>{product.brand}</h4>
       <p>$ {product.price}</p>
       
-
-      <Link to={`/shoes/${product.id}`}>
-      <button className="button">Ver Detalles</button>
-      </Link>
+      <button className="button" onClick={() => setSelectProduct(product.id)}>
+        Ver Detalles
+      </button>
     
     </div>
   ))}
   </div>
+
+  {selectProduct && (
+    <div className="detalle-producto" onClick={handleProductClick}>
+
+      <div className="detalle-contenido" onClick={(e) => e.stopPropagation()}>
+        <button className="cerrar-boton" onClick={handleProductClick}>X</button>
+        <DetallesProducto productoExterno={products.find(p => p.id === selectProduct)} />
+      </div>    
+  </div>
+  )}
 </>
 );
 }

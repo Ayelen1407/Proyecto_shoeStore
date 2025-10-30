@@ -14,11 +14,21 @@
 }
 
 .detalles {
-    flex: 1;
-    padding: 20px;
+    flex: 1 1 400px;
+    background: #fff;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
 }
 
 .carrito-boton {
+    background: #4f3972ff;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+ .comentario-boton {
     background: #4f3972ff;
     color: white;
     padding: 10px;

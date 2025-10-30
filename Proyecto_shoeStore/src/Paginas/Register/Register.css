@@ -61,10 +61,6 @@ input:focus {
   cursor: pointer;
 }
 
-button:hover {
-  background-color: #1d1d1d; /*es el color que se pone cuando apoyo el cursor (para todos los botones)*/
-}
-
 .message {
     margin-top: 20px;
     font-weight: bold;

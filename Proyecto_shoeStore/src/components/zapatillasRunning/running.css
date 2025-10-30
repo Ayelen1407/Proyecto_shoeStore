@@ -14,12 +14,9 @@
   object-position: center;
 }
 
-.descripcion {
+.descripcion-h2 {
   text-align: center;
   margin-top: 10px;
-}
-
-.descripcion-h2 {
   color: ·¡#151f3b;
   font-size: 1.4rem;
   font-weight: bold;

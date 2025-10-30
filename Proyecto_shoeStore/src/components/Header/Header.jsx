@@ -77,6 +77,41 @@ export default function Header() {
         </ul>
       </nav>
 
+<<<<<<< HEAD
+      <button onClick={toggleCategoryWindow} className="boton-categorias">
+        <TbShoe />
+      </button>
+
+      {categoryWindowOpen && (
+        <div className="ventana-categorias">
+          <h2>Categorías</h2>
+          <ul>
+            {categories.map((category) => (
+              <li key={category}>
+                <button onClick={() => setSelectedCategory(category)}>
+                  {category}
+                </button>
+              </li>
+            ))}
+          </ul>
+          {/* Mostrar la categoría seleccionada */}
+          {selectedCategory && <p>Has seleccionado la categoría: {selectedCategory}</p>}
+        </div>
+      )}
+
+      <button className="boton-carrito" onClick={Carrito} aria-label="Abrir carrito">
+        <TiShoppingCart />
+      </button>
+
+      {carritoAbierto && (
+        <div className="ventana-carrito">
+          <h3>Carrito de compras</h3>
+          <p>El carrito está vacío.</p>
+          <button onClick={Carrito} className="cerrar-carrito">Cerrar</button>
+        </div>
+      )}
+
+=======
 
       <a onClick={alternaVentana} className="categorias">
         <TbShoe />
@@ -122,6 +157,7 @@ export default function Header() {
       )}
 
 
+>>>>>>> ed2f40ed932f0c3c49aeae6038ffb2f78b4dbfb2
     </header>
   );
 }

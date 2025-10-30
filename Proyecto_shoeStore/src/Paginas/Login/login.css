@@ -56,16 +56,12 @@ input:focus {
   width: 100%;
   padding: 10px;
   margin-top: 15px;
-  background-color: rgb(54, 52, 80);
-  color: white;
+  background-color: rgb(77, 74, 116);
+  color: rgb(54, 52, 80);
   border: none;
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
-}
-
-button:hover {
- background-color: rgb(54, 52, 80); /*cambia el color de la caja a mas oscuro cuando lo presionamos*/
 }
 
 .message {
