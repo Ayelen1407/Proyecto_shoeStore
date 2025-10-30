@@ -1,24 +1,5 @@
-<<<<<<< HEAD
-.header {
-  background-color: #111111;
-  overflow:visible !important;
-  z-index: 1000;
-  padding: 5px 30px;
-  display: flex;
-  justify-content:space-between;
-  align-items: center;
-  color: white;
-  width: 100%;
-  height: 70px;
-  box-sizing: border-box;
-  position: sticky; /*para posicionar el carrito*/
-  top: 0;
-  left: 0;
-  right: 0;
-=======
 main {
   margin-top: 80px; /* depende de la altura del header */
->>>>>>> ed2f40ed932f0c3c49aeae6038ffb2f78b4dbfb2
 }
 
 .header {
