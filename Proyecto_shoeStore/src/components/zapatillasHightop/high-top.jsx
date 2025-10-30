@@ -7,7 +7,7 @@ export default function HighTop() {
     alt="Zapatillas High-top" />
     <div className="Zapatilla deportiva">
       <h2 className="descripcion-h2">HIGH-TOP</h2>
-      <button>VER MÁS</button>
+      <a href="/high-tops"><button>VER MÁS</button></a>
     </div>
   </div>
   );

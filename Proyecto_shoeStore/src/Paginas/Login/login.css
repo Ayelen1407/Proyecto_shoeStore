@@ -10,7 +10,7 @@ body {
 
 /*tamaño de la caja*/
 .login-container {
-  background-color: #1d7874;
+  background-color:  rgb(54, 52, 80);
   padding: 30px;
   border-radius: 10px;
   width: 300px;
@@ -19,7 +19,7 @@ body {
 
 /*dentro de la caja*/
 .form {
-  background-color: #1d7874;
+  background-color:  rgb(54, 52, 80);
   padding: 30px ;
   border-radius: 10px; /*borde de la caja, mientras mas grande sea el numero mas redondo es la caja*/
   box-shadow: 0 8px 20px rgba(0,0,0,0.2);/*sombreado de la caja*/
@@ -28,7 +28,7 @@ body {
 /*cajita de iniciar sesion*/
 .log-h2 {
   text-align: center;
-  color: #1d7874;
+  color:  rgb(54, 52, 80);
   margin-bottom: 20px;
   font-size: 24px;
 }
@@ -47,7 +47,7 @@ body {
 }
 
 input:focus {
-  border-color: #1d7874;
+  border-color:  rgb(54, 52, 80);
   outline:none;
 }
 
@@ -56,7 +56,7 @@ input:focus {
   width: 100%;
   padding: 10px;
   margin-top: 15px;
-  background-color: #1d7874;
+  background-color: rgb(54, 52, 80);
   color: white;
   border: none;
   border-radius: 5px;
@@ -65,7 +65,7 @@ input:focus {
 }
 
 button:hover {
- background-color: #145c51; /*cambia el color de la caja a mas oscuro cuando lo presionamos*/
+ background-color: rgb(54, 52, 80); /*cambia el color de la caja a mas oscuro cuando lo presionamos*/
 }
 
 .message {
@@ -81,6 +81,6 @@ button:hover {
 }
 
 .log-p a {
-  color: #145a56ff;
+  color:  rgb(73, 69, 161);
   text-decoration: none;
 }

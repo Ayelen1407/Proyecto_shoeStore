@@ -55,7 +55,7 @@
 
 .button {
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: rgb(54, 52, 80);
     color: white;
     border: none;
     border-radius: 5px;
@@ -65,4 +65,32 @@
 button:disabled {
     background-color: #ccc;
     cursor: not-allowed;
+}
+
+.botonAtras {
+  justify-content:initial;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  margin: none;
+  color: rgb(65, 62, 121);
+  transition: color 0.3s ease;
+  align-items: flex-start;
+}
+
+.frase {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #222222;
+}
+
+.botonYfrase {
+  width: 100%;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; 
+  padding-left: 40px; 
+  box-sizing: border-box;
 }

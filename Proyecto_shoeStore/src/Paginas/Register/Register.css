@@ -9,7 +9,7 @@ body {
 }
 
 .register-container {
-  background-color: #1d7874;
+  background-color:  rgb(54, 52, 80);
   padding: 30px;
   border-radius: 10px;
   width: 300px;
@@ -26,7 +26,7 @@ body {
 
 .register-h2 {
   text-align: center;
-  color: #145a56ff;
+  color:  rgb(54, 52, 80);
   margin-bottom: 20px;
   font-size: 24px;
 }
@@ -44,7 +44,7 @@ body {
 }
 
 input:focus {
-  border-color: #1d7874;
+  border-color:  rgb(54, 52, 80);
   outline: none;
 }
 
@@ -53,7 +53,7 @@ input:focus {
   width: 100%;
   padding: 10px;
   margin-top: 15px;
-  background-color: #1d7874;
+  background-color:  rgb(54, 52, 80);
   color: white;
   border: none;
   border-radius: 5px;
@@ -62,7 +62,7 @@ input:focus {
 }
 
 button:hover {
-  background-color: #1d7874; /*es el color que se pone cuando apoyo el cursor*/
+  background-color: #1d1d1d; /*es el color que se pone cuando apoyo el cursor (para todos los botones)*/
 }
 
 .message {
@@ -79,6 +79,6 @@ button:hover {
   font-size: 13px;
 }
 .regis-p a {
-  color: #145a56ff;
+  color:  rgb(73, 69, 161);
   text-decoration: none;
 }

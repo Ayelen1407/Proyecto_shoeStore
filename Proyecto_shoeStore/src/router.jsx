@@ -7,13 +7,18 @@ import GrillaBasica from "./components/categorias/basica/catBasica";
 import GrillaDeportiva from "./components/categorias/deportiva/catDeportiva";
 import GrillaHighTop from "./components/categorias/high-top/catHighTop";
 import GrillaRunning from "./components/categorias/running/catRunning";
-import GrillaGeneral from "./components/categorias/todas/catTodas";
 import CatTodas from "./components/categorias/todas/catTodas";
 import {CartProvider}  from "./components/cartContext";
+import DetallesProducto from "./components/categorias/todas/detallesTodas";
+import Header from "./components/Header/Header";
+import Productos from "./components/Productos(header)/productos";
+import Footer from "./components/footer/footer";
+
 function Router() {
   return (
     <CartProvider>
         <BrowserRouter>
+        <Header/>
         <Routes>
           <Route path="/" element={<App />} />
           <Route path="/login" element={<Login />} />
@@ -24,8 +29,12 @@ function Router() {
           <Route path="/high-tops" element={<GrillaHighTop />} />
           <Route path="/running" element={<GrillaRunning />} />
           <Route path="/shoes" element={<CatTodas />} />
+          <Route path="/shoes/:id" element={<DetallesProducto />} />
+          <Route path="/productos" element={<Productos />} />
+
 
         </Routes>
+        <Footer/>
       </BrowserRouter>
     </CartProvider>
     

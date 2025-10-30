@@ -69,7 +69,7 @@ export default function Login() {
         type="submit"
         disabled={loading}
         style={{
-          background: loading ? '#1d7874' : '#145a56ff', 
+          background: loading ? 'rgb(54, 52, 80)' : 'rgb(54, 52, 80)', 
           cursor: loading ? 'not-allowed' : 'pointer',
         }}>
           {loading ? 'Iniciando...' : 'Iniciar Sesión'}
@@ -86,7 +86,7 @@ export default function Login() {
               padding: '10px',
               borderRadius: '5px',
               background: message.includes('Error') ? '#f8d7da' : '#d4edda',
-              color: message.includes('Error') ? '#721c24' : '#155724'
+              color: message.includes('Error') ? '#914a51ff' : '#3c814eff'
           }}
         >
           {message}

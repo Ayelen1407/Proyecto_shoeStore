@@ -7,7 +7,7 @@ export default function Running() {
     alt="Zapatillas Running" />
     <div className="Zapatilla running">
       <h2 className="descripcion-h2">RUNNING</h2>
-      <button>VER MÁS</button>
+      <a href="/running"><button>VER MÁS</button></a>
     </div>
   </div>
   );

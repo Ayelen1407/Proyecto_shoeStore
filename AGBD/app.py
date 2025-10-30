@@ -3,10 +3,13 @@
 import mysql.connector
 from flask import Flask, g, jsonify, request
 from categorias import categorias_bp
+from flask_cors import CORS
 
 
 app = Flask(__name__)
 app.register_blueprint(categorias_bp)
+# Enable CORS for all routes (allows frontend apps on other origins to call this API)
+CORS(app)
 
 def abrirConexion():
     if 'db' not in g:
@@ -29,19 +32,38 @@ def cerrarConexion(e=None):
 @app.route('/api/shoes', methods=['GET'])
 def mostrar_shoes():
    db = abrirConexion()
-   cursor = db.cursor(dictionary=True)  # dictionary=True devuelve filas como diccionarios (columna : valor)
-   cursor.execute("SELECT * FROM shoes")  # productos es tu tabla
-   resultados = cursor.fetchall()  # trae todas las filas/registros
-   cursor.close()
-   cerrarConexion()
-   return {"shoes": resultados}  #devolve los resultados como texto
+   cursor = db.cursor()
+   try:
+       cursor.execute("SELECT id_shoes, nombre, tipo, marca, precio, img_url FROM shoes")
+       rows = cursor.fetchall()
+      
+       # Convierte los resultados a una lista de diccionarios
+       products = []
+       for row in rows:
+           product = {
+               "id": row[0],
+               "name": row[1],
+               "type": row[2],
+               "brand": row[3],
+               "price": (row[4]),
+               "image": row[5] if row[5] else None
+           }
+           products.append(product)
+      
+       return jsonify(products), 200
+   except Exception as e:
+       print("ERROR EN /api/shoes:", e) # Ver error en consola
+       return jsonify({"error": "Error al obtener productos", "detalle": str(e)}), 500
+   finally:
+       cursor.close()
+       db.close()  #devolve los resultados como texto
 
 #muestra todas las basicas
-@app.route('/api/basicas')
+@app.route('/api/basicas',  methods=['GET'])
 def mostrar_basicas():
     db = abrirConexion()
     cursor = db.cursor(dictionary=True)  # dictionary=True devuelve filas como diccionarios
-    cursor.execute("SELECT nombre, marca, tipo, id_talles, precio FROM shoes WHERE tipo = 'basica'")  # productos es tu tabla
+    cursor.execute("SELECT nombre, marca, tipo, id_talles, precio, img_url FROM shoes WHERE tipo = 'basica'")  # productos es tu tabla
     data = cursor.fetchall()  # trae todas las filas
     cursor.close()
     db.close()
@@ -53,7 +75,7 @@ def mostrar_basicas():
 def mostrar_deportivas():
     db = abrirConexion()
     cursor = db.cursor(dictionary=True) 
-    cursor.execute("SELECT nombre, marca, tipo, id_talles, precio FROM shoes WHERE tipo = 'deportiva'") 
+    cursor.execute("SELECT nombre, marca, tipo, id_talles, precio, img_url FROM shoes WHERE tipo = 'deportiva'") 
     data = cursor.fetchall()
     cursor.close()
     db.close()
@@ -66,7 +88,7 @@ def mostrar_deportivas():
 def mostrar_highTops():
     db = abrirConexion()
     cursor = db.cursor(dictionary=True) 
-    cursor.execute("SELECT nombre, marca, tipo, id_talles, precio FROM shoes WHERE tipo = 'high-top'") 
+    cursor.execute("SELECT nombre, marca, tipo, id_talles, precio, img_url FROM shoes WHERE tipo = 'high-top'") 
     data = cursor.fetchall()
     cursor.close()
     db.close()
@@ -79,12 +101,27 @@ def mostrar_highTops():
 def mostrar_running():
     db = abrirConexion()
     cursor = db.cursor(dictionary=True) 
-    cursor.execute("SELECT nombre, marca, tipo, id_talles, precio FROM shoes WHERE tipo = 'running'") 
+    cursor.execute("SELECT nombre, marca, tipo, id_talles, precio, img_url FROM shoes WHERE tipo = 'running'") 
     data = cursor.fetchall()
     cursor.close()
     db.close()
     
     return jsonify(data) 
+
+
+#Ruta para mostrar seccion principal (productos destacados)
+@app.route('/api/seccion/destacadas', methods=['GET'])
+def mostrar_seccionPrincipal():
+   db = abrirConexion()
+   cursor = db.cursor(dictionary=True) 
+   query = "SELECT nombre, img_url FROM shoes WHERE id_shoes IN (%s, %s, %s)"
+   valores = (2, 4, 5)
+   cursor.execute(query, valores)  # productos es tu tabla
+   data = cursor.fetchall()  # trae todas las filas
+   cursor.close()
+   db.close()
+  
+   return jsonify(data)
 
 #muestra las destacados
 @app.route('/api/shoes/destacados', methods=['GET'])
@@ -273,7 +310,7 @@ def agregar_al_carrito():
 #paginado pedido la clase anterior
 @app.route('/api/shoes/paginado', methods=['GET'])
 def obtener_shoes():
-    page = int(request.args.get('page', 1))   # página actual (por defecto 1)
+    page = int(request.args.get('page', 1))   # página actual, por defecto 1
     limit = int(request.args.get('limit', 4)) # cantidad por página
     offset = (page - 1) * limit               # por dónde empezar
 

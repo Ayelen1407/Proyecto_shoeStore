@@ -1,22 +1,28 @@
 import "./Header.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaShoelace } from "react-icons/fa6";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { HiMiniMagnifyingGlass } from "react-icons/hi2";
 import { TbShoe } from "react-icons/tb";
 import { TiShoppingCart } from "react-icons/ti";
 import {  useCart } from "../cartContext";
 
+
 export default function Header() {
   const [searchTerm, setSearchTerm] = useState("");
-  
-  const [categoryWindowOpen, setCategoryWindowOpen] = useState(false); // sstado para mostrar o ocultar las categorías
-  const [selectedCategory, setSelectedCategory] = useState(null); // para guardar la categoria seleccionada
+  const [categoriaVentana, setCategoriaVentana] = useState(false); // sstado para mostrar o ocultar las categorías
+  const [seleccionCategoria, setSeleccionCategoria] = useState(null); // para guardar la categoria seleccionada
+  const [mostrarMarcas, setMostrarMarcas] = useState(false);
 
-  const categories = ['Básica', 'Deportiva', 'High-top', 'Running'];
+  const categories = ['basica', 'deportiva', 'high-top', 'running'];
+  const brands = ["nike", "adidas", "puma"];
 
-  const toggleCategoryWindow = () => {
-    setCategoryWindowOpen(!categoryWindowOpen); // abre o cierra la ventana de categorías
+  const navigate = useNavigate();//sirve para redirigir a otra ruta
+
+  const alternaVentana = () => {
+    setCategoriaVentana(!categoriaVentana); // abre o cierra la ventana de categorías
+    setMostrarMarcas(false);
+    setSeleccionCategoria(null);
   };
 
   const handleSubmit = (e) => {
@@ -25,16 +31,29 @@ export default function Header() {
   };
 
   const [carritoAbierto, setCarritoAbierto] = useState(false);
-
   const {productosCarrito} = useCart();
 
   const Carrito = () => {
     setCarritoAbierto(!carritoAbierto);
   };
 
+  // Al elegir una categoría
+  const handleCategoriaClick = (categoria) => {
+    setSeleccionCategoria(categoria);
+    setMostrarMarcas(true);
+  };
+
+  // Al elegir una marca → redirige a /productos?categoria=...&marca=...
+  const handleMarcaClick = (marca) => {
+    navigate(`/productos?categoria=${seleccionCategoria}&marca=${marca}`);
+    setMostrarMarcas(false);
+    setCategoriaVentana(false);
+  };
+
   return (
     <header className="header">
       <h1 className="logo"><FaShoelace /></h1>
+
 
       <form className="search-form" onSubmit={handleSubmit}>
         <input
@@ -50,6 +69,7 @@ export default function Header() {
         </button>
       </form>
 
+
       <nav>
         <ul className="lista-nav">
           <li><Link to="/login">Sign in</Link></li>
@@ -57,30 +77,41 @@ export default function Header() {
         </ul>
       </nav>
 
-      <button onClick={toggleCategoryWindow} className="boton-categorias">
+
+      <button onClick={alternaVentana} className="boton-categorias">
         <TbShoe />
       </button>
 
-      {categoryWindowOpen && (
+
+      {categoriaVentana && (
         <div className="ventana-categorias">
-          <h2>Categorías</h2>
-          <ul>
+          <h3>Categorias</h3>
             {categories.map((category) => (
               <li key={category}>
-                <button onClick={() => setSelectedCategory(category)}>
+                <button onClick={() =>  handleCategoriaClick(category)}>
                   {category}
                 </button>
               </li>
             ))}
-          </ul>
-          {/* Mostrar la categoría seleccionada */}
-          {selectedCategory && <p>Has seleccionado la categoría: {selectedCategory}</p>}
         </div>
       )}
+
+      {mostrarMarcas && (
+        <div className="ventana-marcas">
+          <h3>Marcas</h3>
+            {brands.map((brand) => (
+              <li key={brand}>
+                <button onClick={() => handleMarcaClick(brand)}>{brand}</button>
+              </li>
+            ))}
+        </div>
+      )}
+
 
       <button className="boton-carrito" onClick={Carrito} aria-label="Abrir carrito">
         <TiShoppingCart />
       </button>
+
 
       {carritoAbierto && (
         <div className="ventana-carrito">
@@ -89,6 +120,7 @@ export default function Header() {
           <button onClick={Carrito} className="cerrar-carrito">Cerrar</button>
         </div>
       )}
+
 
     </header>
   );

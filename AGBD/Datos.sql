@@ -118,17 +118,20 @@ INSERT INTO talles (id_Ctalles) VALUES /*talle aye*/
 (11);
 
 INSERT INTO shoes (nombre, tipo, marca, precio, id_talles) 
-VALUES  ('dunk Low Retro','basica', 'nike', '$160.000',6),
-		('MC trainer','deportivo','nike','$120.000',8),
-		('jordan 3 Retro','high-top','nike','$400.000',11),
-		('vomero 18','running','nike','$275.000',3),
-		('samba OG','basica','adidas','$190.000',2),
-		('amplimove','deportiva','adidas','$110.000',7),
-		('forum Mid','high-top','adidas','$152.000',9),
-		('superNova Rise','running','adidas','$187.000',1),
-		('rebound Retro','basica','puma','$143.000',4),
-		('darter Pro','deportiva','puma','$110.000',10),
-		('carina Mid','high-top','puma','$130.000',5);
+VALUES  ('dunk Low Retro','basica', 'nike', '160.000',6),
+		('MC trainer','deportiva','nike','120.000',8),
+		('jordan 3 Retro','high-top','nike','400.000',11),
+		('vomero 18','running','nike','275.000',3),
+		('samba OG','basica','adidas','190.000',2),
+		('amplimove','deportiva','adidas','110.000',7),
+		('forum Mid','high-top','adidas','152.000',9),
+		('superNova Rise','running','adidas','187.000',1),
+		('rebound Retro','basica','puma','143.000',4),
+		('darter Pro','deportiva','puma','110.000',10),
+		('carina Mid','high-top','puma','130.000',5)
+		('deviatre Nitro','running','puma','200.000',6)
+		
+		;
 
 
 INSERT INTO metodoDePago (metodo) VALUES
