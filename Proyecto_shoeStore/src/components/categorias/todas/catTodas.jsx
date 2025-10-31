@@ -4,7 +4,7 @@ import "./catTodas.css"
 import DetallesProducto from "./detallesTodas";
 
 function CatTodas() {
-   const [products, setProducts] = useState();
+   const [products, setProducts] = useState([]);
    const [loading, setLoading] = useState(true);
    const [selectProduct, setSelectProduct] = useState(null);
 
@@ -46,7 +46,7 @@ return (
       <h4>{product.brand}</h4>
       <p>$ {product.price}</p>
       
-      <button className="button" onClick={() => setSelectProduct(product.id)}>
+      <button className="button" onClick={() => {setSelectProduct(product.id)}}>
         Ver Detalles
       </button>
     
@@ -59,7 +59,7 @@ return (
 
       <div className="detalle-contenido" onClick={(e) => e.stopPropagation()}>
         <button className="cerrar-boton" onClick={handleProductClick}>X</button>
-        <DetallesProducto productoExterno={products.find(p => p.id === selectProduct)} />
+        <DetallesProducto productoExterno= {selectProduct} />
       </div>    
   </div>
   )}

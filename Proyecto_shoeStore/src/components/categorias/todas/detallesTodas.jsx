@@ -22,10 +22,10 @@ function DetallesProducto({productoExterno}) {
             </div>
             
             <div className='detalles'>
-                <h2>{producto.name}</h2>
+                <h2>{productoExterno.name}</h2>
                 <p>La comodidad en tus pies ¡Llevátelos!</p>
-                <strong> ${product.price}</strong>
-                <p><strong>Talle:</strong> {product.zise}</p>
+                <strong> ${productoExterno.price}</strong>
+                <p><strong>Talle:</strong> {productoExterno.size}</p>
                 <button onClick={manejarAgregarAlCarrito} className='carrito-boton'>
                     Agregar al Carrito
                 </button>
