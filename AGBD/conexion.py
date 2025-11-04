@@ -26,6 +26,20 @@ def get_db_connection():
        port=int(os.getenv("DB_PORT"))
    )
 
+#Consulta para eliminar un dato
+@app.route('/api/delete/<int:id>', methods=['DELETE'])
+def delete_shoe(id):
+    db = get_db_connection()
+    cursor = db.cursor()
+    sql = ("DELETE FROM shoes WHERE id_shoes= %s")
+    val = (id,)
+    cursor.execute(sql, val)
+    db.commit()
+    filas_afectadas = cursor.rowcount
+    cursor.close()
+    db.close()
+    return jsonify({"eliminados": filas_afectadas})
+
 
 #muestra todas las basicas
 @app.route('/api/basicas')
@@ -182,11 +196,11 @@ def register():
       
        email = data.get("email")
        password = data.get("password")
-       #hacer un print para ver que llega (para ver los errores)
+       username = data.get("username")
       
        # Validaciones
-       if not email or not password:
-           return jsonify({"error": "Email y password son requeridos"}), 400
+       if not email or not password or not username:
+           return jsonify({"error": "Email, password y username son requeridos"}), 400
        if not is_valid_email(email):
            return jsonify({"error": "Email inválido"}), 400
        if len(password) <= 6:
@@ -204,8 +218,8 @@ def register():
        # Insertar usuario
        hashed = generate_password_hash(password, method='pbkdf2:sha256')
        cursor.execute(
-           "INSERT INTO usuarios (email, password_hash) VALUES (%s, %s)",
-           (email, hashed)
+           "INSERT INTO usuarios (email, password_hash, username) VALUES (%s, %s, %s)",
+           (email, hashed, username)
        )
        db.commit()
        cursor.close()
@@ -290,7 +304,7 @@ def mostrar_shoe_detalle(id):
                "zise": row[5],
                "image": row[6] if row[6] else None
             }
-            return jsonify(product), 200
+            return jsonify(product), 200#818181
         else:
             return jsonify({"error": "Producto no encontrado"}), 404
     except Exception as e:

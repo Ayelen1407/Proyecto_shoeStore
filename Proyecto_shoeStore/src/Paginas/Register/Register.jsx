@@ -22,7 +22,7 @@ export default function Register() {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ email, password }),  // Envía JSON al backend
+      body: JSON.stringify({ email, password, username }),  // Envía JSON al backend
     });
           const data = await response.json();
       if (response.ok) {  // 201 o 200
@@ -30,6 +30,7 @@ export default function Register() {
         // Limpia form
         setEmail('');
         setPassword('');
+        setUsername('');
         // Redirigir a login después de 2s
         setTimeout(() => {
           navigate('/login');
