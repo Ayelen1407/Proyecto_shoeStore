@@ -519,5 +519,8 @@ def delete_shoe(id):
     db.close()
     return jsonify({"eliminados": filas_afectadas})
 
+def create_app():
+    return app
+
 if __name__ == "__main__":
     app.run(debug=True)

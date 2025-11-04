@@ -1,0 +1,495 @@
+from flask import Blueprint, request, jsonify,g
+from app.main import abrirConexion, cerrarConexion
+
+app = Blueprint('ari', __name__, url_prefix='/ari')
+
+#muestra tabla shoes. /api porque se conecta con lo de fede
+@app.route('/api/shoes', methods=['GET'])
+def mostrar_shoes():
+   db = abrirConexion()
+   cursor = db.cursor()
+   try:
+       cursor.execute("SELECT id_shoes, nombre, tipo, marca, precio, img_url FROM shoes")
+       rows = cursor.fetchall()
+      
+       # Convierte los resultados a una lista de diccionarios
+       products = []
+       for row in rows:
+           product = {
+               "id": row[0],
+               "name": row[1],
+               "type": row[2],
+               "marca": row[3],
+               "price": (row[4]),
+               "image": row[5] if row[5] else None
+           }
+           products.append(product)
+      
+       return jsonify(products), 200
+   except Exception as e:
+       print("ERROR EN /api/shoes:", e) # Ver error en consola
+       return jsonify({"error": "Error al obtener productos", "detalle": str(e)}), 500
+   finally:
+       cursor.close()
+       db.close()  #devolve los resultados como texto
+
+#muestra todas las basicas
+@app.route('/api/basicas')
+def mostrar_basicas():
+   db = abrirConexion()
+   cursor = db.cursor()
+   try:
+       cursor.execute("SELECT id_shoes, nombre, tipo, marca, precio, img_url FROM shoes WHERE tipo = 'basica'")
+       rows = cursor.fetchall()
+      
+       # Convierte los resultados a una lista de diccionarios
+       products = []
+       for row in rows:
+           product = {
+               "id": row[0],
+               "name": row[1],
+               "type": row[2],
+               "brand": row[3],
+               "price": (row[4]),
+               "image": row[5] if row[5] else None
+           }
+           products.append(product)
+      
+       return jsonify(products), 200
+   except Exception as e:
+       print("ERROR EN /api/high-top:", e) # Ver error en consola
+       return jsonify({"error": "Error al obtener productos", "detalle": str(e)}), 500
+   finally:
+       cursor.close()
+       db.close() # por ahora devolvemos los resultados como texto
+
+
+#muestra todas las deportivas
+@app.route('/api/deportivas')
+def mostrar_deportivas():
+   db = abrirConexion()
+   cursor = db.cursor()
+   try:
+       cursor.execute("SELECT id_shoes, nombre, tipo, marca, precio, img_url FROM shoes WHERE tipo = 'deportiva'")
+       rows = cursor.fetchall()
+      
+       # Convierte los resultados a una lista de diccionarios
+       products = []
+       for row in rows:
+           product = {
+               "id": row[0],
+               "name": row[1],
+               "type": row[2],
+               "brand": row[3],
+               "price": (row[4]),
+               "image": row[5] if row[5] else None
+           }
+           products.append(product)
+      
+       return jsonify(products), 200
+   except Exception as e:
+       print("ERROR EN /api/high-top:", e) # Ver error en consola
+       return jsonify({"error": "Error al obtener productos", "detalle": str(e)}), 500
+   finally:
+       cursor.close()
+       db.close() # por ahora devolvemos los resultados como texto
+
+
+#muestra todas las high-tops
+@app.route('/api/high-tops')
+def mostrar_highTops():
+   db = abrirConexion()
+   cursor = db.cursor()
+   try:
+       cursor.execute("SELECT id_shoes, nombre, tipo, marca, precio, img_url FROM shoes WHERE tipo = 'high-top'")
+       rows = cursor.fetchall()
+      
+       # Convierte los resultados a una lista de diccionarios
+       products = []
+       for row in rows:
+           product = {
+               "id": row[0],
+               "name": row[1],
+               "type": row[2],
+               "brand": row[3],
+               "price": (row[4]),
+               "image": row[5] if row[5] else None
+           }
+           products.append(product)
+      
+       return jsonify(products), 200
+   except Exception as e:
+       print("ERROR EN /api/high-top:", e) # Ver error en consola
+       return jsonify({"error": "Error al obtener productos", "detalle": str(e)}), 500
+   finally:
+       cursor.close()
+       db.close() # por ahora devolvemos los resultados como texto
+
+
+#muestra todas las running
+@app.route('/api/running')
+def mostrar_running():
+   db = abrirConexion()
+   cursor = db.cursor()
+   try:
+       cursor.execute("SELECT id_shoes, nombre, tipo, marca, precio, img_url FROM shoes WHERE tipo = 'running'")
+       rows = cursor.fetchall()
+      
+       # Convierte los resultados a una lista de diccionarios
+       products = []
+       for row in rows:
+           product = {
+               "id": row[0],
+               "name": row[1],
+               "type": row[2],
+               "brand": row[3],
+               "price": (row[4]),
+               "image": row[5] if row[5] else None
+           }
+           products.append(product)
+      
+       return jsonify(products), 200
+   except Exception as e:
+       print("ERROR EN /api/high-top:", e) # Ver error en consola
+       return jsonify({"error": "Error al obtener productos", "detalle": str(e)}), 500
+   finally:
+       cursor.close()
+       db.close() # por ahora devolvemos los resultados como texto
+
+#muestra solo las marca adidas
+@app.route('/api/adidas')
+def mostrar_adidas():
+   db = abrirConexion()
+   cursor = db.cursor()
+   try:
+       cursor.execute("SELECT id_shoes, nombre, tipo, marca, precio, img_url FROM shoes WHERE marca = 'adidas'")
+       rows = cursor.fetchall()
+      
+       # Convierte los resultados a una lista de diccionarios
+       products = []
+       for row in rows:
+           product = {
+               "id": row[0],
+               "name": row[1],
+               "type": row[2],
+               "brand": row[3],
+               "price": (row[4]),
+               "image": row[5] if row[5] else None
+           }
+           products.append(product)
+      
+       return jsonify(products), 200
+   except Exception as e:
+       print("ERROR EN /api/high-top:", e) # Ver error en consola
+       return jsonify({"error": "Error al obtener productos", "detalle": str(e)}), 500
+   finally:
+       cursor.close()
+       db.close() # por ahora devolvemos los resultados como texto
+
+#muestra solo las marca nike
+@app.route('/api/nike')
+def mostrar_nike():
+   db = abrirConexion()
+   cursor = db.cursor()
+   try:
+       cursor.execute("SELECT id_shoes, nombre, tipo, marca, precio, img_url FROM shoes WHERE marca = 'nike'")
+       rows = cursor.fetchall()
+      
+       # Convierte los resultados a una lista de diccionarios
+       products = []
+       for row in rows:
+           product = {
+               "id": row[0],
+               "name": row[1],
+               "type": row[2],
+               "brand": row[3],
+               "price": (row[4]),
+               "image": row[5] if row[5] else None
+           }
+           products.append(product)
+      
+       return jsonify(products), 200
+   except Exception as e:
+       print("ERROR EN /api/high-top:", e) # Ver error en consola
+       return jsonify({"error": "Error al obtener productos", "detalle": str(e)}), 500
+   finally:
+       cursor.close()
+       db.close() # por ahora devolvemos los resultados como texto
+
+# muestra solo la marca puma
+@app.route('/api/puma')
+def mostrar_puma():
+   db = abrirConexion()
+   cursor = db.cursor()
+   try:
+       cursor.execute("SELECT id_shoes, nombre, tipo, marca, precio, img_url FROM shoes WHERE marca = 'puma'")
+       rows = cursor.fetchall()
+      
+       # Convierte los resultados a una lista de diccionarios
+       products = []
+       for row in rows:
+           product = {
+               "id": row[0],
+               "name": row[1],
+               "type": row[2],
+               "brand": row[3],
+               "price": (row[4]),
+               "image": row[5] if row[5] else None
+           }
+           products.append(product)
+      
+       return jsonify(products), 200
+   except Exception as e:
+       print("ERROR EN /api/high-top:", e) # Ver error en consola
+       return jsonify({"error": "Error al obtener productos", "detalle": str(e)}), 500
+   finally:
+       cursor.close()
+       db.close() # por ahora devolvemos los resultados como texto
+       
+#Ruta para mostrar seccion principal (productos destacados)
+@app.route('/api/seccion/destacadas', methods=['GET'])
+def mostrar_seccionPrincipal():
+   db = abrirConexion()
+   cursor = db.cursor(dictionary=True) 
+   query = "SELECT nombre, img_url FROM shoes WHERE id_shoes IN (%s, %s, %s)"
+   valores = (2, 4, 5)
+   cursor.execute(query, valores)  # productos es tu tabla
+   data = cursor.fetchall()  # trae todas las filas
+   cursor.close()
+   db.close()
+  
+   return jsonify(data)
+
+#muestra las destacados
+@app.route('/api/shoes/destacados', methods=['GET'])
+def mostrar_destacados():
+    db = abrirConexion()
+    cursor = db.cursor(dictionary=True)  # dictionary=True devuelve filas como diccionarios
+    query = "SELECT * FROM shoes WHERE nombre IN (%s, %s, %s, %s)"
+    valores = ('Samba OG', 'Amplimove', 'MC trainer', 'Dunk low retro')
+    cursor.execute(query, valores)  # productos es tu tabla
+    data = cursor.fetchall()  # trae todas las filas
+    cursor.close()
+    db.close()
+    
+    return jsonify(data)
+
+
+#muestra tabla clientes
+@app.route('/clientes', methods=['GET'])
+def mostrar_clientes():
+   db = abrirConexion()
+   cursor = db.cursor(dictionary=True)
+   cursor.execute("SELECT * FROM clientes") 
+   resultados = cursor.fetchall()
+   cursor.close()
+   cerrarConexion()
+   return {"clientes": resultados}
+
+#muestra tabla empleados
+@app.route('/empleados', methods=['GET'])
+def mostrar_empleados():
+   db = abrirConexion()
+   cursor = db.cursor(dictionary=True)
+   cursor.execute("SELECT * FROM empleados") 
+   resultados = cursor.fetchall() 
+   cursor.close()
+   cerrarConexion()
+   return {"clientes": resultados}
+
+#muestra tabla "cantidad_talles"
+@app.route('/talles', methods=['GET'])
+def mostrar_cantidad_Talles():
+   db = abrirConexion()
+   cursor = db.cursor(dictionary=True)
+   cursor.execute("SELECT * FROM cantidad_talles") 
+   resultados = cursor.fetchall() 
+   cursor.close()
+   cerrarConexion()
+   return {"cantidad_talles": resultados}
+
+
+
+
+#inserta/agrega datos en la tabla "cantidad talles".
+@app.route('/agregarTalle', methods=['POST'])
+def agregar_talle():
+   data = request.json
+   talle = data['talle']
+   db = abrirConexion()
+   cursor = db.cursor()
+   cursor.execute("INSERT INTO cantidad_talles (talle) VALUES (%s)", (talle,))
+   db.commit()
+   cursor.close()
+   cerrarConexion()
+   return {"mensaje": "talle agregado"}
+
+#inserta/agrega datos en la tabla shoes
+@app.route('/api/agregarShoes', methods = ['POST'])
+def agregar_shoes():
+   data = request.json
+   nombre = data['nombre']
+   tipo = data['tipo']
+   marca = data['marca']
+   precio = data['precio']
+   id_talles = data['id_talles']
+   db = abrirConexion()
+   cursor = db.cursor()
+   cursor.execute("INSERT INTO shoes (nombre,tipo,marca,precio,id_talles) VALUES (%s,%s,%s,%s,%s)", (nombre,tipo,marca,precio,id_talles))
+   db.commit()  # confirma los cambios en la base
+   cursor.close()
+   cerrarConexion()
+   return {"mensaje": f"Producto {nombre} agregado"}
+
+#inserta/agrega datos en la tabla clientes
+@app.route('/agregarClientes', methods = ['POST'])
+def agregar_cliente():
+   data = request.json
+   nombre = data['nombre']
+   apellido = data['apellido']
+   gasto = data['gasto']
+   direccion = data['direccion']
+   email = data['email']
+   numero = data['numero']
+   id_genero = data['id_genero']
+   id_shoes = data['id_shoes']
+   id_empleados = data['id_empleados']
+   db = abrirConexion()
+   cursor = db.cursor()
+   cursor.execute("INSERT INTO clientes (nombre,apellido,gasto,direccion,email,numero,id_genero,id_shoes,id_empleados) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s)", (nombre, apellido, gasto,direccion,email,numero,id_genero,id_shoes,id_empleados))
+   db.commit()
+   cursor.close()
+   cerrarConexion()
+   return {"mensaje": f"Cliente {apellido} agregado"}
+
+#inserta/agrega datos en la tabla empleados
+@app.route('/agregarEmpleado', methods = ['POST'])
+def agregar_empleado():
+   data = request.json
+   nombre = data['nombre']
+   apellido = data['apellido']
+   edad = data['edad']
+   puesto = data['puesto']
+   db = abrirConexion()
+   cursor = db.cursor()
+   cursor.execute("INSERT INTO empleados (nombre,apellido,edad,puesto) VALUES (%s,%s,%s,%s)", (nombre, apellido, edad, puesto))
+   db.commit()
+   cursor.close()
+   cerrarConexion()
+   return {"mensaje": f"Empleado {apellido} agregado"}
+
+
+#02/10  thomi
+#modifica el precio de la tabla shoes
+@app.route('/api/shoes/<int:id>', methods=['PUT'])
+def actualizar_precio(id):
+    data = request.json
+    nuevo_precio = data['precio']
+    db = abrirConexion()
+    cursor = db.cursor()
+    cursor.execute("UPDATE shoes SET precio = %s WHERE id_shoes = %s", (nuevo_precio, id))
+    db.commit()#solo se usa en update, insert y delete
+    cursor.close()
+    return {"mensaje": "Precio modificado"}
+
+
+#calcula el total de lo que lleva el cliente 
+@app.route('/api/calcular_total/clientes/<int:id>', methods=['GET'])
+def calcular_total(id):
+    db = abrirConexion()
+    cursor = db.cursor(dictionary=True)
+    cursor.execute("SELECT precio_unidad, cantidad FROM clientes WHERE id_cliente=%s",(id,))  
+    productos = cursor.fetchall() 
+    total = sum(p['precio_unidad'] * p['cantidad'] for p in productos)
+    cursor.close()
+    db.close()
+    return {"total": f"${total}"}
+
+
+#08/10 carrito 
+@app.route('/api/carrito', methods=['POST'])
+def agregar_al_carrito():
+    data = request.json
+    id_usuario = data.get("id_usuario")
+    id_shoes = data.get("id_shoes")
+    cantidad = data.get("cantidad", 1)  # si no viene, agrega 1
+    db = abrirConexion()
+    cursor = db.cursor()
+
+    # vemos si el producto ya está en el carrito
+    cursor.execute(
+        "SELECT cantidad FROM carrito WHERE id_usuario=%s AND id_shoes=%s",
+        (id_usuario, id_shoes)
+    )
+    resultado = cursor.fetchone()
+
+    if resultado:
+        # Si ya está, actualizo la cantidad
+        nueva_cantidad = resultado[0] + cantidad
+        cursor.execute(
+            "UPDATE carrito SET cantidad=%s WHERE id_usuario=%s AND id_shoes=%s",
+            (nueva_cantidad, id_usuario, id_shoes)
+        )
+    else:
+        # Si no está, lo agregamos
+        cursor.execute(
+            "INSERT INTO carrito (id_usuario, id_shoes, cantidad) VALUES (%s, %s, %s)",
+            (id_usuario, id_shoes, cantidad)
+        )
+
+    db.commit()
+    cursor.close()
+    db.close()
+
+    return jsonify({"mensaje": "Producto agregado al carrito"}), 201
+
+#16/10 thomi
+#paginado pedido la clase anterior
+@app.route('/api/shoes/paginado', methods=['GET'])
+def obtener_shoes():
+    page = int(request.args.get('page', 1))   # página actual, por defecto 1
+    limit = int(request.args.get('limit', 4)) # cantidad por página
+    offset = (page - 1) * limit               # por dónde empezar
+
+    db = abrirConexion()
+    cursor = db.cursor(dictionary=True)
+    cursor.execute("SELECT * FROM shoes LIMIT %s OFFSET %s", (limit, offset))# trae los productos limitados
+    productos = cursor.fetchall()
+    cursor.execute("SELECT COUNT(*) AS total FROM shoes")# cuenta cuántos productos hay en total
+    total = cursor.fetchone()['total']
+    cursor.close()
+    db.close()
+    return jsonify({
+        "productos": productos,
+        "total_de_productos": total,
+        "pagina": page,
+        "total_de_paginas": (total + limit - 1) // limit  # número total de páginas
+    })
+#----------------------------------------------
+
+#AYE
+#Consulta para obtener todos los clientes
+@app.route('/clientes', methods=['GET'])
+def get_shoes():
+    db = abrirConexion()
+    cursor = db.cursor()
+    cursor.execute("SELECT * FROM clientes")
+    resultado = cursor.fetchall()
+    
+    cursor.close()
+    db.close()
+    return {"shoes": resultado}
+
+#Consulta para eliminar un dato
+@app.route('/api/delete/<int:id>', methods=['DELETE'])
+def delete_shoe(id):
+    db = abrirConexion()
+    cursor = db.cursor()
+    sql = ("DELETE FROM shoes WHERE id_shoes= %s")
+    val = (id,)
+    cursor.execute(sql, val)
+    db.commit()
+    filas_afectadas = cursor.rowcount
+    cursor.close()
+    db.close()
+    return jsonify({"eliminados": filas_afectadas})
