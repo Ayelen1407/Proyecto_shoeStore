@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { useCart } from "../../cartContext";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import "./catBasica.css"
-
+import DetallesBasicas from "./detallesBasicas";
+import { RxCross1 } from "react-icons/rx";
 
 function GrillaBasica() {
-   const { agregarAlCarrito } = useCart();
+   const [selectProduct, setSelectProduct] = useState(null);
    const [products, setProducts] = useState([]);
    const [loading, setLoading] = useState(true);
 
@@ -24,13 +24,13 @@ function GrillaBasica() {
        setLoading(false);
      });
    }, []);
+
     if (loading) return <p>Cargando...</p>;
-   if (!products || products.length === 0) return <p>No hay productos.</p>;
+    if (!products || products.length === 0) return <p>No hay productos.</p>;
 
-const manejarClick = (producto) => {
- agregarAlCarrito(producto);
-
-};
+const handleProductClick = () => {
+     setSelectProduct(null);
+   };
 
 return (
   <>
@@ -46,10 +46,24 @@ return (
       <h3>{product.name}</h3>
       <h4>{product.brand}</h4>
       <p>$ {product.price}</p>
-      <button className="button" onClick={() => manejarClick(product)}>Agregar al carrito</button>
+
+      <button className="button" onClick={() => {setSelectProduct(product)}}>
+        Ver Detalles
+      </button>
+
     </div>
   ))}
   </div>
+
+  {selectProduct && (
+    <div className="detalle-producto" onClick={handleProductClick}>
+
+      <div className="detalle-contenido" onClick={(e) => e.stopPropagation()}>
+        <button onClick={handleProductClick}><RxCross1 /></button>
+        <DetallesBasicas productoExterno= {selectProduct} />
+      </div>    
+  </div>
+  )}
 </>
 );
 }

@@ -4,19 +4,22 @@
 }
 
 .container-2 {
-    flex: 1;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
 }
 
 .img {
-    width: 30%;
-    max-width: 50px;
-    margin-bottom: 10px;
+    width: 550px;
+    height: auto;
+    border-radius: none;
+    cursor: pointer;
 }
 
 .detalles {
     flex: 1 1 400px;
     background: #fff;
-    border-radius: 20px;
+    border-radius: none;
     padding: 40px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.08);
 }

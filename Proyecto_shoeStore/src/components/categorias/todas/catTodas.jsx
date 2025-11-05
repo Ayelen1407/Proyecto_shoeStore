@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import "./catTodas.css"
 import DetallesProducto from "./detallesTodas";
+import { RxCross1 } from "react-icons/rx";
 
 function CatTodas() {
    const [products, setProducts] = useState([]);
@@ -25,7 +26,7 @@ function CatTodas() {
    }, []);
 
     if (loading) return <p>Cargando...</p>;
-   if (!products || products.length === 0) return <p>No hay productos.</p>;
+    if (!products || products.length === 0) return <p>No hay productos.</p>;
 
    const handleProductClick = () => {
      setSelectProduct(null);
@@ -46,7 +47,7 @@ return (
       <h4>{product.brand}</h4>
       <p>$ {product.price}</p>
       
-      <button className="button" onClick={() => {setSelectProduct(product.id)}}>
+      <button className="button" onClick={() => {setSelectProduct(product)}}>
         Ver Detalles
       </button>
     
@@ -58,7 +59,7 @@ return (
     <div className="detalle-producto" onClick={handleProductClick}>
 
       <div className="detalle-contenido" onClick={(e) => e.stopPropagation()}>
-        <button className="cerrar-boton" onClick={handleProductClick}>X</button>
+        <button onClick={handleProductClick}><RxCross1 /></button>
         <DetallesProducto productoExterno= {selectProduct} />
       </div>    
   </div>

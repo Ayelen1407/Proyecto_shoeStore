@@ -33,6 +33,7 @@ export default function Register() {
         setUsername('');
         // Redirigir a login después de 2s
         setTimeout(() => {
+          console.log("Navegando a login..")
           navigate('/login');
         }, 2000);
       } else {

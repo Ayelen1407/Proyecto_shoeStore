@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1762288556175" clover="3.2.0">
-  <project timestamp="1762288556176" name="All files">
-    <metrics statements="368" coveredstatements="0" conditionals="126" coveredconditionals="0" methods="152" coveredmethods="0" elements="646" coveredelements="0" complexity="0" loc="368" ncloc="368" packages="23" files="27" classes="27"/>
+<coverage generated="1762354259420" clover="3.2.0">
+  <project timestamp="1762354259421" name="All files">
+    <metrics statements="369" coveredstatements="21" conditionals="126" coveredconditionals="11" methods="152" coveredmethods="5" elements="647" coveredelements="37" complexity="0" loc="369" ncloc="369" packages="23" files="27" classes="27"/>
     <package name="src">
       <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
       <file name="App.jsx" path="/home/etec/Documentos/Proyecto_shoeStore/Proyecto_shoeStore/src/App.jsx">
@@ -79,39 +79,40 @@
       </file>
     </package>
     <package name="src.Paginas.Register">
-      <metrics statements="30" coveredstatements="0" conditionals="14" coveredconditionals="0" methods="7" coveredmethods="0"/>
+      <metrics statements="31" coveredstatements="21" conditionals="14" coveredconditionals="11" methods="7" coveredmethods="5"/>
       <file name="Register.jsx" path="/home/etec/Documentos/Proyecto_shoeStore/Proyecto_shoeStore/src/Paginas/Register/Register.jsx">
-        <metrics statements="30" coveredstatements="0" conditionals="14" coveredconditionals="0" methods="7" coveredmethods="0"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="11" count="0" type="stmt"/>
-        <line num="13" count="0" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
-        <line num="19" count="0" type="stmt"/>
-        <line num="20" count="0" type="stmt"/>
-        <line num="27" count="0" type="stmt"/>
-        <line num="28" count="0" type="cond" truecount="0" falsecount="2"/>
+        <metrics statements="31" coveredstatements="21" conditionals="14" coveredconditionals="11" methods="7" coveredmethods="5"/>
+        <line num="6" count="46" type="stmt"/>
+        <line num="7" count="46" type="stmt"/>
+        <line num="8" count="46" type="stmt"/>
+        <line num="9" count="46" type="stmt"/>
+        <line num="10" count="46" type="stmt"/>
+        <line num="11" count="46" type="stmt"/>
+        <line num="13" count="46" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="28" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="29" count="0" type="stmt"/>
         <line num="31" count="0" type="stmt"/>
         <line num="32" count="0" type="stmt"/>
         <line num="33" count="0" type="stmt"/>
         <line num="35" count="0" type="stmt"/>
         <line num="36" count="0" type="stmt"/>
-        <line num="39" count="0" type="stmt"/>
-        <line num="42" count="0" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
         <line num="43" count="0" type="stmt"/>
-        <line num="45" count="0" type="stmt"/>
-        <line num="49" count="0" type="stmt"/>
-        <line num="58" count="0" type="stmt"/>
-        <line num="66" count="0" type="stmt"/>
-        <line num="75" count="0" type="stmt"/>
-        <line num="89" count="0" type="stmt"/>
+        <line num="44" count="0" type="stmt"/>
+        <line num="46" count="1" type="stmt"/>
+        <line num="50" count="46" type="stmt"/>
+        <line num="59" count="29" type="stmt"/>
+        <line num="67" count="8" type="stmt"/>
+        <line num="76" count="6" type="stmt"/>
+        <line num="90" count="0" type="stmt"/>
       </file>
     </package>
     <package name="src.components">

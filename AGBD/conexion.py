@@ -47,7 +47,7 @@ def mostrar_basicas():
    db = get_db_connection()
    cursor = db.cursor()
    try:
-       cursor.execute("SELECT id_shoes, nombre, tipo, marca, precio, img_url FROM shoes WHERE tipo = 'basica'")
+       cursor.execute("SELECT id_shoes, nombre, tipo, marca, precio, id_talles, img_url FROM shoes WHERE tipo = 'basica'")
        rows = cursor.fetchall()
       
        # Convierte los resultados a una lista de diccionarios
@@ -59,7 +59,8 @@ def mostrar_basicas():
                "type": row[2],
                "brand": row[3],
                "price": (row[4]),
-               "image": row[5] if row[5] else None
+               "size": row[5],
+               "image": row[6] if row[6] else None
            }
            products.append(product)
       
@@ -78,7 +79,7 @@ def mostrar_deportivas():
    db = get_db_connection()
    cursor = db.cursor()
    try:
-       cursor.execute("SELECT id_shoes, nombre, tipo, marca, precio, img_url FROM shoes WHERE tipo = 'deportiva'")
+       cursor.execute("SELECT id_shoes, nombre, tipo, marca, precio, id_talles, img_url FROM shoes WHERE tipo = 'deportiva'")
        rows = cursor.fetchall()
       
        # Convierte los resultados a una lista de diccionarios
@@ -90,7 +91,8 @@ def mostrar_deportivas():
                "type": row[2],
                "brand": row[3],
                "price": (row[4]),
-               "image": row[5] if row[5] else None
+               "size": row[5],
+               "image": row[6] if row[6] else None
            }
            products.append(product)
       
@@ -111,7 +113,7 @@ def mostrar_highTops():
    db = get_db_connection()
    cursor = db.cursor()
    try:
-       cursor.execute("SELECT id_shoes, nombre, tipo, marca, precio, img_url FROM shoes WHERE tipo = 'high-top'")
+       cursor.execute("SELECT id_shoes, nombre, tipo, marca, precio, id_talles, img_url FROM shoes WHERE tipo = 'high-top'")
        rows = cursor.fetchall()
       
        # Convierte los resultados a una lista de diccionarios
@@ -123,7 +125,8 @@ def mostrar_highTops():
                "type": row[2],
                "brand": row[3],
                "price": (row[4]),
-               "image": row[5] if row[5] else None
+               "size": row[5],
+               "image": row[6] if row[6] else None
            }
            products.append(product)
       
@@ -142,7 +145,7 @@ def mostrar_running():
    db = get_db_connection()
    cursor = db.cursor()
    try:
-       cursor.execute("SELECT id_shoes, nombre, tipo, marca, precio, img_url FROM shoes WHERE tipo = 'running'")
+       cursor.execute("SELECT id_shoes, nombre, tipo, marca, precio, id_talles, img_url FROM shoes WHERE tipo = 'running'")
        rows = cursor.fetchall()
       
        # Convierte los resultados a una lista de diccionarios
@@ -154,7 +157,8 @@ def mostrar_running():
                "type": row[2],
                "brand": row[3],
                "price": (row[4]),
-               "image": row[5] if row[5] else None
+               "size": row[5],
+               "image": row[6] if row[6] else None
            }
            products.append(product)
       
@@ -321,7 +325,7 @@ def mostrar_shoes():
    db = get_db_connection()
    cursor = db.cursor()
    try:
-       cursor.execute("SELECT id_shoes, nombre, tipo, marca, precio, img_url FROM shoes")
+       cursor.execute("SELECT id_shoes, nombre, tipo, marca, precio, id_talles, img_url FROM shoes")
        rows = cursor.fetchall()
       
        # Convierte los resultados a una lista de diccionarios
@@ -333,7 +337,8 @@ def mostrar_shoes():
                "type": row[2],
                "brand": row[3],
                "price": (row[4]),
-               "image": row[5] if row[5] else None
+               "size": row[5],
+               "image": row[6] if row[6] else None
            }
            products.append(product)
       
