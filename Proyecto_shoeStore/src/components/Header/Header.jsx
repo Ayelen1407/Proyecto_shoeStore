@@ -53,73 +53,74 @@ export default function Header() {
   return (
     <header className="header">
       <h1 className="logo"><FaShoelace /></h1>
+      <div className="derecha">
+        <form className="search-form" onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="Buscar..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="search-input"
+            aria-label="Buscar"
+          />
+          <button type="submit" className="search-button" aria-label="Buscar">
+            <HiMiniMagnifyingGlass />
+          </button>
+        </form>
 
 
-      <form className="search-form" onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Buscar..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          className="search-input"
-          aria-label="Buscar"
-        />
-        <button type="submit" className="search-button" aria-label="Buscar">
-          <HiMiniMagnifyingGlass />
-        </button>
-      </form>
+        <nav>
+          <ul className="lista-nav">
+            <li><Link to="/login">Sign in</Link></li>
+            <li><Link to="/register">Sign up</Link></li>
+          </ul>
+        </nav>
 
 
-      <nav>
-        <ul className="lista-nav">
-          <li><Link to="/login">Sign in</Link></li>
-          <li><Link to="/register">Sign up</Link></li>
-        </ul>
-      </nav>
+        <a onClick={alternaVentana} className="categorias">
+          <TbShoe />
+        </a>
 
 
-      <a onClick={alternaVentana} className="categorias">
-        <TbShoe />
-      </a>
+        {categoriaVentana && (
+          <div className="ventana-categorias">
+            <h3>Categorias</h3>
+              {categories.map((category) => (
+                <li key={category}>
+                  <button onClick={() =>  handleCategoriaClick(category)}>
+                    {category}
+                  </button>
+                </li>
+              ))}
+          </div>
+        )}
+
+        {mostrarMarcas && (
+          <div className="ventana-marcas">
+            <h3>Marcas</h3>
+              {brands.map((brand) => (
+                <li key={brand}>
+                  <button onClick={() => handleMarcaClick(brand)}>{brand}</button>
+                </li>
+              ))}
+          </div>
+        )}
 
 
-      {categoriaVentana && (
-        <div className="ventana-categorias">
-          <h3>Categorias</h3>
-            {categories.map((category) => (
-              <li key={category}>
-                <button onClick={() =>  handleCategoriaClick(category)}>
-                  {category}
-                </button>
-              </li>
-            ))}
-        </div>
-      )}
-
-      {mostrarMarcas && (
-        <div className="ventana-marcas">
-          <h3>Marcas</h3>
-            {brands.map((brand) => (
-              <li key={brand}>
-                <button onClick={() => handleMarcaClick(brand)}>{brand}</button>
-              </li>
-            ))}
-        </div>
-      )}
+        <a className="carrito" onClick={Carrito} aria-label="Abrir carrito">
+          <TiShoppingCart />
+        </a>
 
 
-      <a className="carrito" onClick={Carrito} aria-label="Abrir carrito">
-        <TiShoppingCart />
-      </a>
+        {carritoAbierto && (
+          <div className="ventana-carrito">
+            <h3>Carrito de compras</h3>
+            <p>El carrito está vacío.</p>
+            <button onClick={Carrito} className="cerrar-carrito">Cerrar</button>
+          </div>
+        )}
 
-
-      {carritoAbierto && (
-        <div className="ventana-carrito">
-          <h3>Carrito de compras</h3>
-          <p>El carrito está vacío.</p>
-          <button onClick={Carrito} className="cerrar-carrito">Cerrar</button>
-        </div>
-      )}
+      </div>
 
 
     </header>

@@ -358,13 +358,14 @@ def agregar_shoes():
    marca = data['marca']
    precio = data['precio']
    id_talles = data['id_talles']
+   img_url = data['img_url']
    db = abrirConexion()
    cursor = db.cursor()
-   cursor.execute("INSERT INTO shoes (nombre,tipo,marca,precio,id_talles) VALUES (%s,%s,%s,%s,%s)", (nombre,tipo,marca,precio,id_talles))
+   cursor.execute("INSERT INTO shoes (nombre,tipo,marca,precio,id_talles,img_url) VALUES (%s,%s,%s,%s,%s,%s)", (nombre,tipo,marca,precio,id_talles,img_url))
    db.commit()  # confirma los cambios en la base
    cursor.close()
    cerrarConexion()
-   return {"mensaje": f"Producto {nombre} agregado"}
+   return {"mensaje": f"Producto {nombre} agregado"}, 201
 
 #inserta/agrega datos en la tabla clientes
 @app.route('/agregarClientes', methods = ['POST'])
