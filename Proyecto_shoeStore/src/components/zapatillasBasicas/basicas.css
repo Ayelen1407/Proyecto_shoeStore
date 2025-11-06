@@ -1,35 +1,51 @@
 .producto-ba {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 48%;
+  align-items: stretch;
+  width: 23%;
   overflow: hidden;
   margin-bottom: 20px;
+  margin: 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.producto-ba:hover {
+  transform: scale(1.03); /*para que se agrande*/
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); /*una sombra para resaltar*/
+  z-index: 10; /* para que no se corte si se superpone con las otras categorias */
 }
 
 .producto-ba img {
   width: 100%;
+  margin: 0;
   height: 350px;
   object-fit: cover; 
   object-position: center;
 }
 
+.descripcion-h2,
+.buttonCat {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin: 0;
+}
+
 .descripcion-h2 {
   text-align: center;
-  margin-top: 10px;
+  margin: 0; 
   font-size: 1.4rem;
   font-weight: bold;
-  margin-bottom: 10px;
-  color: #151f3b;
+  color: rgb(28, 28, 49);
+  background-color: rgb(97, 109, 159);
+  padding: 10px 0
 }
-.button {
-  width: 100%;
+.buttonCat {
   padding: 10px;
-  margin-top: 15px;
-  background-color:  rgb(54, 52, 80);
+  margin: 0;
+  background-color: rgb(97, 109, 159);
   color: white;
   border: none;
-  border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
  }

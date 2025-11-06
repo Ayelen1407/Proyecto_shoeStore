@@ -1,13 +1,13 @@
+import { Link } from "react-router-dom";
 import "./basicas.css";
 
 export default function Basicas() {
   return (
-  <div className="producto-ba">
-    <img src="https://i.pinimg.com/736x/f0/7a/46/f07a4638ef2c194fadcae0426fb92bed.jpg" alt="Zapatillas Básicas" />
-    <div className="Zapatilla básica">
-      <h2 className="descripcion-h2">BÁSICAS</h2>
-      <a href="/basica"><button>VER MÁS</button></a> 
-    </div>
-  </div>
+  <Link to={"/basica"} className="producto-ba">
+      <img src={"https://nikearprod.vtexassets.com/arquivos/ids/1350536-800-800?width=800&height=800&aspect=true"} 
+      alt="Zapatillas Basicas" />
+      <h2 className="descripcion-h2">BÁSICA</h2>
+    </Link>
   );
 }
+

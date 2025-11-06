@@ -1,14 +1,13 @@
+import { Link } from "react-router-dom";
 import "./deportivas.css";
 
 export default function Deportivas() {
   return (
-    <div className="producto-dep">
-    <img src="https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/8a7c57082c8c4152ae1b02353cd44143_9366/Zapatilla_Rapidmove_2_Negro_IH5255_HM8.jpg" 
-    alt="Zapatilla Deportiva" />
-    <div className="Zapatilla deportiva">
-      <h2 className="descripcion-h2">DEPORTIVAS</h2>
-      <a href="/deportiva"><button>VER MÁS</button></a>
-    </div>
-  </div>
+    <Link to={"/deportiva"} className="producto-dep">
+      <img src={"https://nikearprod.vtexassets.com/arquivos/ids/1060625-800-800?width=800&height=800&aspect=true"} 
+      alt="Zapatillas Deportiva" />
+      <h2 className="descripcion-h2">DEPORTIVA</h2>
+    </Link>
   );
 }
+
