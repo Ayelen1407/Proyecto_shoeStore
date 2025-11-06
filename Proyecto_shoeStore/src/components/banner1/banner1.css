@@ -1,0 +1,20 @@
+.banner1{
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items:center; 
+  padding: 25px;
+  margin: 0px; 
+  box-sizing: border-box;
+  font-size: 3rem;
+  font-family:'Courier new';
+  font-weight:900;
+  color: #222222;
+}
+
+/*helvetica
+system-ui
+ubuntu
+ monospace
+ Courier new

@@ -23,5 +23,5 @@ def test_obtener_shoes_paginado(client):
     assert data["pagina"] == 1 #me fijo si la pagina esta bien, osea si es 1
     assert len(data["productos"]) <= 4  #me fijo que no traiga más de 4 productos
 
-
+#-------------------------5/11
 

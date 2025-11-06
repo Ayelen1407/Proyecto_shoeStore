@@ -353,19 +353,20 @@ def agregar_talle():
 @app.route('/api/agregarShoes', methods = ['POST'])
 def agregar_shoes():
    data = request.json
-   nombre = data['nombre']
-   tipo = data['tipo']
-   marca = data['marca']
-   precio = data['precio']
-   id_talles = data['id_talles']
-   img_url = data['img_url']
+   datos = ['nombre', 'tipo', 'marca', 'precio', 'id_talles', 'img_url']
+   for dato in datos:
+        if not data.get(dato):
+            return jsonify ({"error": f"falta el dato '{dato}'"}), 400
+        
    db = abrirConexion()
    cursor = db.cursor()
-   cursor.execute("INSERT INTO shoes (nombre,tipo,marca,precio,id_talles,img_url) VALUES (%s,%s,%s,%s,%s,%s)", (nombre,tipo,marca,precio,id_talles,img_url))
+   cursor.execute("INSERT INTO shoes (nombre,tipo,marca,precio,id_talles,img_url) VALUES (%s,%s,%s,%s,%s,%s)",
+                  (data["nombre"],data["tipo"],data["marca"],data["precio"],data["id_talles"],data["img_url"])
+                  )     
    db.commit()  # confirma los cambios en la base
    cursor.close()
    cerrarConexion()
-   return {"mensaje": f"Producto {nombre} agregado"}, 201
+   return jsonify ({"mensaje": f"Producto {data['nombre']} agregado"}), 201
 
 #inserta/agrega datos en la tabla clientes
 @app.route('/agregarClientes', methods = ['POST'])

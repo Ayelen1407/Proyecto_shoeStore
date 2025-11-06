@@ -5,3 +5,5 @@ def test_agregar_shoes(client):
     data = response.get_json()
     assert "mensaje" in data # me fijo si hay mensaje en data
     assert "Producto nike Air prueba agregado" in data["mensaje"]# me fijo el mensaje
+    
+#-------------------------5/11
