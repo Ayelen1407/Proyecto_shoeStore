@@ -3,7 +3,7 @@
     justify-content: center;
     align-items: center;
     padding: 80px 5%;
-    background: linear-gradient(90deg, #9897e9, #deddfc);
+    background: linear-gradient(90deg, rgb(97, 109, 159), #deddfc);
     min-height: 85vh;
     position: relative;
     width: 100vw;
@@ -22,7 +22,7 @@
 .nombre-zapas {
     font-size: 3rem;
     font-weight: bold;
-    color: #222;
+    color: rgb(28, 29, 49);
 }
 
 .subtitulo {

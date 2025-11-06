@@ -16,7 +16,7 @@ export default function BannerPrincipal() {
     if (featuredShoes.length > 0) {
       const interval = setInterval(() => {
         setCurrentIndex((prev) => (prev + 1) % featuredShoes.length);
-      }, 8000); // cambia la imagen cada 8s
+      }, 6000); // cambia la imagen cada 8s
 
       return () => clearInterval(interval);
     }

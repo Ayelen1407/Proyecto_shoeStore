@@ -1,15 +1,14 @@
+import { Link } from "react-router-dom";
 import "./running.css";
 
-export default function Running() {
+function Running() {
   return (
-    <div className="producto">
-    <img src="https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/adfb09dc6c6948c79a822777e3fb175a_9366/Zapatillas_de_Running_Adizero_Sl2_Negro_IF6748_HM5.jpg" 
-    alt="Zapatillas Running" />
-    <div className="Zapatilla running">
+    <Link to={"/running"} className="producto-run">
+      <img src={"https://nikearprod.vtexassets.com/arquivos/ids/1244838-800-800?width=800&height=800&aspect=true"} 
+      alt="Zapatillas Running" />
       <h2 className="descripcion-h2">RUNNING</h2>
-      <a href="/running"><button>VER MÁS</button></a>
-    </div>
-  </div>
+    </Link>
   );
 }
 
+export default Running;
