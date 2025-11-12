@@ -27,6 +27,6 @@ describe('Login Component', () => {
     expect(global.fetch).not.toHaveBeenCalled();
 
     //Como no se envio, el mensaje "Login exitoso ¡Bienvenido!" no debe aparecer
-    expect(screen.queryByText(/Login exitoso ¡Bienvenido!/)).not.toBeInTheDocument();
+    expect(screen.queryByText(/Error: Credenciales incorrectas/i)).not.toBeInTheDocument();
   });
 });

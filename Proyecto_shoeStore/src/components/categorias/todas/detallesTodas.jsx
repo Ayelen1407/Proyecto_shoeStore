@@ -2,7 +2,7 @@ import { useCart } from '../../cartContext';
 import "./detallesTodas.css";
 import { FaTruckFast } from "react-icons/fa6";
 
-function DetallesRunning({productoExterno}) {
+function DetallesProducto({productoExterno}) {
     const { agregarAlCarrito } = useCart();  
 
     if (!productoExterno) return null;
@@ -37,4 +37,4 @@ function DetallesRunning({productoExterno}) {
     );
 }
 
-export default DetallesRunning;
+export default detallesProducto;
