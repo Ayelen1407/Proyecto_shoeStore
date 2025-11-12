@@ -22,6 +22,11 @@ const Footer = () => {
         <a href="/nike" className="footer-2">Nike</a>
         <a href="/puma" className="footer-2">Puma</a>
       </div>
+      <div className="ayuda">
+         <h1 className="footer-1 ">AYUDA</h1>
+         <a href="/talles" className="footer-2">Talles</a>
+         <a href="" className="footer-2">Preguntas frecuentes</a>         
+      </div>
       <div className="contactanos">
          <h1 className="footer-1 ">CONTACTANOS</h1>
          <a href="" className="footer-2"><AiOutlineWhatsApp/> numero:1161929792</a>

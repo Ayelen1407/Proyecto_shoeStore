@@ -39,6 +39,13 @@ footer{
     width: auto;
 }
 
+.ayuda{
+    margin:2px;
+    padding:2px;
+    width: auto;
+    margin-left: 65px;
+}
+
 .categoria h2 {
     margin: 0px 0px;
 }

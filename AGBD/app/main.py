@@ -364,9 +364,10 @@ def agregar_shoes():
                   (data["nombre"],data["tipo"],data["marca"],data["precio"],data["id_talles"],data["img_url"])
                   )     
    db.commit()  # confirma los cambios en la base
+   nuevo_id = cursor.lastrowid
    cursor.close()
    cerrarConexion()
-   return jsonify ({"mensaje": f"Producto {data['nombre']} agregado"}), 201
+   return jsonify({"mensaje": f"Producto {data['nombre']} agregado", "id": nuevo_id}), 201
 
 #inserta/agrega datos en la tabla clientes
 @app.route('/agregarClientes', methods = ['POST'])
@@ -417,7 +418,21 @@ def actualizar_precio(id):
     cursor.execute("UPDATE shoes SET precio = %s WHERE id_shoes = %s", (nuevo_precio, id))
     db.commit()#solo se usa en update, insert y delete
     cursor.close()
-    return {"mensaje": "Precio modificado"}
+    return jsonify({"mensaje": "Precio modificado"}), 200
+
+@app.route('/api/shoes/<int:id>', methods=['GET'])
+def obtener_shoe(id):
+    db = abrirConexion()
+    cursor = db.cursor(dictionary=True)
+    cursor.execute("SELECT * FROM shoes WHERE id_shoes = %s", (id,))
+    shoe = cursor.fetchone()
+    cursor.close()
+    cerrarConexion()
+
+    if shoe:
+        return jsonify(shoe), 200
+    else:
+        return jsonify({"error": "zapato no encontrado"}), 404
 
 
 #calcula el total de lo que lleva el cliente 

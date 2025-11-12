@@ -1,0 +1,33 @@
+.talles-container {
+  padding: 10px;
+  text-align: center;
+  width: 400px;
+}
+
+.talle-h2 {
+ color:rgb(52, 52, 126);
+
+  }
+
+.tabla-talles {
+  margin: 10px auto;
+  border-collapse: collapse;
+  width: 300px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.tabla-talles th, .tabla-talles td {
+  border: 1px solid #283164;
+  padding: 12px;
+}
+
+.tabla-talles th {
+  background-color: #3f315e;
+  color: white;
+}
+.tabla-talles td {
+    padding: 5px;
+    margin: 0px;
+
+    color: #000;
+  }

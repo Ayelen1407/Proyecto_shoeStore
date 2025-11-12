@@ -16,6 +16,7 @@ import Footer from "./components/footer/footer";
 import GrillaAdidas from "./components/Marcas/adidas/adidas";
 import GrillaNike from "./components/Marcas/nike/nike";
 import GrillaPuma from "./components/Marcas/puma/puma";
+import Talles from "./components/Talle/talle";
 
 function Router() {
   return (
@@ -37,6 +38,8 @@ function Router() {
           <Route path="/adidas" element={<GrillaAdidas />}/>
           <Route path="/nike" element={<GrillaNike/>}/>
           <Route path="/puma" element={<GrillaPuma/>}/>
+          <Route path="/talles" element={<Talles />} />
+
 
         </Routes>
         <Footer/>

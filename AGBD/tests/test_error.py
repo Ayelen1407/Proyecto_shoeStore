@@ -1,3 +1,4 @@
+#------------5/11
 def test_agregar_shoe_falta_campo(client):
     nuevo_shoe = {
         "nombre": "Nike Air",
@@ -13,3 +14,4 @@ def test_agregar_shoe_falta_campo(client):
     data = response.get_json()
     assert "error" in data
     assert "marca" in data["error"]  # el mensaje menciona el campo faltante
+
