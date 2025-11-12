@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for src/components/zapatillasRunning/running.jsx</title>
+    <title>Code coverage report for src/components/grilla3/grilla3.jsx</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../../prettify.css" />
     <link rel="stylesheet" href="../../../base.css" />
@@ -19,13 +19,13 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../../index.html">All files</a> / <a href="index.html">src/components/zapatillasRunning</a> running.jsx</h1>
+        <h1><a href="../../../index.html">All files</a> / <a href="index.html">src/components/grilla3</a> grilla3.jsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>0/2</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>0/2</span>
             </div>
         
             
@@ -76,10 +76,12 @@
 <a name='L11'></a><a href='#L11'>11</a>
 <a name='L12'></a><a href='#L12'>12</a>
 <a name='L13'></a><a href='#L13'>13</a>
-<a name='L14'></a><a href='#L14'>14</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L14'></a><a href='#L14'>14</a>
+<a name='L15'></a><a href='#L15'>15</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -89,20 +91,21 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Link } from "react-router-dom";
-import "./running.css";
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import {useState,useEffect}  from 'react';
+import './grilla3.css'; 
 &nbsp;
-function <span class="fstat-no" title="function not covered" >Running(</span>) {
-<span class="cstat-no" title="statement not covered" >  return (</span>
-    &lt;Link to={"/running"} className="producto-run"&gt;
-      &lt;img src={"https://nikearprod.vtexassets.com/arquivos/ids/1244838-800-800?width=800&amp;height=800&amp;aspect=true"} 
-      alt="Zapatillas Running" /&gt;
-      &lt;h2 className="descripcion-h2"&gt;RUNNING&lt;/h2&gt;
-    &lt;/Link&gt;
-  );
+&nbsp;
+const GrillaTres = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >()</span> =&gt;{</span>
+<span class="cstat-no" title="statement not covered" >    return(</span>
+        &lt;div className = "grid-tres"&gt;
+            &lt;img src="https://brand.assets.adidas.com/image/upload/f_auto,q_auto:best,fl_lossy/if_w_gt_800,w_800/6303179_FT_STATEMENT_SPORTY_N_RICH_ONSITE_SEPT_30_TC_2_X1_D_1440x960_CELTRA_af16eaad3b.jpg" alt="Imagen 1" className="grid-tres-item " /&gt;
+            &lt;img src="https://ar.puma.com/dw/image/v2/BKTG_PRD/on/demandware.static/-/Library-Sites-Shared/default/dw5582e18c/2025/25AW_Ecom_SP_Prime_Squid-Game_Homepage_Trending-Inline_Desk-Tab-Mob_1536x1536px.jpg?q=80" alt="Imagen 2" className="grid-tres-item " /&gt;
+            &lt;img src="https://nikearprod.vtexassets.com/assets/vtex.file-manager-graphql/images/bf64cd62-573c-40db-bff4-e2e1b3e8788d___48eaa5dd73a4dae1130011fde87d6495.jpg" alt="Imagen 3" className="grid-tres-item " /&gt;
+        &lt;/div&gt;  
+    );
 }
 &nbsp;
-export default Running;</pre></td></tr></table></pre>
+export default GrillaTres;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->

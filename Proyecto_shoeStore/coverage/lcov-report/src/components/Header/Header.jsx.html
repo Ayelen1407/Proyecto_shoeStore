@@ -190,7 +190,8 @@
 <a name='L125'></a><a href='#L125'>125</a>
 <a name='L126'></a><a href='#L126'>126</a>
 <a name='L127'></a><a href='#L127'>127</a>
-<a name='L128'></a><a href='#L128'>128</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L128'></a><a href='#L128'>128</a>
+<a name='L129'></a><a href='#L129'>129</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -251,7 +252,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -294,6 +294,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -372,73 +374,74 @@ export default function <span class="fstat-no" title="function not covered" >Hea
 <span class="cstat-no" title="statement not covered" >  return (</span>
     &lt;header className="header"&gt;
       &lt;h1 className="logo"&gt;&lt;FaShoelace /&gt;&lt;/h1&gt;
+      &lt;div className="derecha"&gt;
+        &lt;form className="search-form" onSubmit={handleSubmit}&gt;
+          &lt;input
+            type="text"
+            placeholder="Buscar..."
+            value={searchTerm}
+            onChange={<span class="fstat-no" title="function not covered" >(e</span>) =&gt; <span class="cstat-no" title="statement not covered" >setSearchTerm(e.target.value)}</span>
+            className="search-input"
+            aria-label="Buscar"
+          /&gt;
+          &lt;button type="submit" className="search-button" aria-label="Buscar"&gt;
+            &lt;HiMiniMagnifyingGlass /&gt;
+          &lt;/button&gt;
+        &lt;/form&gt;
 &nbsp;
 &nbsp;
-      &lt;form className="search-form" onSubmit={handleSubmit}&gt;
-        &lt;input
-          type="text"
-          placeholder="Buscar..."
-          value={searchTerm}
-          onChange={<span class="fstat-no" title="function not covered" >(e</span>) =&gt; <span class="cstat-no" title="statement not covered" >setSearchTerm(e.target.value)}</span>
-          className="search-input"
-          aria-label="Buscar"
-        /&gt;
-        &lt;button type="submit" className="search-button" aria-label="Buscar"&gt;
-          &lt;HiMiniMagnifyingGlass /&gt;
-        &lt;/button&gt;
-      &lt;/form&gt;
+        &lt;nav&gt;
+          &lt;ul className="lista-nav"&gt;
+            &lt;li&gt;&lt;Link to="/login"&gt;Sign in&lt;/Link&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;Link to="/register"&gt;Sign up&lt;/Link&gt;&lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/nav&gt;
 &nbsp;
 &nbsp;
-      &lt;nav&gt;
-        &lt;ul className="lista-nav"&gt;
-          &lt;li&gt;&lt;Link to="/login"&gt;Sign in&lt;/Link&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;Link to="/register"&gt;Sign up&lt;/Link&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/nav&gt;
+        &lt;a onClick={alternaVentana} className="categorias"&gt;
+          &lt;TbShoe /&gt;
+        &lt;/a&gt;
 &nbsp;
 &nbsp;
-      &lt;a onClick={alternaVentana} className="categorias"&gt;
-        &lt;TbShoe /&gt;
-      &lt;/a&gt;
+        {categoriaVentana &amp;&amp; (
+          &lt;div className="ventana-categorias"&gt;
+            &lt;h3&gt;Categorias&lt;/h3&gt;
+              {categories.map(<span class="fstat-no" title="function not covered" >(c</span>ategory) =&gt; (
+<span class="cstat-no" title="statement not covered" >                &lt;li key={category}&gt;</span>
+                  &lt;button onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt;  <span class="cstat-no" title="statement not covered" >handleCategoriaClick(category)}</span>&gt;
+                    {category}
+                  &lt;/button&gt;
+                &lt;/li&gt;
+              ))}
+          &lt;/div&gt;
+        )}
+&nbsp;
+        {mostrarMarcas &amp;&amp; (
+          &lt;div className="ventana-marcas"&gt;
+            &lt;h3&gt;Marcas&lt;/h3&gt;
+              {brands.map(<span class="fstat-no" title="function not covered" >(b</span>rand) =&gt; (
+<span class="cstat-no" title="statement not covered" >                &lt;li key={brand}&gt;</span>
+                  &lt;button onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >handleMarcaClick(brand)}</span>&gt;{brand}&lt;/button&gt;
+                &lt;/li&gt;
+              ))}
+          &lt;/div&gt;
+        )}
 &nbsp;
 &nbsp;
-      {categoriaVentana &amp;&amp; (
-        &lt;div className="ventana-categorias"&gt;
-          &lt;h3&gt;Categorias&lt;/h3&gt;
-            {categories.map(<span class="fstat-no" title="function not covered" >(c</span>ategory) =&gt; (
-<span class="cstat-no" title="statement not covered" >              &lt;li key={category}&gt;</span>
-                &lt;button onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt;  <span class="cstat-no" title="statement not covered" >handleCategoriaClick(category)}</span>&gt;
-                  {category}
-                &lt;/button&gt;
-              &lt;/li&gt;
-            ))}
-        &lt;/div&gt;
-      )}
-&nbsp;
-      {mostrarMarcas &amp;&amp; (
-        &lt;div className="ventana-marcas"&gt;
-          &lt;h3&gt;Marcas&lt;/h3&gt;
-            {brands.map(<span class="fstat-no" title="function not covered" >(b</span>rand) =&gt; (
-<span class="cstat-no" title="statement not covered" >              &lt;li key={brand}&gt;</span>
-                &lt;button onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >handleMarcaClick(brand)}</span>&gt;{brand}&lt;/button&gt;
-              &lt;/li&gt;
-            ))}
-        &lt;/div&gt;
-      )}
+        &lt;a className="carrito" onClick={Carrito} aria-label="Abrir carrito"&gt;
+          &lt;TiShoppingCart /&gt;
+        &lt;/a&gt;
 &nbsp;
 &nbsp;
-      &lt;a className="carrito" onClick={Carrito} aria-label="Abrir carrito"&gt;
-        &lt;TiShoppingCart /&gt;
-      &lt;/a&gt;
+        {carritoAbierto &amp;&amp; (
+          &lt;div className="ventana-carrito"&gt;
+            &lt;h3&gt;Carrito de compras&lt;/h3&gt;
+            &lt;p&gt;El carrito está vacío.&lt;/p&gt;
+            &lt;button onClick={Carrito} className="cerrar-carrito"&gt;Cerrar&lt;/button&gt;
+          &lt;/div&gt;
+        )}
 &nbsp;
-&nbsp;
-      {carritoAbierto &amp;&amp; (
-        &lt;div className="ventana-carrito"&gt;
-          &lt;h3&gt;Carrito de compras&lt;/h3&gt;
-          &lt;p&gt;El carrito está vacío.&lt;/p&gt;
-          &lt;button onClick={Carrito} className="cerrar-carrito"&gt;Cerrar&lt;/button&gt;
-        &lt;/div&gt;
-      )}
+      &lt;/div&gt;
 &nbsp;
 &nbsp;
     &lt;/header&gt;
@@ -451,7 +454,7 @@ export default function <span class="fstat-no" title="function not covered" >Hea
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-11-05T14:50:59.337Z
+                at 2025-11-12T15:24:19.226Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

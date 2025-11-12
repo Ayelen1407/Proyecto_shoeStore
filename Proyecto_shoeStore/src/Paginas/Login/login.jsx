@@ -31,7 +31,7 @@ export default function Login() {
         localStorage.setItem('access_token', data.access_token);
         setEmail('');
         setPassword('');
-        // Redirigir a home después de 2s
+        // Redirigir a home después de 1s
         setTimeout(() => {
           navigate('/');
         }, 1000);
@@ -51,7 +51,7 @@ export default function Login() {
     <div className="login-container">
       <form className ="form" onSubmit={handleSubmit}>
         <h2 className="log-h2">Iniciar Sesión</h2>
-        <input class = "input"
+        <input className = "input"
           type="text"
           placeholder="Ingresa tu correo"
           value={email}
