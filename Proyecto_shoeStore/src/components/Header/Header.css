@@ -224,3 +224,46 @@ main {
   height: 35px;
 }
 
+
+
+/*para la busqueda*/
+.search-results-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 42%;
+  right: 20%;
+  background: white;
+  border: 1px solid #ccc;
+  max-height: 300px;
+  overflow-y: auto;
+  z-index: 1000;
+}
+.search-result-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+}
+.result-image {
+  width: px;
+  height: 85px;
+  margin-right: 10px;
+}
+.result-details {
+  display: flex;
+  flex-direction: column;
+}
+.result-marca {
+  font-size: 13px;
+  font-weight: bold;
+  color: #6e6e6e;
+}
+.result-nombre {
+  font-weight: bold;
+  font-size: 14px;
+  color: #333333;
+}
+.result-precio {
+  color: #333333;
+}
