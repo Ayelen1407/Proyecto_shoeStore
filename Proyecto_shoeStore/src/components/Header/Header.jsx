@@ -221,7 +221,7 @@ export default function Header() {
                     <button onClick={() => actualizarCantidad(item.id, item.quantity - 1)} disabled={item.quantity <= 1}>
                       -
                     </button>
-                    <span>{item.quantity}</span>
+                    <span>  {item.quantity} </span>
                     <button onClick={() => actualizarCantidad(item.id, item.quantity + 1)}>+</button>
                     <button onClick={() => removerDelCarrito(item.id)}>Eliminar</button>
                   </div>

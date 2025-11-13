@@ -1,6 +1,7 @@
 import { useCart } from '../../cartContext';
 import "./detallesTodas.css";
 import { FaTruckFast } from "react-icons/fa6";
+import { useState } from 'react';
 
 function DetallesProducto({productoExterno}) {
     const { agregarAlCarrito } = useCart();
