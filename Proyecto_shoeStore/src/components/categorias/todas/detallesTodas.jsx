@@ -3,12 +3,13 @@ import "./detallesTodas.css";
 import { FaTruckFast } from "react-icons/fa6";
 
 function DetallesProducto({productoExterno}) {
-    const { agregarAlCarrito } = useCart();  
+    const { agregarAlCarrito } = useCart();
+    const [cantidad, setCantidad] = useState(1); 
 
     if (!productoExterno) return null;
 
   const manejarAgregarAlCarrito = () => {
-    agregarAlCarrito(productoExterno);
+    agregarAlCarrito(productoExterno, cantidad);
     alert(`Agregado ${productoExterno.name} al carrito`);
 };
     return (
@@ -28,6 +29,14 @@ function DetallesProducto({productoExterno}) {
                 <strong> ${productoExterno.price}</strong>
                 <p><strong>PAGA EN HASTA 6 CSI POR COMPRAS SUPERIORES A $200.000 <FaTruckFast /></strong></p>
                 <p><strong>Talle:</strong> {productoExterno.size || "Agotado"}</p>
+
+                <input
+                    type="number"
+                    min={1}
+                    value={cantidad}
+                    onChange={e => setCantidad(Math.max(1, parseInt(e.target.value) || 1))}
+                />
+                
                 <button onClick={manejarAgregarAlCarrito} className='carrito-boton'>
                     Agregar al Carrito
                 </button>
@@ -37,4 +46,4 @@ function DetallesProducto({productoExterno}) {
     );
 }
 
-export default detallesProducto;
+export default DetallesProducto;

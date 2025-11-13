@@ -5,8 +5,8 @@ import { useState, useEffect } from "react";
 import { HiMiniMagnifyingGlass } from "react-icons/hi2";
 import { TbShoe } from "react-icons/tb";
 import { TiShoppingCart } from "react-icons/ti";
-import {  useCart } from "../cartContext";
-import detallesTodas from "../categorias/todas/detallesTodas";
+import {  useCart } from "../cartContext.jsx";
+import DetallesProducto from "../categorias/todas/detallesTodas";
 
 export default function Header() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -17,7 +17,7 @@ export default function Header() {
   const [showResults, setShowResults] = useState(false);
   const [productos, setProductos] = useState([]); // Estado para almacenar los productos de la API
   const [loading, setLoading] = useState(true); // Para manejar el estado de carga
-
+  const [selectedProduct, setSelectedProduct] = useState(null);
   const categories = ['basica', 'deportiva', 'high-top', 'running'];
   const brands = ["nike", "adidas", "puma"];
 
@@ -69,17 +69,20 @@ export default function Header() {
   // Al hacer submit, navegar a una página de resultados de búsqueda
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (searchTerm.trim()) {
-      navigate(`/shoes?search=${encodeURIComponent(searchTerm)}`);
-      setShowResults(false);
-    }
+    // No hacer nada o solo cerrar el dropdown
+    setShowResults(false);
   };
 
-    // Al clickear en un resultado, navegar al producto
+  // Al clickear en un resultado, navegar al producto
   const handleResultClick = (product) => {
-    navigate(`/api/shoes/${product.id}`);
+    setSelectedProduct(product);
     setShowResults(false);
     setSearchTerm("");
+  };
+
+  //cerrar ventanita flotante
+  const closeProductDetails = () => {
+    setSelectedProduct(null);
   };
 
     // Cerrar dropdown al hacer clic fuera
@@ -94,12 +97,14 @@ export default function Header() {
   }, []);
 
   //PARTE CARRITO
+  const { productosCarrito, agregarAlCarrito, removerDelCarrito, actualizarCantidad } = useCart();
   const [carritoAbierto, setCarritoAbierto] = useState(false);
-  const {productosCarrito} = useCart();
 
-  const Carrito = () => {
-    setCarritoAbierto(!carritoAbierto);
-  };
+  const Carrito = () => setCarritoAbierto(!carritoAbierto);
+  //Calcula el total ($)
+  const calcularTotal = () => 
+  productosCarrito.reduce((total, item) => total + item.price * item.quantity, 0);
+
 
   // Al elegir una categoría
   const handleCategoriaClick = (categoria) => {
@@ -115,6 +120,7 @@ export default function Header() {
   };
 
   return (
+    <>
     <header className="header">
       <h1 className="logo"><FaShoelace /></h1>
       <div className="derecha">
@@ -190,23 +196,58 @@ export default function Header() {
           </div>
         )}
 
-
         <a className="carrito" onClick={Carrito} aria-label="Abrir carrito">
           <TiShoppingCart />
+          {productosCarrito.length > 0 && (
+            <span className="carrito-count">{productosCarrito.length}</span>
+          )}
         </a>
 
-
         {carritoAbierto && (
-          <div className="ventana-carrito">
-            <h3>Carrito de compras</h3>
-            <p>El carrito está vacío.</p>
-            <button onClick={Carrito} className="cerrar-carrito">Cerrar</button>
+      <div className="ventana-carrito">
+        <h3>Carrito de compras</h3>
+        {productosCarrito.length === 0 ? (
+          <p>El carrito está vacío.</p>
+        ) : (
+          <div className="carrito-items">
+            {productosCarrito.map((item) => (
+              <div key={item.id} className="carrito-item">
+                <img src={item.image || item.imagen} alt={item.name} className="carrito-item-image" />
+                <div className="carrito-item-details">
+                  <h4>{item.name}</h4>
+                  <p>{item.brand}</p>
+                  <p>${item.price} x {item.quantity} = ${item.price * item.quantity}</p>
+                  <div className="carrito-item-controls">
+                    <button onClick={() => actualizarCantidad(item.id, item.quantity - 1)} disabled={item.quantity <= 1}>
+                      -
+                    </button>
+                    <span>{item.quantity}</span>
+                    <button onClick={() => actualizarCantidad(item.id, item.quantity + 1)}>+</button>
+                    <button onClick={() => removerDelCarrito(item.id)}>Eliminar</button>
+                  </div>
+                </div>
+              </div>
+            ))}
+            <div className="carrito-total">
+              <strong>Total: ${calcularTotal()}</strong>
+            </div>
+          </div>
+        )}
+        <button onClick={Carrito} className="cerrar-carrito">Cerrar</button>
+        </div>
+        )}
+
+        {selectedProduct && (
+          <div className="overlay" onClick={closeProductDetails}>
+            <div className="ventana-detalles-producto" onClick={(e) => e.stopPropagation()}>
+              <button className="cerrar-detalles" onClick={closeProductDetails}>X</button>
+              <DetallesProducto productoExterno={selectedProduct} />
+            </div>
           </div>
         )}
 
       </div>
-
-
     </header>
+    </>
   );
 }
