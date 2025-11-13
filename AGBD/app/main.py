@@ -28,13 +28,13 @@ def cerrarConexion(e=None):
         db.close()
  
        
-#muestra tabla shoes. /api porque se conecta con lo de fede
+#muestra tabla shoes. /api porque se conecta con lo de fede  
 @app.route('/api/shoes', methods=['GET'])
 def mostrar_shoes():
    db = abrirConexion()
    cursor = db.cursor()
    try:
-       cursor.execute("SELECT id_shoes, nombre, tipo, marca, precio, img_url FROM shoes")
+       cursor.execute("SELECT id_shoes, nombre, tipo, marca, precio, id_talles, img_url FROM shoes")
        rows = cursor.fetchall()
       
        # Convierte los resultados a una lista de diccionarios
@@ -44,9 +44,10 @@ def mostrar_shoes():
                "id": row[0],
                "name": row[1],
                "type": row[2],
-               "marca": row[3],
+               "brand": row[3],
                "price": (row[4]),
-               "image": row[5] if row[5] else None
+               "size": row[5],
+               "image": row[6] if row[6] else None
            }
            products.append(product)
       
@@ -56,7 +57,7 @@ def mostrar_shoes():
        return jsonify({"error": "Error al obtener productos", "detalle": str(e)}), 500
    finally:
        cursor.close()
-       db.close()  #devolve los resultados como texto
+       db.close()  #devolve los resultados como texto       
 
 #muestra todas las basicas
 @app.route('/api/basicas')
