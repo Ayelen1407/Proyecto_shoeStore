@@ -39,7 +39,7 @@ return (
     <a href = "/"><button><IoMdArrowRoundBack /></button></a>
   </div>
 
-  <div className="grid-container">
+  <div className="grid-containerR">
   {products.map((product) => (
     <div className="grid-item" key={product.id}>
       <img src={product.image} alt={product.name} />

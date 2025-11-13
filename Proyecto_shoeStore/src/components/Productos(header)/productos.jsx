@@ -20,9 +20,9 @@ export default function Productos() {
 
         // Filtra las zapatillas según los parametros
         const filtradas = data.filter((item) =>{
-            const coincideTipo = tipo ? item.tipo === tipo : true;
+            const coincideCategoria = categoria ? item.tipo === categoria : true;
             const coincideMarca = marca ? item.marca === marca : true;
-            return coincideTipo && coincideMarca;
+            return coincideCategoria && coincideMarca;
           });
 
         setFilteredShoes(filtradas);
@@ -33,18 +33,28 @@ export default function Productos() {
   return (
     <div className="productos-container">
       <h2>
-        {categoria} - {marca}
+        {categoria && marca
+          ? `${categoria} - ${marca}`   // Si hay ambos
+          : categoria
+          ? categoria                   // Si hay solo categoría
+          : marca
+          ? marca                       // Si hay solo marca
+          : "Todos los productos"}      // Si no hay ninguno
       </h2>
 
-      <div className="grilla-productos">
-          filteredShoes.map((prod) = (
-            <div key={prod.id} className="producto-card">
-              <img src={prod.img_url} alt={prod.name} />
-              <p>{shoe.name}</p>
-              <p>{shoe.brand}</p>
-              <p>{shoe.precio}</p>
+       <div className="grilla-productos">
+        {filteredShoes.length > 0 ? (
+          filteredShoes.map((prod) => (
+            <div key={prod.id_shoes} className="producto-card">
+              <img src={prod.img_url} alt={prod.nombre} />
+              <p>{prod.nombre}</p>
+              <p>{prod.marca}</p>
+              <p>${prod.precio}</p>
             </div>
           ))
+        ) : (
+          <p>No se encontraron productos.</p>
+        )}
       </div>
     </div>
   );
