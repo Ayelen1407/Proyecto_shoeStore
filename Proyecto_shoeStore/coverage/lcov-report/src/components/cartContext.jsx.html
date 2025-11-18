@@ -25,21 +25,21 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/23</span>
+                <span class='fraction'>0/24</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/6</span>
+                <span class='fraction'>0/9</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/10</span>
+                <span class='fraction'>0/12</span>
             </div>
         
             
@@ -115,17 +115,10 @@
 <a name='L50'></a><a href='#L50'>50</a>
 <a name='L51'></a><a href='#L51'>51</a>
 <a name='L52'></a><a href='#L52'>52</a>
-<a name='L53'></a><a href='#L53'>53</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L53'></a><a href='#L53'>53</a>
+<a name='L54'></a><a href='#L54'>54</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -133,7 +126,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -143,90 +139,97 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { createContext, useContext, useState } from 'react';
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { createContext, useContext, useState } from "react";
 &nbsp;
-// Crear el contexto
+&nbsp;
 const CartContext = <span class="cstat-no" title="statement not covered" >createContext();</span>
 &nbsp;
-// Proveedor del contexto (envuelve tu app para compartir el estado)
 export const CartProvider = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >({</span> children }) =&gt; {</span>
-  const [productosCarrito, setProductosCarrito] = <span class="cstat-no" title="statement not covered" >useState([]);</span> // Estado del carrito
+  const [productosCarrito, setProductosCarrito] = <span class="cstat-no" title="statement not covered" >useState([]);</span>
 &nbsp;
-  // Función para agregar un producto al carrito
-  const agregarAlCarrito = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(p</span>roducto) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    setProductosCarrito(<span class="fstat-no" title="function not covered" >(p</span>revCarrito) =&gt; {</span>
-      // Verificar si el producto ya existe (por ID, por ejemplo)
-      const productoExistente = <span class="cstat-no" title="statement not covered" >prevCarrito.find(<span class="fstat-no" title="function not covered" >(i</span>tem) =&gt; <span class="cstat-no" title="statement not covered" >item.id === producto.id)</span>;</span>
-<span class="cstat-no" title="statement not covered" >      if (productoExistente) {</span>
-        // Si existe, aumentar la cantidad
-<span class="cstat-no" title="statement not covered" >        return prevCarrito.map(<span class="fstat-no" title="function not covered" >(i</span>tem) =&gt;</span>
+  const agregarAlCarrito = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(p</span>roducto, cantidad = <span class="branch-0 cbranch-no" title="branch not covered" >1)</span> =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    setProductosCarrito(<span class="fstat-no" title="function not covered" >(p</span>rev) =&gt; {</span>
+      const existe = <span class="cstat-no" title="statement not covered" >prev.find(<span class="fstat-no" title="function not covered" >(i</span>tem) =&gt; <span class="cstat-no" title="statement not covered" >item.id === producto.id)</span>;</span>
+<span class="cstat-no" title="statement not covered" >      if (existe) {</span>
+<span class="cstat-no" title="statement not covered" >        return prev.map(<span class="fstat-no" title="function not covered" >(i</span>tem) =&gt;</span>
 <span class="cstat-no" title="statement not covered" >          item.id === producto.id</span>
-            ? { ...item, cantidad: item.cantidad + 1 }
+            ? { ...item, quantity: item.quantity + cantidad }
             : item
         );
       } else {
-        // Si no existe, agregarlo con cantidad 1
-<span class="cstat-no" title="statement not covered" >        return [...prevCarrito, { ...producto, cantidad: 1 }];</span>
+<span class="cstat-no" title="statement not covered" >        return [...prev, { ...producto, quantity: cantidad }];</span>
       }
     });
   };
 &nbsp;
-  // Función para eliminar un producto (opcional, por si quieres agregarla después)
-  const eliminarDelCarrito = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(i</span>d) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    setProductosCarrito(<span class="fstat-no" title="function not covered" >(p</span>revCarrito) =&gt; <span class="cstat-no" title="statement not covered" >prevCarrito.filter(<span class="fstat-no" title="function not covered" >(i</span>tem) =&gt; <span class="cstat-no" title="statement not covered" >item.id !== id)</span>)</span>;</span>
+  const removerDelCarrito = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(i</span>d) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    setProductosCarrito(<span class="fstat-no" title="function not covered" >(p</span>rev) =&gt; <span class="cstat-no" title="statement not covered" >prev.filter(<span class="fstat-no" title="function not covered" >(i</span>tem) =&gt; <span class="cstat-no" title="statement not covered" >item.id !== id)</span>)</span>;</span>
   };
 &nbsp;
-  // Función para vaciar el carrito
-  const vaciarCarrito = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    setProductosCarrito([]);</span>
+  const actualizarCantidad = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(i</span>d, cantidad) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    if (cantidad &lt;= 0) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >    setProductosCarrito(<span class="fstat-no" title="function not covered" >(p</span>rev) =&gt;</span>
+<span class="cstat-no" title="statement not covered" >      prev.map(<span class="fstat-no" title="function not covered" >(i</span>tem) =&gt;</span>
+<span class="cstat-no" title="statement not covered" >        item.id === id ? { ...item, quantity: cantidad } : item</span>
+      )
+    );
   };
 &nbsp;
 <span class="cstat-no" title="statement not covered" >  return (</span>
-    &lt;CartContext.Provider value={{ productosCarrito, agregarAlCarrito, eliminarDelCarrito, vaciarCarrito }}&gt;
+    &lt;CartContext.Provider
+      value={{
+        productosCarrito,
+        agregarAlCarrito,
+        removerDelCarrito,
+        actualizarCantidad,
+      }}
+    &gt;
       {children}
     &lt;/CartContext.Provider&gt;
   );
 };
 &nbsp;
-// Hook personalizado para usar el contexto fácilmente
 export const useCart = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
-  const context = <span class="cstat-no" title="statement not covered" >useContext(CartContext);</span>
-<span class="cstat-no" title="statement not covered" >  if (!context) {</span>
-<span class="cstat-no" title="statement not covered" >    throw new Error('useCart debe usarse dentro de un CartProvider');</span>
-  }
-<span class="cstat-no" title="statement not covered" >  return context;</span>
-};</pre></td></tr></table></pre>
+<span class="cstat-no" title="statement not covered" >  return useContext(CartContext);</span>
+};
+&nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-11-12T19:55:42.787Z
+                at 2025-11-18T19:40:42.647Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

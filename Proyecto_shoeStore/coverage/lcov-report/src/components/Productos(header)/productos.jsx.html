@@ -25,28 +25,28 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/17</span>
+                <span class='fraction'>0/18</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/6</span>
+                <span class='fraction'>0/16</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/6</span>
+                <span class='fraction'>0/7</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/17</span>
+                <span class='fraction'>0/18</span>
             </div>
         
             
@@ -114,7 +114,17 @@
 <a name='L49'></a><a href='#L49'>49</a>
 <a name='L50'></a><a href='#L50'>50</a>
 <a name='L51'></a><a href='#L51'>51</a>
-<a name='L52'></a><a href='#L52'>52</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L52'></a><a href='#L52'>52</a>
+<a name='L53'></a><a href='#L53'>53</a>
+<a name='L54'></a><a href='#L54'>54</a>
+<a name='L55'></a><a href='#L55'>55</a>
+<a name='L56'></a><a href='#L56'>56</a>
+<a name='L57'></a><a href='#L57'>57</a>
+<a name='L58'></a><a href='#L58'>58</a>
+<a name='L59'></a><a href='#L59'>59</a>
+<a name='L60'></a><a href='#L60'>60</a>
+<a name='L61'></a><a href='#L61'>61</a>
+<a name='L62'></a><a href='#L62'>62</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -152,6 +162,16 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -187,9 +207,9 @@ export default function <span class="fstat-no" title="function not covered" >Pro
 &nbsp;
         // Filtra las zapatillas según los parametros
         const filtradas = <span class="cstat-no" title="statement not covered" >data.filter(<span class="fstat-no" title="function not covered" >(i</span>tem) =&gt;{</span>
-            const coincideTipo = <span class="cstat-no" title="statement not covered" >tipo ? item.tipo === tipo : true;</span>
+            const coincideCategoria = <span class="cstat-no" title="statement not covered" >categoria ? item.tipo === categoria : true;</span>
             const coincideMarca = <span class="cstat-no" title="statement not covered" >marca ? item.marca === marca : true;</span>
-<span class="cstat-no" title="statement not covered" >            return coincideTipo &amp;&amp; coincideMarca;</span>
+<span class="cstat-no" title="statement not covered" >            return coincideCategoria &amp;&amp; coincideMarca;</span>
           });
 &nbsp;
 <span class="cstat-no" title="statement not covered" >        setFilteredShoes(filtradas);</span>
@@ -200,18 +220,28 @@ export default function <span class="fstat-no" title="function not covered" >Pro
 <span class="cstat-no" title="statement not covered" >  return (</span>
     &lt;div className="productos-container"&gt;
       &lt;h2&gt;
-        {categoria} - {marca}
+        {categoria &amp;&amp; marca
+          ? `${categoria} - ${marca}`   // Si hay ambos
+          : categoria
+          ? categoria                   // Si hay solo categoría
+          : marca
+          ? marca                       // Si hay solo marca
+          : "Todos los productos"}      // Si no hay ninguno
       &lt;/h2&gt;
 &nbsp;
-      &lt;div className="grilla-productos"&gt;
-          filteredShoes.map((prod) = (
-            &lt;div key={prod.id} className="producto-card"&gt;
-              &lt;img src={prod.img_url} alt={prod.name} /&gt;
-              &lt;p&gt;{shoe.name}&lt;/p&gt;
-              &lt;p&gt;{shoe.brand}&lt;/p&gt;
-              &lt;p&gt;{shoe.precio}&lt;/p&gt;
+       &lt;div className="grilla-productos"&gt;
+        {filteredShoes.length &gt; 0 ? (
+          filteredShoes.map(<span class="fstat-no" title="function not covered" >(p</span>rod) =&gt; (
+<span class="cstat-no" title="statement not covered" >            &lt;div key={prod.id_shoes} className="producto-card"&gt;</span>
+              &lt;img src={prod.img_url} alt={prod.nombre} /&gt;
+              &lt;p&gt;{prod.nombre}&lt;/p&gt;
+              &lt;p&gt;{prod.marca}&lt;/p&gt;
+              &lt;p&gt;${prod.precio}&lt;/p&gt;
             &lt;/div&gt;
           ))
+        ) : (
+          &lt;p&gt;No se encontraron productos.&lt;/p&gt;
+        )}
       &lt;/div&gt;
     &lt;/div&gt;
   );
@@ -223,7 +253,7 @@ export default function <span class="fstat-no" title="function not covered" >Pro
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-11-12T19:55:42.787Z
+                at 2025-11-18T19:40:42.647Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>
